@@ -22,7 +22,11 @@ jobs:
       - name: Monta i reel in attesa
         run: |
           set -e
+          # solo i lavori degli ultimi 3 giorni: i video vecchi tolti dalla pulizia mensile non vanno rimontati
+          since=$(date -u -d '3 days ago' +%Y-%m-%d)
           for j in jobs/*.json; do
+            d=$(basename "$j" | cut -c1-10)
+            [[ "$d" < "$since" ]] && continue
             out=$(python3 -c "import json,sys;print(json.load(open(sys.argv[1]))['output'])" "$j")
             if [ ! -f "$out" ]; then
               echo "Monto $j -> $out"

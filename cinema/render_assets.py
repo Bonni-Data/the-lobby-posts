@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """THE LOBBY - prepara le grafiche di un reel cinematografico (testi, logo, chiusura, musica).
 Uso: python3 render_assets.py job.json cartella/
-job.json: {"scenes":[{"text":"Oggi studi.","sub":"Domani tocca a te."}, ...5],
+job.json: {"scenes":[{"text":"Oggi studi.","sub":"Domani tocca a te.","lines":["A) ...","B) ..."]}, ...5],
+           ("lines" è facoltativo: fino a 4 risposte di un quiz, ciascuna in una pillola)
            "end":{"title":"Formati gratis.","text":"...","pill":"thelobbyitalia.it · link in bio"}}
 Scrive overlay_N.png (RGBA 1080x1920), base.png (sfumature + logo), endcard.mp4 (5 s) e music.m4a."""
 import json, os, subprocess, sys
@@ -35,7 +36,15 @@ for i, s in enumerate(job["scenes"], 1):
     tf, tl, ts = fit_block(d, s["text"], BOLD, W - 2 * X0 - 40, 3, 112, 72)
     sub = s.get("sub", "")
     sf, sl, ss = fit_block(d, sub, MED, W - 2 * X0 - 60, 2, 46, 34) if sub else (None, [], 0)
-    block = len(tl) * int(ts * 1.08) + (24 + len(sl) * int(ss * 1.3) if sl else 0)
+    opts = s.get("lines", [])[:4]          # risposte del quiz: una pillola per riga
+    of = font(MED, 42)
+    opt_lines = []
+    for o in opts:
+        ln = o
+        while tw(d, ln, of) > W - 2 * X0 - 60 and len(ln) > 4:
+            ln = ln[:-2].rstrip() + "…"
+        opt_lines.append(ln)
+    block = len(tl) * int(ts * 1.08) + (24 + len(sl) * int(ss * 1.3) if sl else 0) + (24 + len(opt_lines) * 86 if opt_lines else 0)
     y = 1440 - block
     d.rounded_rectangle((X0, y - 44, X0 + 120, y - 32), radius=6, fill=CORAL)
     for ln in tl:
@@ -47,6 +56,13 @@ for i, s in enumerate(job["scenes"], 1):
         for ln in sl:
             d.text((X0, y), ln, font=sf, fill=CORAL)
             y += int(ss * 1.3)
+    if opt_lines:
+        y += 24
+        for ln in opt_lines:
+            w = tw(d, ln, of) + 52
+            d.rounded_rectangle((X0, y, X0 + w, y + 70), radius=35, fill=(17, 28, 53, 215), outline=CORAL, width=3)
+            d.text((X0 + 26, y + 10), ln, font=of, fill=IVORY)
+            y += 86
     im.save(os.path.join(out, f"overlay_{i}.png"))
 
 # end card: 5 s, animated
