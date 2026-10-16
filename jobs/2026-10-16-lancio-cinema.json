@@ -1,0 +1,46 @@
+{
+ "output": "reels/2026-10-16-lancio-cinema.mp4",
+ "assets": "cinema/2026-10-16-lancio",
+ "duration": 25,
+ "clips": [
+  "https://cdn.openart.ai/openart-ai/production/2026-10/create-video/rG21ULbMYxtVxTJChdNf/xai-video-afaba48a-3366-9229-a885-41dd989bd25b_1792165673457_09c97dca.mp4",
+  "https://cdn.openart.ai/openart-ai/production/2026-10/create-video/rG21ULbMYxtVxTJChdNf/xai-video-917324f3-dda2-9045-aad2-ae4bf5c0c25c_1792165676039_82e489c9.mp4",
+  "https://cdn.openart.ai/openart-ai/production/2026-10/create-video/rG21ULbMYxtVxTJChdNf/xai-video-09700865-1149-90fc-9b15-f6562b0f122e_1792165674332_895b7b6f.mp4",
+  "https://cdn.openart.ai/openart-ai/production/2026-10/create-video/rG21ULbMYxtVxTJChdNf/xai-video-49ff7052-3d06-9d11-9895-9d3578159647_1792165674696_2fb33f82.mp4",
+  "https://cdn.openart.ai/openart-ai/production/2026-10/create-video/rG21ULbMYxtVxTJChdNf/xai-video-167403ab-e567-98be-a486-4f275a1812c2_1792165677355_986ba528.mp4"
+ ],
+ "transitions": [
+  "flash",
+  "slide",
+  "zoom",
+  "flash",
+  "flash"
+ ],
+ "scenes": [
+  {
+   "text": "Oggi studi.",
+   "sub": "Domani tocca a te."
+  },
+  {
+   "text": "Prendi la parola.",
+   "sub": "Le idee contano se sai farle valere."
+  },
+  {
+   "text": "Entri dove si decide.",
+   "sub": "Comune, Regione, Parlamento, Europa."
+  },
+  {
+   "text": "Guidi la tua città.",
+   "sub": "Sindaco? Ci si può candidare a 18 anni."
+  },
+  {
+   "text": "Il Paese ha bisogno di te.",
+   "sub": "Preparati per arrivarci."
+  }
+ ],
+ "end": {
+  "title": "Formati gratis.",
+  "text": "Lezioni, quiz e simulazioni per entrare nelle istituzioni.",
+  "pill": "thelobbyitalia.it · link in bio"
+ }
+}

@@ -1,0 +1,39 @@
+name: Monta reel cinematografico
+on:
+  push:
+    branches: [main]
+    paths: ['jobs/*.json']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: reel-cinema
+  cancel-in-progress: false
+jobs:
+  compose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -q numpy pillow imageio-ffmpeg
+      - name: Monta i reel in attesa
+        run: |
+          set -e
+          for j in jobs/*.json; do
+            out=$(python3 -c "import json,sys;print(json.load(open(sys.argv[1]))['output'])" "$j")
+            if [ ! -f "$out" ]; then
+              echo "Monto $j -> $out"
+              python3 cinema/compose.py "$j"
+            fi
+          done
+      - name: Salva i video
+        run: |
+          git config user.name "Andrea Bonazzi"
+          git config user.email "andreabonazzi5@gmail.com"
+          git add reels/ || true
+          if git diff --cached --quiet; then echo "niente da salvare"; exit 0; fi
+          git commit -m "Reel cinematografico montato"
+          for i in 1 2 3; do git pull --rebase -q origin main && git push -q origin HEAD:main && break; sleep 5; done
