@@ -1,5 +1,5 @@
 {
- "output": "reels/2026-10-17-scopri-cinema.mp4",
+ "output": "reels/2026-10-17-scopri-cinema-v2.mp4",
  "assets": "cinema/2026-10-17",
  "duration": 25,
  "clips": [
@@ -39,8 +39,8 @@
   }
  ],
  "end": {
-  "title": "Entra gratis.",
-  "text": "Il tuo posto è qui. Inizia oggi.",
-  "pill": "thelobbyitalia.it · link in bio"
+  "title": "Entra dal link in bio.",
+  "text": "È gratis. Il tuo posto è qui.",
+  "pill": "Link in bio · thelobbyitalia.it"
  }
 }
