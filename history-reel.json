@@ -11,5 +11,12 @@
   "topic": "lancio ispirazionale: da studente a sindaco e parlamentare",
   "video": "reels/2026-10-16-lancio-cinema.mp4",
   "note": "versione istituzionale reels/2026-10-16-lancio.mp4 non pubblicata"
+ },
+ "2026-10-17": {
+  "format": "cinema",
+  "topic": "Scopri THE LOBBY: viaggi, lavori, formazione, contatti",
+  "file": "reels/2026-10-17-scopri-cinema.mp4",
+  "cinema": true,
+  "credits": 2000
  }
 }
