@@ -1,0 +1,46 @@
+{
+ "output": "reels/2026-10-17-scopri-cinema.mp4",
+ "assets": "cinema/2026-10-17",
+ "duration": 25,
+ "clips": [
+  "https://cdn.openart.ai/openart-ai/production/2026-10/create-video/rG21ULbMYxtVxTJChdNf/xai-video-04068958-047b-9fa8-aa36-a993b5fa25f3_1792244970034_5b479924.mp4",
+  "https://cdn.openart.ai/openart-ai/production/2026-10/create-video/rG21ULbMYxtVxTJChdNf/xai-video-c526df40-eaf1-9dff-9cc8-de4520cdb5da_1792244983425_11a261e9.mp4",
+  "https://cdn.openart.ai/openart-ai/production/2026-10/create-video/rG21ULbMYxtVxTJChdNf/xai-video-14f64229-0419-93ad-acda-72ed8701a795_1792244981840_544b5672.mp4",
+  "https://cdn.openart.ai/openart-ai/production/2026-10/create-video/rG21ULbMYxtVxTJChdNf/xai-video-5db62ad5-36e3-9234-aae2-2ec36da79ff9_1792244988259_4dfc9af2.mp4",
+  "https://cdn.openart.ai/openart-ai/production/2026-10/create-video/rG21ULbMYxtVxTJChdNf/xai-video-62e0134f-ca2e-9b0c-b7f7-7a03e5cd158f_1792244995840_93430078.mp4"
+ ],
+ "transitions": [
+  "zoom",
+  "slide",
+  "flash",
+  "zoom",
+  "flash"
+ ],
+ "scenes": [
+  {
+   "text": "Vuoi contare davvero?",
+   "sub": "Guarda cosa trovi su THE LOBBY."
+  },
+  {
+   "text": "Viaggi e opportunità.",
+   "sub": "Bandi, borse e viaggi offerti dagli enti, verificati ogni mattina."
+  },
+  {
+   "text": "Lavori e tirocini.",
+   "sub": "In Italia, in Europa e nelle organizzazioni internazionali."
+  },
+  {
+   "text": "Formazione vera.",
+   "sub": "Lezioni da 5 minuti, quiz, simulazioni e certificati."
+  },
+  {
+   "text": "Conosci chi fa politica.",
+   "sub": "Nel Premium in arrivo: cene, masterclass e dirette live."
+  }
+ ],
+ "end": {
+  "title": "Entra gratis.",
+  "text": "Il tuo posto è qui. Inizia oggi.",
+  "pill": "thelobbyitalia.it · link in bio"
+ }
+}
