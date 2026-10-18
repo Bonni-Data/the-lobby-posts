@@ -41,7 +41,7 @@ import wave
 import numpy as np
 from PIL import Image, ImageDraw
 
-from make_pill import NAVY, CORAL, IVORY, NAVY_SOFT, BOLD, MED, REG, font, tw, wrap, fit_block, draw_arch, draw_logo
+from make_pill import NAVY, CORAL, IVORY, NAVY_SOFT, BOLD, MED, REG, font, tw, wrap, fit_block, draw_arch, draw_logo, promise_list
 
 RW, RH, FPS = 1080, 1920, 30
 SR = 44100
@@ -142,13 +142,15 @@ def scene_payoff(text, dur=3.0):
     return {"dur": dur, "draw": draw, "sfx": "whoosh"}
 
 
-def scene_cta(cta, dur=3.4):
+def scene_cta(cta, dur=4.2):
     def draw(lay, t):
         d = ImageDraw.Draw(lay)
-        draw_arch(d, 400, 520, 280, 380, CORAL, 14)
-        d.ellipse([528, 700, 552, 724], fill=IVORY)
-        y = 990
-        y = text_block(d, cta, BOLD, 76, 50, 3, X1 - X0, y, IVORY, center=True, lh=1.12) + 40
+        draw_arch(d, 430, 420, 220, 290, CORAL, 12)
+        d.ellipse([528, 562, 552, 586], fill=IVORY)
+        y = 780
+        y = text_block(d, cta, BOLD, 72, 48, 2, X1 - X0, y, IVORY, center=True, lh=1.12) + 44
+        # le tre promesse di THE LOBBY (decisione di Andrea del 18 ottobre 2026)
+        y = promise_list(d, RW, y, X1 - X0, size=44, min_size=32) + 26
         y = pill(d, 0, y, "Gratis · link in bio", size=40, center=True) + 30
         sf = font(MED, 34)
         u = "thelobbyitalia.it"

@@ -13,3 +13,18 @@ Grafiche settimanali di THE LOBBY (post Instagram/Facebook).
 - `make_reel.py`: reel 1080x1920 di 18-30 secondi con musica sintetizzata (nessun brano di terzi) e copertina `-cover.jpg`
   (`python3 make_reel.py dati.json reels/AAAA-MM-GG.mp4`); formati `fact` (Lo sapevi?, mercoledì), `quiz` (Quiz lampo, venerdì),
   `news` (Attualità in 30 secondi, domenica); storico in `history-reel.json`
+
+## La promessa di THE LOBBY (sempre visibile)
+
+Decisione di Andrea del 18 ottobre 2026: in ogni contenuto deve essere chiaro cosa offriamo.
+Le tre frasi stanno in `make_pill.py` (`PROMISE`, `PROMISE_LINE`) e i generatori le disegnano da soli:
+
+1. Formazione per giovani politici
+2. Le migliori opportunità internazionali
+3. Networking con altri giovani di talento
+
+- post 1080x1350 (`make_pill.py`, `make_post.py`, `make_story.py`): fascia corallo in fondo con le tre promesse su una riga;
+- carosello (`make_carousel.py`): ultima slide con «Su THE LOBBY trovi» e le tre promesse;
+- reel grafico (`make_reel.py`) e reel cinematografico (`cinema/render_assets.py`): schermata finale con le tre promesse.
+
+Per cambiarle, modifica solo `PROMISE` e `PROMISE_LINE`.

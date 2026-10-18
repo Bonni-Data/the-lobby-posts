@@ -8,7 +8,7 @@ Scrive overlay_N.png (RGBA 1080x1920), base.png (sfumature + logo), endcard.mp4 
 import json, os, subprocess, sys
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 from PIL import Image, ImageDraw
-from make_pill import NAVY, CORAL, IVORY, NAVY_SOFT, BOLD, MED, font, tw, fit_block, draw_arch, draw_logo
+from make_pill import NAVY, CORAL, IVORY, NAVY_SOFT, BOLD, MED, font, tw, fit_block, draw_arch, draw_logo, PROMISE
 
 W, H, FPS = 1080, 1920, 30
 X0 = 80
@@ -79,24 +79,39 @@ for k in range(5 * FPS):
     a = ease(t / 0.9)
     draw_arch(d, 190, int(330 + 60 * (1 - a)), 700, 1300, NAVY_SOFT, 22)
     sc = 0.7 + 0.3 * ease(t / 0.7)
-    aw, ah = int(260 * sc), int(346 * sc)
-    x, y = (W - aw) // 2, 470 + (346 - ah) // 2
-    draw_arch(d, x, y, aw, ah, CORAL, max(10, int(30 * sc)))
-    cx, cy, r = W / 2, y + ah * 0.55, int(28 * sc)
+    aw, ah = int(200 * sc), int(266 * sc)
+    x, y = (W - aw) // 2, 360 + (266 - ah) // 2
+    draw_arch(d, x, y, aw, ah, CORAL, max(8, int(24 * sc)))
+    cx, cy, r = W / 2, y + ah * 0.55, int(22 * sc)
     d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=IVORY)
-    f = font(BOLD, 120); t1 = "THE LOBBY"
-    d.text(((W - tw(d, t1, f)) / 2, 880), t1, font=f, fill=IVORY)
-    f2 = font(MED, 36); t2 = "WHERE INFLUENCE BEGINS."
-    d.text(((W - tw(d, t2, f2)) / 2, 1030), t2, font=f2, fill=CORAL)
-    if t > 0.6:
-        b = ease((t - 0.6) / 0.5)
-        tf, tl, ts = fit_block(d, end["title"], BOLD, W - 160, 2, 78, 56)
-        yy = int(1160 + 40 * (1 - b))
+    f = font(BOLD, 104); t1 = "THE LOBBY"
+    d.text(((W - tw(d, t1, f)) / 2, 670), t1, font=f, fill=IVORY)
+    f2 = font(MED, 32); t2 = "WHERE INFLUENCE BEGINS."
+    d.text(((W - tw(d, t2, f2)) / 2, 800), t2, font=f2, fill=CORAL)
+    # le tre promesse di THE LOBBY (decisione di Andrea del 18 ottobre 2026)
+    if t > 0.3:
+        e = ease((t - 0.3) / 0.5)
+        pf = font(BOLD, 42)
+        widest = max(tw(d, s, pf) for s in PROMISE)
+        px = (W - widest - 42) / 2
+        _, bt, _, bb = d.textbbox((0, 0), "x", font=pf)
+        for k, s in enumerate(PROMISE):
+            ek = ease((t - 0.3 - 0.15 * k) / 0.45)
+            py = 900 + k * 62 + int(24 * (1 - ek))
+            col = tuple(int(NAVY[c] + (IVORY[c] - NAVY[c]) * ek) for c in range(3))
+            dc = tuple(int(NAVY[c] + (CORAL[c] - NAVY[c]) * ek) for c in range(3))
+            ccy = py + (bt + bb) / 2
+            d.ellipse([px, ccy - 7, px + 14, ccy + 7], fill=dc)
+            d.text((px + 42, py), s, font=pf, fill=col)
+    if t > 0.9:
+        b = ease((t - 0.9) / 0.5)
+        tf, tl, ts = fit_block(d, end["title"], BOLD, W - 160, 2, 70, 52)
+        yy = int(1130 + 40 * (1 - b))
         for ln in tl:
             col = tuple(int(NAVY[c] + (IVORY[c] - NAVY[c]) * b) for c in range(3))
             d.text(((W - tw(d, ln, tf)) / 2, yy), ln, font=tf, fill=col); yy += int(ts * 1.1)
         if end.get("text"):
-            sf, sl, ss = fit_block(d, end["text"], MED, W - 220, 2, 38, 28)
+            sf, sl, ss = fit_block(d, end["text"], MED, W - 220, 2, 34, 26)
             yy += 10
             for ln in sl:
                 col = tuple(int(NAVY[c] + (IVORY[c] - NAVY[c]) * b * 0.9) for c in range(3))
@@ -104,7 +119,7 @@ for k in range(5 * FPS):
     if t > 1.2:
         c = ease((t - 1.2) / 0.45)
         f3 = font(BOLD, 36); lab = end.get("pill", "thelobbyitalia.it · link in bio")
-        w = tw(d, lab, f3) + 76; px0 = (W - w) / 2; py0 = 1430 + int(30 * (1 - c))
+        w = tw(d, lab, f3) + 76; px0 = (W - w) / 2; py0 = 1340 + int(30 * (1 - c))
         d.rounded_rectangle((px0, py0, px0 + w, py0 + 82), radius=41, fill=tuple(int(NAVY[i] + (CORAL[i] - NAVY[i]) * c) for i in range(3)))
         d.text((px0 + 38, py0 + 17), lab, font=f3, fill=NAVY)
     p.stdin.write(img.tobytes())

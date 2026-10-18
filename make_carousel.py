@@ -22,7 +22,7 @@ import os
 import sys
 from PIL import Image, ImageDraw
 
-from make_pill import W, H, NAVY, CORAL, IVORY, NAVY_SOFT, BOLD, MED, REG, font, tw, wrap, fit_block, draw_arch, draw_logo
+from make_pill import W, H, NAVY, CORAL, IVORY, NAVY_SOFT, BOLD, MED, REG, font, tw, wrap, fit_block, draw_arch, draw_logo, promise_list
 
 PAPER = (251, 249, 245)
 MUTED = (91, 98, 117)
@@ -119,26 +119,30 @@ def content(data, s, i, n, last_content):
 def final(data, n):
     img = Image.new("RGB", (W, H), NAVY)
     d = ImageDraw.Draw(img)
-    draw_arch(d, 330, 120, 420, 560, NAVY_SOFT, 26)
-    draw_arch(d, 440, 250, 200, 400, CORAL, 12)
-    d.ellipse([528, 478, 552, 502], fill=IVORY)
+    draw_arch(d, 375, 70, 330, 430, NAVY_SOFT, 22)
+    draw_arch(d, 470, 170, 140, 270, CORAL, 10)
+    d.ellipse([528, 330, 552, 354], fill=IVORY)
     cta = data.get("cta", {})
-    tf, tl, ts = fit_block(d, cta.get("title", "È tutto gratis"), BOLD, W - 160, 3, 84, 56)
-    y = 760
+    tf, tl, ts = fit_block(d, cta.get("title", "È tutto gratis"), BOLD, W - 160, 2, 76, 52)
+    y = 560
     for ln in tl:
         d.text(((W - tw(d, ln, tf)) / 2, y), ln, font=tf, fill=IVORY)
         y += int(ts * 1.12)
     if cta.get("text"):
-        sf, sl, ss = fit_block(d, cta["text"], MED, W - 200, 2, 36, 26)
-        y += 14
+        sf, sl, ss = fit_block(d, cta["text"], MED, W - 200, 2, 34, 26)
+        y += 12
         for ln in sl:
             d.text(((W - tw(d, ln, sf)) / 2, y), ln, font=sf, fill=IVORY)
             y += int(ss * 1.35)
+    # le tre promesse di THE LOBBY, sempre nell'ultima slide
+    y += 34
+    d.text(((W - tw(d, "SU THE LOBBY TROVI", font(BOLD, 24))) / 2, y), "SU THE LOBBY TROVI", font=font(BOLD, 24), fill=CORAL)
+    y = promise_list(d, W, y + 46, W - 200, size=40, min_size=30)
     f = font(BOLD, 34)
     label = "thelobbyitalia.it · link in bio"
     w = tw(d, label, f) + 70
     x = (W - w) / 2
-    y = max(y + 40, 1090)
+    y = max(y + 22, 1060)
     d.rounded_rectangle((x, y, x + w, y + 78), radius=39, fill=CORAL)
     d.text((x + 35, y + 16), label, font=f, fill=NAVY)
     sv = "Salva il post · Mandalo a un amico"

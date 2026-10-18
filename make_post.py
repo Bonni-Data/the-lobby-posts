@@ -15,6 +15,8 @@ import json
 import sys
 from PIL import Image, ImageDraw, ImageFont
 
+from make_pill import BAND, promise_band
+
 W, H = 1080, 1350
 NAVY = (17, 28, 53)
 CORAL = (255, 112, 88)
@@ -91,9 +93,9 @@ def make(data, out):
 
     # card
     items = data["items"][:3]
-    top = 490
-    card_h = 218
-    gap = 24
+    top = 480
+    card_h = 206
+    gap = 20
     for i, it in enumerate(items):
         y0 = top + i * (card_h + gap)
         rounded(d, (60, y0, W - 60, y0 + card_h), 34, IVORY)
@@ -128,12 +130,13 @@ def make(data, out):
         d.text((px + 22, py + 7), label, font=pf, fill=CORAL)
 
     # footer con nome
-    fy = H - 108
+    fy = H - 100 - BAND
     d.line([70, fy, W - 70, fy], fill=CORAL, width=3)
-    d.text((70, fy + 24), "Andrea Bonazzi", font=font(BOLD, 40), fill=IVORY)
+    d.text((70, fy + 20), "Andrea Bonazzi", font=font(BOLD, 40), fill=IVORY)
     cta = "Salva il post · Condividilo"
     cf = font(MED, 26)
-    d.text((W - 70 - text_w(d, cta, cf), fy + 34), cta, font=cf, fill=CORAL)
+    d.text((W - 70 - text_w(d, cta, cf), fy + 30), cta, font=cf, fill=CORAL)
+    promise_band(d, W, H)
 
     img.save(out, "PNG", optimize=True)
 

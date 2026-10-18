@@ -79,6 +79,40 @@ def draw_logo(img, x, y, scale=1.0):
     d.text((x + aw + int(28 * scale), y + int(62 * scale)), "WHERE INFLUENCE BEGINS.", font=font(MED, int(17 * scale)), fill=CORAL)
 
 
+# La promessa di THE LOBBY (decisione di Andrea del 18 ottobre 2026): ogni grafica deve dire chiaramente
+# cosa offriamo. Le tre frasi sono sue: cambiale solo qui, così cambiano in tutti i generatori.
+PROMISE = ("Formazione per giovani politici", "Le migliori opportunità internazionali", "Networking con altri giovani di talento")
+PROMISE_LINE = "Formazione per giovani politici · Opportunità internazionali · Networking"
+BAND = 64  # altezza della fascia in fondo ai post 1080x1350
+
+
+def promise_band(d, w, h, band=BAND, fill=CORAL, ink=NAVY):
+    """Fascia piena in fondo alla grafica con le tre promesse su una riga."""
+    d.rectangle((0, h - band, w, h), fill=fill)
+    f = fit_block(d, PROMISE_LINE, BOLD, w - 100, 1, 26, 16)[0]
+    l, t, r, b = d.textbbox((0, 0), PROMISE_LINE, font=f)
+    d.text(((w - (r - l)) / 2 - l, h - band + (band - (b - t)) / 2 - t), PROMISE_LINE, font=f, fill=ink)
+
+
+def promise_list(d, w, y, max_w, size=44, min_size=28, color=IVORY, dot=CORAL, row=1.42):
+    """Le tre promesse una sotto l'altra, in un blocco centrato orizzontalmente. Restituisce la y finale."""
+    while True:
+        f = font(BOLD, size)
+        widest = max(tw(d, p, f) for p in PROMISE)
+        if widest + size <= max_w or size <= min_size:
+            break
+        size -= 2
+    x = (w - (widest + size)) / 2
+    r = max(5, int(size * 0.17))
+    _, t, _, b = d.textbbox((0, 0), "x", font=f)
+    for p in PROMISE:
+        cy = y + (t + b) / 2
+        d.ellipse([x, cy - r, x + 2 * r, cy + r], fill=dot)
+        d.text((x + size, y), p, font=f, fill=color)
+        y += int(size * row)
+    return y
+
+
 def make(data, out):
     img = Image.new("RGB", (W, H), NAVY)
     d = ImageDraw.Draw(img)
@@ -104,7 +138,7 @@ def make(data, out):
 
     # card con i punti
     card_top = max(y + 30, 640)
-    card_bot = H - 270
+    card_bot = H - 270 - BAND
     d.rounded_rectangle((60, card_top, W - 60, card_bot), radius=34, fill=IVORY)
     px = 120
     pmax = W - 60 - 40 - px
@@ -134,12 +168,13 @@ def make(data, out):
     d.text((70, ty + 56), cta, font=cf, fill=IVORY)
 
     # footer
-    fy = H - 90
+    fy = H - 90 - BAND
     d.line([70, fy, W - 70, fy], fill=CORAL, width=3)
     d.text((70, fy + 18), "Andrea Bonazzi", font=font(BOLD, 36), fill=IVORY)
     s = "Salva · Condividi"
     sf = font(MED, 24)
     d.text((W - 70 - tw(d, s, sf), fy + 28), s, font=sf, fill=CORAL)
+    promise_band(d, W, H)
 
     img.save(out, "PNG", optimize=True)
 

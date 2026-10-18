@@ -17,7 +17,8 @@ import os
 import sys
 from PIL import Image, ImageDraw
 
-from make_pill import (W, H, NAVY, CORAL, IVORY, NAVY_SOFT, BOLD, MED, font, tw, wrap, fit_block, draw_arch, draw_logo)
+from make_pill import (W, H, NAVY, CORAL, IVORY, NAVY_SOFT, BOLD, MED, font, tw, wrap, fit_block, draw_arch, draw_logo,
+                       BAND, promise_band)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PHOTO = os.path.join(HERE, "assets", "andrea-cut.png")
@@ -31,7 +32,7 @@ def pill(d, x, y, text):
 
 
 def footer(d):
-    fy = H - 90
+    fy = H - 90 - BAND
     d.line([70, fy, W - 70, fy], fill=CORAL, width=3)
     d.text((70, fy + 18), "Andrea Bonazzi", font=font(BOLD, 36), fill=IVORY)
     s = "Salva · Condividi"
@@ -59,7 +60,7 @@ def brand(data, img):
             y += int(ss * 1.35)
 
     card_top = max(y + 40, 600)
-    card_bot = H - 250
+    card_bot = H - 250 - BAND
     d.rounded_rectangle((60, card_top, W - 60, card_bot), radius=34, fill=IVORY)
     pts = data["points"][:4]
     px, pmax = 132, W - 60 - 44 - 132
@@ -91,7 +92,7 @@ def founder(data, img):
     # foto nell'arco, in basso a destra
     aw, ah = 440, 680
     ax = W - 60 - aw
-    atop = H - 110 - ah
+    atop = H - 110 - BAND - ah
     d.rounded_rectangle((ax, atop, ax + aw, atop + ah), radius=aw // 2, fill=NAVY_SOFT)
     if os.path.exists(PHOTO):
         ph = Image.open(PHOTO).convert("RGBA")
@@ -130,7 +131,7 @@ def founder(data, img):
 
     cta = data.get("cta", "La sua storia nella web app · link in bio")
     cf = fit_block(d, cta, BOLD, ax - 110, 2, 30, 22)
-    cy = H - 250
+    cy = H - 250 - BAND
     for ln in cf[1]:
         d.text((70, cy), ln, font=cf[0], fill=CORAL)
         cy += int(cf[2] * 1.25)
@@ -140,6 +141,7 @@ def founder(data, img):
 def make(data, out):
     img = Image.new("RGB", (W, H), NAVY)
     (founder if data.get("layout") == "founder" else brand)(data, img)
+    promise_band(ImageDraw.Draw(img), W, H)
     img.save(out, "PNG", optimize=True)
 
 
