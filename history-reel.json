@@ -18,5 +18,13 @@
   "file": "reels/2026-10-17-scopri-cinema-v2.mp4",
   "cinema": true,
   "credits": 2000
+ },
+ "2026-10-18": {
+  "format": "news",
+  "topic": "Manovra 2027: tappe della legge di bilancio",
+  "course": "fisco-senza-paura",
+  "lesson": "Come nasce ogni anno la manovra",
+  "file": "reels/2026-10-18.mp4",
+  "cinema_stop": true
  }
 }

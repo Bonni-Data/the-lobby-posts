@@ -1,0 +1,13 @@
+{
+  "format": "news",
+  "kicker": "ATTUALITÀ IN 30 SECONDI",
+  "hook": "Manovra 2027: cosa succede adesso?",
+  "points": [
+    {"title": "Cos'è la manovra", "text": "È la legge di bilancio: decide quanto lo Stato incassa e spende l'anno dopo, e quali misure cambiano."},
+    {"title": "A che punto siamo", "text": "Il governo ha mandato a Bruxelles il piano: circa 23,5 miliardi. Circa 5 per famiglie e spesa sociale."},
+    {"title": "Le prossime tappe", "text": "Entro il 20 ottobre il testo va alle Camere. Va approvato entro il 31 dicembre, se no esercizio provvisorio."},
+    {"title": "Come leggerla", "text": "Quanto è in deficit? Chi ci guadagna e chi paga? Cosa è strutturale e cosa vale solo un anno?"}
+  ],
+  "payoff": "Finché il Parlamento non vota, le misure restano proposte.",
+  "cta": "Il corso è gratis e si aggiorna ogni mese"
+}
