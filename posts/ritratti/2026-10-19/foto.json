@@ -1,0 +1,5 @@
+{
+ "name": "Tina Anselmi",
+ "error": "TypeError: expected string or bytes-like object, got 'float'",
+ "trace": "Traceback (most recent call last):\n  File \"/home/runner/work/the-lobby-posts/the-lobby-posts/ritratti/scarica_foto.py\", line 114, in <module>\n    main(sys.argv[1])\n  File \"/home/runner/work/the-lobby-posts/the-lobby-posts/ritratti/scarica_foto.py\", line 86, in main\n    meta = {k: strip(v.get(\"value\", \"\")) for k, v in ii.get(\"extmetadata\", {}).items()}\n               ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/the-lobby-posts/the-lobby-posts/ritratti/scarica_foto.py\", line 69, in strip\n    s = re.sub(r\"<[^>]+>\", \" \", s or \"\")\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/re/__init__.py\", line 186, in sub\n    return _compile(pattern, flags).sub(repl, string, count)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: expected string or bytes-like object, got 'float'\n"
+}
