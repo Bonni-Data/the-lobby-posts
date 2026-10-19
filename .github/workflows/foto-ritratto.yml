@@ -1,0 +1,43 @@
+name: Foto ritratto
+on:
+  push:
+    branches: [main]
+    paths: ['ritratti/foto/*.json']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: foto-ritratto
+  cancel-in-progress: false
+jobs:
+  foto:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -q pillow
+      - name: Scarica le foto in attesa
+        run: |
+          set -e
+          since=$(date -u -d '3 days ago' +%Y-%m-%d)
+          for j in ritratti/foto/*.json; do
+            d=$(basename "$j" | cut -c1-10)
+            [[ "$d" < "$since" ]] && continue
+            out=$(python3 -c "import json,sys;print(json.load(open(sys.argv[1]))['output'])" "$j")
+            if [ ! -f "$out.json" ]; then
+              mkdir -p "$(dirname "$out")"
+              echo "Foto per $j -> $out"
+              python3 ritratti/scarica_foto.py "$j" || echo "errore su $j"
+            fi
+          done
+      - name: Salva le foto
+        run: |
+          git config user.name "Andrea Bonazzi"
+          git config user.email "andreabonazzi5@gmail.com"
+          git add posts/ritratti/ || true
+          if git diff --cached --quiet; then echo "niente da salvare"; exit 0; fi
+          git commit -m "Foto del ritratto scaricata da Wikimedia Commons"
+          for i in 1 2 3; do git pull --rebase -q origin main && git push -q origin HEAD:main && break; sleep 5; done
