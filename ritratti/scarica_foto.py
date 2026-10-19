@@ -7,8 +7,8 @@ Il lavoro:
    "wikidata": "",                  # facoltativo: Q-id della persona su Wikidata
    "file": "",                      # facoltativo: nome esatto del file su Commons (es. "File:Tina Anselmi.jpg")
    "output": "posts/ritratti/2026-10-19/foto"}
-Scrive <output>.jpg (lato lungo 1600 px al massimo) e <output>.json con file, pagina, autore, licenza e la riga
-di credito da pubblicare. Accetta solo pubblico dominio, CC0, CC BY e CC BY-SA: mai NC, ND o «fair use».
+Scrive fino a 4 candidate <output>-1.jpg ... <output>-4.jpg (lato lungo 1600 px al massimo, lato corto almeno 600 px)
+e <output>.json con, per ciascuna, file, pagina, autore, licenza e la riga di credito da pubblicare. Accetta solo pubblico dominio, CC0, CC BY e CC BY-SA: mai NC, ND o «fair use».
 Se non trova una foto utilizzabile scrive solo <output>.json con "error", così l'automazione lo sa.
 """
 import html
@@ -38,18 +38,28 @@ def api(base, **params):
     return json.loads(get(base + "?" + urllib.parse.urlencode(params)))
 
 
-def p18(qid):
+def entity(qid):
     ent = json.loads(get(f"https://www.wikidata.org/wiki/Special:EntityData/{qid}.json"))["entities"][qid]
     claims = ent.get("claims", {})
-    humans = [c["mainsnak"].get("datavalue", {}).get("value", {}).get("id") for c in claims.get("P31", [])]
-    imgs = [c["mainsnak"].get("datavalue", {}).get("value") for c in claims.get("P18", [])
-            if c.get("rank") != "deprecated"]
-    return ("Q5" in humans), [i for i in imgs if i]
+    def vals(prop):
+        return [c["mainsnak"].get("datavalue", {}).get("value") for c in claims.get(prop, [])
+                if c.get("rank") != "deprecated" and c["mainsnak"].get("datavalue")]
+    human = any(isinstance(v, dict) and v.get("id") == "Q5" for v in vals("P31"))
+    return human, [v for v in vals("P18") if isinstance(v, str)], [v for v in vals("P373") if isinstance(v, str)]
 
 
 def candidates(job):
+    """Titoli di file su Commons, in ordine di affidabilità: file indicato, foto ufficiale Wikidata (P18),
+    file della categoria Commons della persona (P373), ricerca per nome."""
+    out, p18 = [], set()
+    def add(t, star=False):
+        t = t if t.startswith("File:") else "File:" + t
+        if t not in out:
+            out.append(t)
+        if star:
+            p18.add(t)
     if job.get("file"):
-        yield job["file"]
+        add(job["file"], True)
     qids = [job["wikidata"]] if job.get("wikidata") else []
     if not qids:
         for lang in ("it", "en"):
@@ -57,12 +67,22 @@ def candidates(job):
                       language=lang, uselang=lang, type="item", limit=5)
             qids += [r["id"] for r in res.get("search", []) if r["id"] not in qids]
     for q in qids:
-        human, imgs = p18(q)
-        if human:
-            for i in imgs:
-                yield "File:" + i
-            if imgs:
-                return
+        human, imgs, cats = entity(q)
+        if not human:
+            continue
+        for i in imgs:
+            add(i, True)
+        for c in cats[:1]:
+            res = api("https://commons.wikimedia.org/w/api.php", action="query", list="categorymembers",
+                      cmtitle="Category:" + c, cmtype="file", cmlimit=60)
+            for m in res.get("query", {}).get("categorymembers", []):
+                add(m["title"])
+        break
+    res = api("https://commons.wikimedia.org/w/api.php", action="query", list="search", srsearch=job["name"],
+              srnamespace=6, srlimit=20)
+    for m in res.get("query", {}).get("search", []):
+        add(m["title"])
+    return out, p18
 
 
 def strip(s):
@@ -70,43 +90,62 @@ def strip(s):
     return re.sub(r"\s+", " ", html.unescape(s)).strip()
 
 
+SKIP = re.compile(r"(stemma|logo|firma|signature|autograph|tomba|grave|targa|plaque|lapide|map|mappa|francobollo|"
+                  r"stamp|\.svg$|\.pdf$|\.ogg$|\.webm$|street|via |piazza|scuola|school)", re.I)
+
+
 def main(path):
     job = json.load(open(path, encoding="utf-8"))
     out = job["output"]
-    tried = []
-    for title in candidates(job):
-        title = title if title.startswith("File:") else "File:" + title
-        info = api("https://commons.wikimedia.org/w/api.php", action="query", titles=title, prop="imageinfo",
-                   iiprop="url|extmetadata|size|mime", iiurlwidth=1600)
-        page = next(iter(info["query"]["pages"].values()))
-        if "imageinfo" not in page:
-            tried.append(f"{title}: non trovato")
-            continue
-        ii = page["imageinfo"][0]
-        meta = {k: strip(v.get("value", "")) for k, v in ii.get("extmetadata", {}).items()}
-        lic, short = meta.get("License", ""), meta.get("LicenseShortName", "")
-        if BAD.search(lic + " " + short + " " + meta.get("UsageTerms", "")) or not (OK_LICENSE.match(lic) or OK_SHORT.match(short)):
-            tried.append(f"{title}: licenza non adatta ({short or lic})")
-            continue
-        if ii.get("mime") not in ("image/jpeg", "image/png", "image/tiff", "image/webp"):
-            tried.append(f"{title}: formato {ii.get('mime')}")
-            continue
+    titles, p18 = candidates(job)
+    titles = [t for t in titles if not SKIP.search(t)][:80]
+    found, tried = [], []
+    for k in range(0, len(titles), 40):
+        chunk = titles[k:k + 40]
+        info = api("https://commons.wikimedia.org/w/api.php", action="query", titles="|".join(chunk),
+                   prop="imageinfo", iiprop="url|extmetadata|size|mime", iiurlwidth=1600)
+        for page in info.get("query", {}).get("pages", {}).values():
+            t = page.get("title")
+            if "imageinfo" not in page:
+                continue
+            ii = page["imageinfo"][0]
+            meta = {kk: strip(v.get("value", "")) for kk, v in ii.get("extmetadata", {}).items()}
+            lic, short = meta.get("License", ""), meta.get("LicenseShortName", "")
+            if BAD.search(lic + " " + short + " " + meta.get("UsageTerms", "")) or not (OK_LICENSE.match(lic) or OK_SHORT.match(short)):
+                tried.append(f"{t}: licenza {short or lic}")
+                continue
+            if ii.get("mime") not in ("image/jpeg", "image/png", "image/tiff", "image/webp"):
+                continue
+            w, h = ii.get("width", 0), ii.get("height", 0)
+            if min(w, h) < 600:
+                tried.append(f"{t}: troppo piccola {w}x{h}")
+                continue
+            score = (2.0 if t in p18 else 1.0) * (1.25 if h >= w else 1.0) * min(w * h, 4_000_000)
+            found.append((score, t, ii, meta, short or lic))
+    found.sort(key=lambda x: -x[0])
+    cands = []
+    for n, (score, t, ii, meta, lic) in enumerate(found[:4], 1):
         im = Image.open(io.BytesIO(get(ii.get("thumburl") or ii["url"]))).convert("RGB")
         im.thumbnail((1600, 1600))
-        im.save(out + ".jpg", "JPEG", quality=90)
+        fn = f"{out}-{n}.jpg"
+        im.save(fn, "JPEG", quality=90)
         artist = meta.get("Artist") or "autore sconosciuto"
         if len(artist) > 60:
             artist = artist[:57].rstrip() + "…"
-        credit = f"Foto: {artist} · {short or lic} · Wikimedia Commons"
-        json.dump({"name": job["name"], "file": title, "page": ii.get("descriptionurl"), "author": artist,
-                   "license": short or lic, "license_url": meta.get("LicenseUrl", ""), "credit": credit,
-                   "restrictions": meta.get("Restrictions", ""), "size": [im.width, im.height]},
+        cands.append({"n": n, "jpg": fn, "file": t, "page": ii.get("descriptionurl"), "author": artist,
+                      "license": lic, "license_url": meta.get("LicenseUrl", ""),
+                      "credit": f"Foto: {artist} · {lic} · Wikimedia Commons",
+                      "description": meta.get("ImageDescription", "")[:300], "date": meta.get("DateTimeOriginal", ""),
+                      "restrictions": meta.get("Restrictions", ""), "size": [im.width, im.height], "wikidata_p18": t in p18})
+    if not cands:
+        json.dump({"name": job["name"], "error": "nessuna foto con licenza libera e risoluzione sufficiente", "tried": tried[:30]},
                   open(out + ".json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-        print("ok", title, short, im.size)
+        print("nessuna foto", len(tried))
         return
-    json.dump({"name": job["name"], "error": "nessuna foto con licenza libera trovata", "tried": tried},
+    json.dump({"name": job["name"], "candidates": cands,
+               "nota": "Apri le candidate con Read e scegli quella in cui la persona è riconoscibile; usa il suo credit."},
               open(out + ".json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    print("nessuna foto", tried)
+    print("ok", [(c["file"], c["license"], c["size"]) for c in cands])
 
 
 if __name__ == "__main__":
