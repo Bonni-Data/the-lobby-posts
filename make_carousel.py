@@ -56,7 +56,58 @@ def swipe(d, color, y=H - 128):
     d.line([ax + 16, y + 30, ax + 28, y + 18], fill=color, width=4)
 
 
+def cover_photo(data, n):
+    """Copertina con foto (ritratti): la foto riempie la parte alta e sfuma nel blu, il testo sta sotto.
+    data["photo"] = percorso del JPG, data["photo_credit"] = riga di credito obbligatoria per la licenza."""
+    img = Image.new("RGB", (W, H), NAVY)
+    ph = Image.open(data["photo"]).convert("RGB")
+    area_h = 1000
+    s = max(W / ph.width, area_h / ph.height)
+    ph = ph.resize((max(W, int(ph.width * s)), max(area_h, int(ph.height * s))), Image.LANCZOS)
+    left = (ph.width - W) // 2
+    top = int((ph.height - area_h) * float(data.get("photo_focus", 0.15)))  # di solito il volto sta in alto
+    img.paste(ph.crop((left, top, left + W, top + area_h)), (0, 0))
+    shade = Image.new("L", (W, H), 0)
+    sd = ImageDraw.Draw(shade)
+    for y in range(H):
+        if y < 240:
+            a = int(150 * (1 - y / 240))                     # in alto, per leggere il logo
+        elif y < 480:
+            a = 0
+        elif y < area_h - 40:
+            a = int(255 * ((y - 480) / (area_h - 520)) ** 1.4)
+        else:
+            a = 255
+        sd.line([(0, y), (W, y)], fill=a)
+    img = Image.composite(Image.new("RGB", (W, H), NAVY), img, shade)
+    draw_logo(img, 70, 62, 1.0)
+    d = ImageDraw.Draw(img)
+    pill(d, 70, 690, data.get("kicker", "THE LOBBY").upper())
+    tf, tl, ts = fit_block(d, data["title"], BOLD, W - 150, 3, 92, 60)
+    y = 772
+    for ln in tl:
+        d.text((70, y), ln, font=tf, fill=IVORY)
+        y += int(ts * 1.1)
+    if data.get("subtitle"):
+        sf, sl, ss = fit_block(d, data["subtitle"], MED, W - 180, 2, 36, 26)
+        y += 18
+        for ln in sl:
+            d.text((70, y), ln, font=sf, fill=CORAL)
+            y += int(ss * 1.3)
+    if data.get("photo_credit"):
+        cf, cl, cs = fit_block(d, data["photo_credit"], REG, W - 420, 2, 19, 15)
+        cy = H - 128 - (len(cl) - 1) * int(cs * 1.3)
+        for ln in cl:
+            d.text((70, cy), ln, font=cf, fill=(178, 186, 204))
+            cy += int(cs * 1.3)
+    dots(d, 0, n, H - 70, CORAL, NAVY_SOFT)
+    swipe(d, IVORY)
+    return img
+
+
 def cover(data, n):
+    if data.get("photo") and os.path.exists(data["photo"]):
+        return cover_photo(data, n)
     img = Image.new("RGB", (W, H), NAVY)
     d = ImageDraw.Draw(img)
     draw_arch(d, 560, 220, 600, 1240, NAVY_SOFT, 30)

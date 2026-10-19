@@ -110,4 +110,11 @@ def main(path):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    try:
+        main(sys.argv[1])
+    except Exception as e:  # lascia traccia leggibile all'automazione
+        import traceback
+        job = json.load(open(sys.argv[1], encoding="utf-8"))
+        json.dump({"name": job.get("name"), "error": f"{type(e).__name__}: {e}", "trace": traceback.format_exc()[-1500:]},
+                  open(job["output"] + ".json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        print("errore", e)

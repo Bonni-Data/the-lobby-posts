@@ -30,7 +30,7 @@ jobs:
             if [ ! -f "$out.json" ]; then
               mkdir -p "$(dirname "$out")"
               echo "Foto per $j -> $out"
-              python3 ritratti/scarica_foto.py "$j" || echo "errore su $j"
+              python3 ritratti/scarica_foto.py "$j" 2>&1 | tee "$out.log" || true
             fi
           done
       - name: Salva le foto
