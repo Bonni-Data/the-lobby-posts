@@ -62,9 +62,10 @@ def cover_photo(data, n):
     img = Image.new("RGB", (W, H), NAVY)
     ph = Image.open(data["photo"]).convert("RGB")
     area_h = 1000
-    s = max(W / ph.width, area_h / ph.height)
+    s = max(W / ph.width, area_h / ph.height) * float(data.get("photo_zoom", 1.0))
     ph = ph.resize((max(W, int(ph.width * s)), max(area_h, int(ph.height * s))), Image.LANCZOS)
-    left = (ph.width - W) // 2
+    fx = float(data.get("photo_focus_x", 0.5))                 # dove sta il volto in orizzontale (0-1)
+    left = min(max(int(fx * ph.width - W / 2), 0), ph.width - W)
     top = int((ph.height - area_h) * float(data.get("photo_focus", 0.15)))  # di solito il volto sta in alto
     img.paste(ph.crop((left, top, left + W, top + area_h)), (0, 0))
     shade = Image.new("L", (W, H), 0)
