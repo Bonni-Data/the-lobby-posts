@@ -66,7 +66,7 @@ def candidates(job):
 
 
 def strip(s):
-    s = re.sub(r"<[^>]+>", " ", s or "")
+    s = re.sub(r"<[^>]+>", " ", str(s) if s is not None else "")
     return re.sub(r"\s+", " ", html.unescape(s)).strip()
 
 
