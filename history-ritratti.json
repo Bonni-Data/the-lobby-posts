@@ -2,7 +2,7 @@
  "2026-10-19": {
   "nome": "Tina Anselmi",
   "paese": "Italia",
-  "area": "cattolico-democratica",
+  "area": "centro (cattolico-democratica)",
   "genere": "donna",
   "motivo": "settimanale",
   "file": "posts/ritratti/2026-10-19/",
@@ -10,6 +10,14 @@
    "https://www.comune.castelfrancoveneto.tv.it/wp-content/uploads/2025/04/esserci-tina-anselmi-2025.pdf",
    "https://www.ansa.it/english/news/politics/2016/11/02/italys-first-woman-minister-anselmi_21229a31-43d0-464e-806b-05f9c930f78c.html",
    "https://www.ilpost.it/2016/11/01/tina-anselmi/"
-  ]
+  ],
+  "partito": "DC",
+  "stato": "storica",
+  "foto": {
+   "file": "File:Venezia, 1978 - Luigi Baldan premiato dal ministro on.Tina Anselmi.jpg",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Venezia,_1978_-_Luigi_Baldan_premiato_dal_ministro_on.Tina_Anselmi.jpg",
+   "autore": "Sandroba",
+   "licenza": "CC BY-SA 4.0"
+  }
  }
 }
