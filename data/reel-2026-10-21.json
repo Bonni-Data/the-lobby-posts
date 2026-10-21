@@ -1,0 +1,21 @@
+{
+  "format": "fact",
+  "kicker": "LO SAPEVI?",
+  "hook": "Puoi chiedere i documenti al tuo Comune. Senza dire perché.",
+  "points": [
+    {
+      "title": "Si chiama FOIA",
+      "text": "Dal 2016 chiunque può chiedere dati e documenti alla pubblica amministrazione, senza motivare."
+    },
+    {
+      "title": "30 giorni per risponderti",
+      "text": "L'ente può dire no solo per motivi precisi: sicurezza, privacy, indagini. È gratis."
+    },
+    {
+      "title": "Cosa puoi fare tu",
+      "text": "Scrivi all'URP via PEC o email, cita l'art. 5, comma 2, del d.lgs. 33/2013 e di' cosa vuoi."
+    }
+  ],
+  "payoff": "Per contare servono informazioni. E sono un tuo diritto.",
+  "cta": "La lezione completa è gratis"
+}
