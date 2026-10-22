@@ -1,3 +1,12 @@
 {
-  "2026-10-15": {"course": "comune-senza-segreti", "lesson": "Chi fa cosa: sindaco, giunta e consiglio", "topic": "Separazione tra politica e gestione (art. 107 TUEL)"}
+  "2026-10-15": {
+    "course": "comune-senza-segreti",
+    "lesson": "Chi fa cosa: sindaco, giunta e consiglio",
+    "topic": "Separazione tra politica e gestione (art. 107 TUEL)"
+  },
+  "2026-10-22": {
+    "course": "come-nasce-una-legge",
+    "lesson": "Dalla firma alla Gazzetta Ufficiale",
+    "topic": "Rinvio della legge da parte del Presidente: una sola volta (artt. 73-74 Cost.)"
+  }
 }
