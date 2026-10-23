@@ -35,5 +35,15 @@
     "file": "reels/2026-10-21.mp4",
     "cinema": false,
     "note": "crediti OpenArt 40: reel grafico"
+  },
+  "2026-10-23": {
+    "format": "quiz",
+    "topic": "Iniziativa legislativa UE: le leggi europee le propone la Commissione",
+    "course": "europa-in-20-minuti",
+    "lesson": "Le istituzioni in un colpo d'occhio",
+    "question_id": "51dc8afa-22ab-499c-b051-975ccdf73577",
+    "file": "reels/2026-10-23.mp4",
+    "cinema": false,
+    "note": "crediti OpenArt 40: reel grafico"
   }
 }
