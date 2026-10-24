@@ -19,6 +19,8 @@ lavoro.json:
   "kicker": "Opportunità",     # facoltativo, etichetta piccola (max ~22 caratteri)
   "sub": "3 bandi con le spese coperte dagli enti",   # facoltativo, una riga (max ~45 caratteri)
   "swipe": true,               # facoltativo (post): freccia «Scorri» quando dopo ci sono altre immagini
+  "tono": "serio",             # facoltativo: "serio" (cronaca, processi, lutti, guerre, disastri: solo foto serie)
+                               # o "neutro" (temi seri: niente sorrisi); senza tono vanno bene tutte le foto
   "card": {...},               # facoltativo (ritratti): foto del personaggio, vedi make_face.py
   "video": "reels/2026-10-28.mp4",   # solo mode reel: il reel già pronto (grafico o cinematografico)
   "out": "posts/2026-10-27-faccia.png" # post: il PNG; reel: l'MP4 finale (scrive anche <out>-cover.jpg)
@@ -48,11 +50,20 @@ def load(p, default):
         return default
 
 
-def choose(rubrica):
+# "tono" del lavoro -> toni di foto ammessi (una faccia sorridente su una notizia triste non va mai bene)
+TONI = {"serio": {"serio"}, "neutro": {"serio", "neutro"}}
+
+
+def choose(rubrica, tono=None):
     idx = load(os.path.join(LIB, "indice.json"), {}).get("foto", {})
     uso = load(USO, [])
     recent = [u["foto"] for u in uso[-2:]]
+    ok = TONI.get(tono)
+    if ok:
+        idx = {k: v for k, v in idx.items() if v.get("tono") in ok} or idx
     cands = [k for k, v in idx.items() if rubrica in v.get("rubriche", [])]
+    if not cands and ok:   # col tono richiesto conta più il tono della rubrica
+        cands = list(idx)
     if not cands:
         cands = [k for k, v in idx.items() if v.get("qualita") == "alta"] or FALLBACK
     # la meno usata di recente tra le adatte, mai la stessa delle ultime due uscite se c'è alternativa
@@ -89,7 +100,7 @@ def face_data(job, foto, fmt):
 def run(job):
     sys.path.insert(0, HERE)
     import make_face
-    foto = choose(job.get("rubrica", ""))
+    foto = choose(job.get("rubrica", ""), job.get("tono"))
     out = os.path.join(HERE, job["out"]) if not os.path.isabs(job["out"]) else job["out"]
     os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
     if job.get("mode", "post") == "post":

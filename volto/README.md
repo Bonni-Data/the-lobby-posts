@@ -21,6 +21,14 @@ Mai: foto o video con simboli, sfondi, manifesti o messaggi di partito (anche se
 riprese che rivelano cariche politiche (es. dirette del consiglio comunale), persone terze riconoscibili,
 foto, video o voci di Andrea generati con l'IA.
 
+Ogni foto ha un `tono` (serio, neutro, sorriso). Per le notizie tristi o delicate (cronaca, processi, lutti, guerre,
+disastri) il lavoro di `faccia.py` mette `"tono": "serio"`; per i temi seri ma non tristi `"tono": "neutro"` (niente
+sorrisi). Le foto «sorriso-5», «perplesso-1», «sornione-1» (selfie in polo) e «sfida-1» (gilet e cravatta) mostrano anche
+il lato quotidiano; «mani-aperte-1» e «sorpreso-1» sono fotogrammi a mezzo busto (`face_h` 230 per far vedere le mani).
+
 Foto escluse il 24/10/2026 (non sono qui): santino elettorale, comizio con i simboli, grafica «Nuovo consigliere
 comunale», foto di profilo con lo striscione, panel con altre persone in primo piano, foto con la mano di un'altra
 persona sulla spalla, foto con la persona dietro sovrapposta; video del consiglio comunale e video davanti al logo.
+Video del 24/10/2026: la story con l'articolo di giornale (rivela la carica) è esclusa del tutto; dal video davanti al
+pannello dell'evento si usano solo i due fotogrammi scontornati, controllati senza tracce del pannello, mai il video né
+l'audio; il selfie in polo si può usare anche come video più avanti, quando Andrea deciderà di riprendere i video.

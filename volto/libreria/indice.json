@@ -1,5 +1,5 @@
 {
- "nota": "Scegli la foto in base alla rubrica; non usare la stessa foto due giorni di fila. Mai foto con simboli di partito.",
+ "nota": "Scegli la foto in base alla rubrica; non usare la stessa foto due giorni di fila. Mai foto con simboli di partito. tono: serio (notizie tristi, cronaca, processi, guerre, disastri) | neutro | sorriso: per i temi seri faccia.py accetta \"tono\".",
  "foto": {
   "sorriso-2": {
    "espressione": "sorriso aperto, giacca e cravatta, senza occhiali",
@@ -10,7 +10,8 @@
     "lezioni",
     "notizie"
    ],
-   "qualita": "alta"
+   "qualita": "alta",
+   "tono": "sorriso"
   },
   "sorriso-4": {
    "espressione": "sorriso, occhiali, giacca blu",
@@ -21,7 +22,8 @@
     "pillole",
     "notizie"
    ],
-   "qualita": "alta"
+   "qualita": "alta",
+   "tono": "sorriso"
   },
   "sicuro-1": {
    "espressione": "mezzo sorriso sicuro, giacca e cravatta, occhiali",
@@ -32,7 +34,8 @@
     "quiz",
     "notizie"
    ],
-   "qualita": "alta"
+   "qualita": "alta",
+   "tono": "neutro"
   },
   "indica-1": {
    "espressione": "sorriso e indice in alto (indica il testo a sinistra)",
@@ -43,7 +46,8 @@
     "notizie"
    ],
    "lato": "right",
-   "qualita": "alta"
+   "qualita": "alta",
+   "tono": "sorriso"
   },
   "voto-1": {
    "espressione": "sorriso, braccio teso verso destra",
@@ -52,7 +56,8 @@
     "attualita"
    ],
    "lato": "left",
-   "qualita": "media"
+   "qualita": "media",
+   "tono": "sorriso"
   },
   "pensieroso-1": {
    "espressione": "serio, guarda in alto (pensieroso)",
@@ -61,7 +66,8 @@
     "lo-sapevi",
     "notizie"
    ],
-   "qualita": "media"
+   "qualita": "media",
+   "tono": "serio"
   },
   "parla-1": {
    "espressione": "serio al microfono",
@@ -70,7 +76,74 @@
     "founder",
     "notizie"
    ],
-   "qualita": "media"
+   "qualita": "media",
+   "tono": "serio"
+  },
+  "sorriso-5": {
+   "espressione": "sorriso aperto, polo bianca (lato quotidiano)",
+   "rubriche": [
+    "founder",
+    "presentazione",
+    "pillole",
+    "lezioni",
+    "opportunita"
+   ],
+   "qualita": "alta",
+   "tono": "sorriso"
+  },
+  "perplesso-1": {
+   "espressione": "sopracciglia alzate, scettico («Davvero?»), polo bianca",
+   "rubriche": [
+    "notizie",
+    "quiz",
+    "lo-sapevi",
+    "attualita"
+   ],
+   "qualita": "alta",
+   "tono": "neutro"
+  },
+  "sornione-1": {
+   "espressione": "testa inclinata, mezzo sorriso di sfida, polo bianca",
+   "rubriche": [
+    "notizie",
+    "quiz",
+    "attualita",
+    "lo-sapevi"
+   ],
+   "qualita": "alta",
+   "tono": "neutro"
+  },
+  "sfida-1": {
+   "espressione": "serio, sguardo dritto in camera, gilet e cravatta",
+   "rubriche": [
+    "notizie",
+    "attualita",
+    "quiz",
+    "lezioni"
+   ],
+   "qualita": "alta",
+   "tono": "serio"
+  },
+  "mani-aperte-1": {
+   "espressione": "spiega a mani aperte, abito blu, mezzo busto",
+   "rubriche": [
+    "lezioni",
+    "pillole",
+    "notizie",
+    "presentazione"
+   ],
+   "qualita": "media",
+   "tono": "neutro"
+  },
+  "sorpreso-1": {
+   "espressione": "sorpreso, bocca a «O», abito blu, mezzo busto",
+   "rubriche": [
+    "lo-sapevi",
+    "quiz",
+    "opportunita"
+   ],
+   "qualita": "media",
+   "tono": "neutro"
   }
  }
 }
