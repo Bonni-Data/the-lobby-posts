@@ -16,7 +16,8 @@
    "rubriche": [
     "ritratti",
     "lezioni",
-    "attualita"
+    "attualita",
+    "pillole"
    ],
    "qualita": "alta"
   },
@@ -25,7 +26,8 @@
    "rubriche": [
     "lezioni",
     "attualita",
-    "ritratti"
+    "ritratti",
+    "quiz"
    ],
    "qualita": "alta"
   },
@@ -33,7 +35,8 @@
    "espressione": "sorriso e indice in alto (indica il testo a sinistra)",
    "rubriche": [
     "opportunita",
-    "annunci"
+    "lo-sapevi",
+    "pillole"
    ],
    "lato": "right",
    "qualita": "alta"
@@ -42,7 +45,7 @@
    "espressione": "sorriso, braccio teso verso destra",
    "rubriche": [
     "opportunita",
-    "elezioni"
+    "attualita"
    ],
    "lato": "left",
    "qualita": "media"
@@ -58,18 +61,10 @@
   "parla-1": {
    "espressione": "serio al microfono",
    "rubriche": [
-    "public-speaking",
-    "masterclass"
+    "attualita",
+    "founder"
    ],
    "qualita": "media"
-  },
-  "ascolta-1": {
-   "espressione": "seduto, ascolta di lato",
-   "rubriche": [
-    "networking",
-    "eventi"
-   ],
-   "qualita": "bassa"
   }
  }
 }

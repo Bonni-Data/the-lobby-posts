@@ -13,9 +13,16 @@
  "espressione": "sorriso, braccio teso verso destra",
  "rubriche": [
   "opportunita",
-  "elezioni"
+  "attualita"
  ],
  "lato": "left",
  "qualita": "media",
- "fonte": "foto data da Andrea il 24/10/2026"
+ "fonte": "foto data da Andrea il 24/10/2026",
+ "layout": {
+  "side": "left",
+  "face_h": 230,
+  "face_x": 0.27,
+  "face_shift": 160,
+  "words_y": 260
+ }
 }

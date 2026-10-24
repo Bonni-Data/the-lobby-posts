@@ -107,10 +107,17 @@ Finita la lista, si ricomincia con nomi nuovi scelti con le stesse regole (mai l
      o una equivalente;
    - `cta`: {"title": "Inizia da qui.", "text": "Lezioni da 5 minuti, quiz e certificato. Gratis."};
    - `source`: «Fonti: ...» con le fonti usate.
-   Esegui `python3 make_carousel.py data/ritratto-<data>.json posts/ritratti/<data>/` e apri TUTTE le slide con
-   Read: volto ben inquadrato e non coperto dal testo, niente testo tagliato, credito della foto leggibile in
-   copertina, l'ultima slide mostra le tre promesse.
-5. **Mai** immagini o video generati con l'IA che ritraggano persone reali, mai loghi o simboli di partito messi
+   Esegui `python3 make_carousel.py data/ritratto-<data>.json posts/ritratti/<data>/`.
+   **Copertina «faccia prima»** (decisione di Andrea del 24 ottobre 2026): la copertina 01.png si rifà con il volto
+   di Andrea che presenta la foto del personaggio. Crea `data/faccia-<data>.json` =
+   `{"mode": "post", "rubrica": "ritratti", "words": ["PRIMA", "MINISTRA"], "kicker": "Ritratto della settimana",
+   "card": {"photo": "posts/ritratti/<data>/foto-N.jpg", "label": "<nome e cognome>", "credit": "<photo_credit>",
+   "focus_x": 0.5, "focus_y": 0.3, "zoom": 1.4}, "swipe": true, "out": "posts/ritratti/<data>/01.png"}` (le 1-2
+   parole, max 10 lettere l'una, dicono il primato o il ruolo in modo vero; `focus_x`/`focus_y` = dove sta il volto
+   del personaggio nella sua foto, da 0 a 1) ed esegui `python3 faccia.py data/faccia-<data>.json`.
+   Apri TUTTE le slide con Read: in copertina il volto del personaggio ben inquadrato nella cornice, il suo nome e il
+   credito della foto leggibili, Andrea ben visibile; niente testo tagliato; l'ultima slide mostra le tre promesse.
+5. **Mai** immagini o video generati con l'IA che ritraggano persone reali (nemmeno Andrea: di lui solo le foto vere di `volto/libreria/`), mai loghi o simboli di partito messi
    in evidenza dalla grafica, mai foto con licenze NC, ND o senza licenza.
 6. **Didascalia:** il gancio; 2-3 righe sulla carriera; la riga fissa «Ogni settimana un ritratto: carriere di
    ogni colore politico, raccontate non per le idee ma per il percorso. Perché nessuno arriva lì per caso 💪»;
@@ -119,7 +126,8 @@ Finita la lista, si ricomincia con nomi nuovi scelti con le stesse regole (mai l
    giovani di talento. Tutto gratis.»; «Entra dal link in bio 👆 o su thelobbyitalia.it»; un invito a salvare o
    condividere; «Fonti: ...»; «Foto: <autore>, <licenza>, via Wikimedia Commons (ritagliata). La persona ritratta
    non ha legami con THE LOBBY.»; esattamente 5 hashtag (#thelobby #ritratti più 3, tra cui il nome della persona).
-7. **GitHub:** aggiungi la voce a `history-ritratti.json` e fai commit e push di dati, slide, foto e storico.
+7. **GitHub:** aggiungi la voce a `history-ritratti.json` e fai commit e push di dati, slide, foto, storico,
+   `data/faccia-<data>.json` e `volto/uso.json`.
 8. **Metricool:** un post Instagram + Facebook di tipo POST con tutte le slide in ordine (diventa un carosello),
    `isAiGenerated` false, `mediaAltText` una descrizione per slide. Negli indirizzi delle slide usa il commit appena
    pubblicato al posto di `main` (`https://raw.githubusercontent.com/Bonni-Data/the-lobby-posts/<sha del commit>/posts/ritratti/<data>/01.png`),

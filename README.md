@@ -28,3 +28,10 @@ Le tre frasi stanno in `make_pill.py` (`PROMISE`, `PROMISE_LINE`) e i generatori
 - reel grafico (`make_reel.py`) e reel cinematografico (`cinema/render_assets.py`): schermata finale con le tre promesse.
 
 Per cambiarle, modifica solo `PROMISE` e `PROMISE_LINE`.
+
+## Faccia prima (dal 24 ottobre 2026)
+
+Ogni contenuto mostra il volto di Andrea con 1-2 parole grandi accanto: `faccia.py` (legge `volto/libreria/`,
+sceglie la foto per rubrica, registra l'uso in `volto/uso.json`). Post singoli → carosello di 2 immagini
+(prima la faccia, poi la grafica della rubrica); caroselli e ritratti → la copertina 01.png diventa quella con la
+faccia; reel → 2,5 secondi con la faccia davanti al reel e copertina con la faccia. Dettagli in `volto/README.md`.

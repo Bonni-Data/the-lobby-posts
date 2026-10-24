@@ -13,9 +13,17 @@
  "espressione": "sorriso e indice in alto (indica il testo a sinistra)",
  "rubriche": [
   "opportunita",
-  "annunci"
+  "lo-sapevi",
+  "pillole"
  ],
  "lato": "right",
  "qualita": "alta",
- "fonte": "foto data da Andrea il 24/10/2026"
+ "fonte": "foto data da Andrea il 24/10/2026",
+ "layout": {
+  "side": "right",
+  "face_h": 250,
+  "face_x": 0.66,
+  "face_shift": 150,
+  "words_y": 300
+ }
 }

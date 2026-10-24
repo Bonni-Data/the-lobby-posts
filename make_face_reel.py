@@ -173,7 +173,8 @@ def run(data, out):
         scene = photo_scene(data["face"])
     caps = data.get("captions") or (chunks_from_script(data["script"], dur) if data.get("script") else [])
     cap_layers = [(c["t"], c["e"], caption_layer(c["text"])) for c in caps]
-    total = dur + END
+    end_len = END if data.get("endcard", True) else 0.0   # l'intro dei reel esistenti non ha la chiusura
+    total = dur + end_len
     n = int(total * FPS)
     tmp = out[:-4] + ".noaudio.mp4"
     enc = subprocess.Popen(["ffmpeg", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
@@ -245,7 +246,7 @@ def run(data, out):
         dec.stdout.close()
         dec.wait()
         subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", tmp, "-ss", f"{t0:.2f}", "-i", video, "-map", "0:v", "-map", "1:a?",
-                        "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-af", f"apad=pad_dur={END}", "-t", f"{total:.2f}", out], check=True)
+                        "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-af", f"apad=pad_dur={end_len}", "-t", f"{total:.2f}", out], check=True)
     else:
         wav = out[:-4] + ".wav"
         subprocess.run([sys.executable, os.path.join(HERE, "cinema", "music_epic.py"), wav, str(int(total) + 1)], check=True)
