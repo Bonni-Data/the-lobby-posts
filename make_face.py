@@ -107,16 +107,20 @@ def free_x(side, y0, y1, fallback, margin=34):
 
 
 def words_block(d, words, x0, x1, y, align, max_size):
-    """Le parole grandi: la prima in avorio, la seconda dentro un riquadro corallo. Restituisce la y finale."""
+    """Le parole grandi: la prima in avorio, la seconda dentro un riquadro corallo. Ogni parola prende la
+    grandezza più grande che entra nella colonna (una parola corta resta enorme anche se l'altra è lunga).
+    Restituisce la y finale."""
     col = x1 - x0
-    size = max_size
-    while size > 60:
-        f = font(BOLD, size)
-        if all(tw(d, w, f) + (48 if i == 1 else 0) <= col for i, w in enumerate(words)):
-            break
-        size -= 4
-    f = font(BOLD, size)
+    sizes = []
     for i, w in enumerate(words):
+        size = max_size
+        while size > 56 and tw(d, w, font(BOLD, size)) + (48 if i == 1 else 0) > col:
+            size -= 4
+        sizes.append(size)
+    if len(sizes) == 2:  # la parola nel riquadro non supera di molto la prima: resta una coppia
+        sizes[1] = min(sizes[1], int(sizes[0] * 1.15))
+    for i, w in enumerate(words):
+        f = font(BOLD, sizes[i])
         l, t, r, b = d.textbbox((0, 0), w, font=f)
         wd = r - l
         x = x0 if align == "left" else x1 - wd - (48 if i == 1 else 0)
