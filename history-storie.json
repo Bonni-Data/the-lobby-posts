@@ -1,18 +1,23 @@
 {
- "2026-10-16": {
-  "layout": "brand",
-  "topic": "Presentazione di THE LOBBY",
-  "file": "posts/presentazione-2026-10-16-v2.png"
- },
- "2026-10-17": {
-  "layout": "founder",
-  "topic": "Perché Andrea ha creato THE LOBBY",
-  "file": "posts/sabato-2026-10-17.png"
- },
- "2026-10-19": {
-  "layout": "brand",
-  "topic": "Cosa trovi su THE LOBBY (il volantino dei Changemaker Days, versione social)",
-  "file": "posts/cosa-trovi-2026-10-19.png",
-  "slot": "lunedì 19:00, al posto del carosello"
- }
+  "2026-10-16": {
+    "layout": "brand",
+    "topic": "Presentazione di THE LOBBY",
+    "file": "posts/presentazione-2026-10-16-v2.png"
+  },
+  "2026-10-17": {
+    "layout": "founder",
+    "topic": "Perché Andrea ha creato THE LOBBY",
+    "file": "posts/sabato-2026-10-17.png"
+  },
+  "2026-10-19": {
+    "layout": "brand",
+    "topic": "Cosa trovi su THE LOBBY (il volantino dei Changemaker Days, versione social)",
+    "file": "posts/cosa-trovi-2026-10-19.png",
+    "slot": "lunedì 19:00, al posto del carosello"
+  },
+  "2026-10-24": {
+    "layout": "founder",
+    "topic": "Ambasciatore della Lombardia per l'Anno europeo dei giovani 2022",
+    "file": "posts/sabato-2026-10-24.png"
+  }
 }
