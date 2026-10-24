@@ -7,7 +7,8 @@
     "founder",
     "presentazione",
     "pillole",
-    "lezioni"
+    "lezioni",
+    "notizie"
    ],
    "qualita": "alta"
   },
@@ -17,7 +18,8 @@
     "ritratti",
     "lezioni",
     "attualita",
-    "pillole"
+    "pillole",
+    "notizie"
    ],
    "qualita": "alta"
   },
@@ -27,7 +29,8 @@
     "lezioni",
     "attualita",
     "ritratti",
-    "quiz"
+    "quiz",
+    "notizie"
    ],
    "qualita": "alta"
   },
@@ -36,7 +39,8 @@
    "rubriche": [
     "opportunita",
     "lo-sapevi",
-    "pillole"
+    "pillole",
+    "notizie"
    ],
    "lato": "right",
    "qualita": "alta"
@@ -54,7 +58,8 @@
    "espressione": "serio, guarda in alto (pensieroso)",
    "rubriche": [
     "quiz",
-    "lo-sapevi"
+    "lo-sapevi",
+    "notizie"
    ],
    "qualita": "media"
   },
@@ -62,7 +67,8 @@
    "espressione": "serio al microfono",
    "rubriche": [
     "attualita",
-    "founder"
+    "founder",
+    "notizie"
    ],
    "qualita": "media"
   }

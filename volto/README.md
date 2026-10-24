@@ -1,5 +1,7 @@
 # Il volto di Andrea (regola «faccia prima», dal 24 ottobre 2026)
 
+**Tono e metodo:** leggi anche `comunicazione/METODO.md` (vincolante per tutte le rubriche).
+
 Ogni contenuto mostra Andrea, in foto o in video, con 1-2 parole grandi accanto. Qui ci sono gli strumenti e le foto.
 
 - `libreria/`: foto di Andrea già scontornate (PNG trasparente) + un `.json` per foto con il riquadro del viso,

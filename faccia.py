@@ -14,7 +14,7 @@ lavoro.json:
                                # "reel": 2,5 s con il volto e le parole messi DAVANTI al reel già pronto
                                #         + copertina 1080x1920
   "rubrica": "opportunita",    # opportunita | lezioni | ritratti | lo-sapevi | pillole | quiz | founder |
-                               # presentazione | attualita
+                               # presentazione | attualita | notizie
   "words": ["VIAGGI", "GRATIS"],   # 1 o 2 parole, max ~10 lettere l'una, in maiuscolo: il concetto in un colpo d'occhio
   "kicker": "Opportunità",     # facoltativo, etichetta piccola (max ~22 caratteri)
   "sub": "3 bandi con le spese coperte dagli enti",   # facoltativo, una riga (max ~45 caratteri)
