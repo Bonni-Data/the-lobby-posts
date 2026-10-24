@@ -56,7 +56,18 @@ def mask_for(img, mode="mix"):
         big = (lab == keep).astype(np.uint8)
         big = cv2.dilate(big, np.ones((25, 25), np.uint8))
         m = m * big
-    return m
+    return solidify(m)
+
+
+def solidify(m, thr=0.25, erode=9):
+    """Dentro la sagoma l'alfa va pieno: i modelli a volte lasciano la giacca semitrasparente
+    (si vedrebbe lo sfondo attraverso). Il bordo resta morbido; via anche i filamenti sottili (aste, fili)."""
+    b = (m > thr).astype(np.uint8)
+    b = cv2.morphologyEx(b, cv2.MORPH_OPEN, np.ones((7, 7), np.uint8))
+    inner = cv2.erode(b, np.ones((erode, erode), np.uint8)).astype(bool)
+    out = m * b
+    out[inner] = 1.0
+    return out
 
 
 def face_box(img, alpha=None):

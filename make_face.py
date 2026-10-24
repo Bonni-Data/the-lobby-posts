@@ -65,7 +65,7 @@ def load_face(path):
     return face, box
 
 
-def place_face(img, path, side, top, bottom, face_h):
+def place_face(img, path, side, top, bottom, face_h, face_x=None, shift=0):
     """Scala la sagoma perché il viso sia alto face_h px e la appoggia sul fondo (bottom); restituisce il riquadro del viso."""
     W, H = img.size
     face, (fx, fy, fw, fh) = load_face(path)
@@ -75,14 +75,35 @@ def place_face(img, path, side, top, bottom, face_h):
     s = max(s, need * 0.92)
     face = face.resize((int(face.width * s), int(face.height * s)), Image.LANCZOS)
     fx, fy, fw, fh = fx * s, fy * s, fw * s, fh * s
-    cx = W * (0.68 if side == "right" else 0.32)
+    cx = W * (face_x if face_x else (0.68 if side == "right" else 0.32))
     x = int(cx - (fx + fw / 2))
-    y = int(bottom - face.height)
-    if y > top:
-        y = top + (y - top)  # resta appoggiata in fondo
+    y = int(bottom - face.height * 0.94) + int(shift)  # il fondo della sagoma (spesso irregolare) finisce sotto la fascia
     st, pad = sticker(face)
     img.alpha_composite(st, (x - pad, y - pad))
+    global LAST_MASK
+    LAST_MASK = Image.new("L", img.size, 0)
+    LAST_MASK.paste(st.split()[-1], (x - pad, y - pad))
     return [x + fx, y + fy, fw, fh]
+
+
+LAST_MASK = None
+
+
+def free_x(side, y0, y1, fallback, margin=34):
+    """Fin dove può arrivare il testo tra y0 e y1 senza finire sopra Andrea (mani e braccia comprese)."""
+    if LAST_MASK is None:
+        return fallback
+    W = LAST_MASK.width
+    band = LAST_MASK.crop((0, max(0, int(y0)), W, min(LAST_MASK.height, int(y1)))).point(lambda v: 255 if v > 60 else 0)
+    bb = band.getbbox()
+    if not bb:
+        return fallback
+    import numpy as np
+    a = np.array(band) > 0
+    cols = np.where(a.any(axis=0))[0]
+    if side == "right":
+        return min(fallback, int(cols[0]) - margin)
+    return max(fallback, int(cols[-1]) + margin)
 
 
 def words_block(d, words, x0, x1, y, align, max_size):
@@ -157,7 +178,8 @@ def make(data, out):
         top, bottom, face_h = 330, band_y, 300
     else:
         top, bottom, face_h = 600, band_y + 140, 380
-    face_box = place_face(img, data["face"], side, top, bottom, face_h)
+    face_h = int(data.get("face_h", face_h))
+    face_box = place_face(img, data["face"], side, top, bottom, face_h, data.get("face_x"), data.get("face_shift", 0))
     d = ImageDraw.Draw(img)
 
     # logo e kicker
@@ -171,13 +193,22 @@ def make(data, out):
         x0, x1, align = 64, int(fx - 44), "left"
     else:
         x0, x1, align = int(fx + fw + 44), W - 64, "right"
-    x1 = max(x1, x0 + 420) if side == "right" else x1
+    # il testo non va sopra Andrea: si ferma dove inizia la sagoma (anche un braccio o una mano alzata)
+    yt0 = (220 if fmt == "post" else 330) if data.get("card") else (data.get("words_y") or max(fy - 40, 230 if fmt == "post" else 330))
+    words_h = 380 if data.get("kicker") else 300   # quanto sono alte etichetta + parole
+    if side == "right":
+        x1 = free_x("right", yt0, yt0 + words_h, x1)
+    else:
+        x0 = free_x("left", yt0, yt0 + words_h, x0)
+    x1 = max(x1, x0 + 400) if side == "right" else x1
     if side == "left":
-        x0 = min(x0, x1 - 420)
+        x0 = min(x0, x1 - 400)
     card = data.get("card")
     if card:  # ritratto: le parole stanno sopra la cornice, che occupa il centro della colonna
         y = 220 if fmt == "post" else 330
         cw = min(x1 - x0 - 50, 430)
+    elif data.get("words_y"):   # posizione fissa delle parole (es. foto in cui Andrea indica in alto)
+        y = int(data["words_y"])
     else:
         y = int(max(fy - 40, 230 if fmt == "post" else 330))
     if data.get("kicker"):
@@ -194,6 +225,13 @@ def make(data, out):
         y = photo_card(img, card, cx, y + 4, cw, int(cw * 1.08)) + 6
         d = ImageDraw.Draw(img)
     if data.get("sub"):
+        if side == "right":   # la riga sotto ha il suo spazio libero: può essere più stretto (mani, braccia)
+            sx1 = max(free_x("right", y, y + 130, x1), x0 + 300)
+            sx0 = x0
+        else:
+            sx0 = min(free_x("left", y, y + 130, x0), x1 - 300)
+            sx1 = x1
+        x0, x1 = sx0, sx1
         sf, sl, ss = fit_block(d, data["sub"], MED, x1 - x0, 3, 34, 24)
         y += 6
         for ln in sl:

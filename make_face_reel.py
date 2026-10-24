@@ -17,7 +17,10 @@ data.json:
   "captions": [{"t": 0.0, "e": 1.6, "text": "Il sindaco non firma"}],   # facoltativo: sottotitoli con i tempi
   "script": "testo detto nel video",               # in alternativa: sottotitoli a blocchi di 3-5 parole,
                                                     # distribuiti sulla durata (tempi approssimati)
-  "duration": 14                                    # solo modo photo: secondi prima della chiusura
+  "duration": 14,                                   # solo modo photo: secondi prima della chiusura
+  "trim": [0, 25],                                  # facoltativo, modo video: da che secondo a che secondo
+  "replace_bg": true                                # facoltativo, modo video: toglie lo sfondo (un muro qualsiasi,
+                                                    # ma anche simboli da non mostrare) e mette lo sfondo THE LOBBY
 }
 """
 import json
@@ -148,10 +151,23 @@ def run(data, out):
     chrome = chrome_layer()
     hook = hook_layer(data)
     end = endcard().convert("RGB")
+    t0 = 0.0
     if video:
         probe = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", video],
                                capture_output=True, text=True, check=True)
         dur = float(probe.stdout.strip())
+        if data.get("trim"):
+            t0, t1 = float(data["trim"][0]), min(float(data["trim"][1]), dur)
+            dur = t1 - t0
+        studio = studio_bg() if data.get("replace_bg") else None
+        prev_mask = None
+        vh = H
+        if studio is not None:
+            # col fondo sostituito il video non si ritaglia: si adatta alla larghezza e si appoggia in basso
+            fr = subprocess.run(["ffmpeg", "-loglevel", "error", "-ss", f"{t0:.2f}", "-i", video, "-frames:v", "1",
+                                 "-vf", f"scale={W}:-2", "-f", "image2pipe", "-vcodec", "png", "-"], capture_output=True, check=True).stdout
+            import io
+            vh = min(H, Image.open(io.BytesIO(fr)).height)
     else:
         dur = float(data.get("duration", 12))
         scene = photo_scene(data["face"])
@@ -165,10 +181,11 @@ def run(data, out):
                             "-pix_fmt", "yuv420p", tmp], stdin=subprocess.PIPE)
     dec = None
     if video:
-        dec = subprocess.Popen(["ffmpeg", "-loglevel", "error", "-i", video, "-vf",
-                                f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS}",
+        dec = subprocess.Popen(["ffmpeg", "-loglevel", "error", "-ss", f"{t0:.2f}", "-t", f"{dur:.2f}", "-i", video, "-vf",
+                                f"scale={W}:{vh}:force_original_aspect_ratio=increase,crop={W}:{vh},fps={FPS}",
                                 "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE)
     last = None
+    last_raw = None
     cover = None
     for i in range(n):
         t = i / FPS
@@ -179,10 +196,22 @@ def run(data, out):
             enc.stdin.write(frame.tobytes())
             continue
         if dec:
-            raw = dec.stdout.read(W * H * 3)
-            if len(raw) < W * H * 3:
-                raw = last.tobytes() if last is not None else bytes(W * H * 3)
-            base = Image.frombytes("RGB", (W, H), raw).convert("RGBA")
+            raw = dec.stdout.read(W * vh * 3)
+            if len(raw) < W * vh * 3:
+                raw = last_raw if last is not None else bytes(W * vh * 3)
+            last_raw = raw
+            base = Image.frombytes("RGB", (W, vh), raw).convert("RGBA")
+            if studio is not None:
+                # via lo sfondo: maschera della persona, ammorbidita nel tempo per non farla tremolare
+                if i % 2 == 0 or prev_mask is None:   # maschera a 15 fotogrammi al secondo: basta e dimezza i tempi
+                    m = person_mask(base)
+                    if prev_mask is not None:
+                        m = 0.65 * m + 0.35 * prev_mask
+                    prev_mask = m
+                m = prev_mask
+                bg = studio.copy()
+                bg.paste(base, (0, H - vh), Image.fromarray((m * 255).astype("uint8")))
+                base = bg
             # velo scuro in alto e in basso per leggere i testi
             base.alpha_composite(veil())
         else:
@@ -215,7 +244,7 @@ def run(data, out):
     if dec:
         dec.stdout.close()
         dec.wait()
-        subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", tmp, "-i", video, "-map", "0:v", "-map", "1:a?",
+        subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", tmp, "-ss", f"{t0:.2f}", "-i", video, "-map", "0:v", "-map", "1:a?",
                         "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-af", f"apad=pad_dur={END}", "-t", f"{total:.2f}", out], check=True)
     else:
         wav = out[:-4] + ".wav"
@@ -226,6 +255,32 @@ def run(data, out):
     os.remove(tmp)
     (cover or end).save(out[:-4] + "-cover.jpg", "JPEG", quality=92)
     return out
+
+
+def studio_bg():
+    """Lo sfondo THE LOBBY dietro Andrea quando si toglie quello del video: blu con i due archi."""
+    bg = Image.new("RGBA", (W, H), NAVY + (255,))
+    d = ImageDraw.Draw(bg)
+    draw_arch(d, 140, 380, 800, 1500, NAVY_SOFT, 36)
+    draw_arch(d, 230, 480, 620, 1400, CORAL, 12)
+    return bg
+
+
+def person_mask(frame):
+    import numpy as np
+    sys.path.insert(0, os.path.join(HERE, "volto"))
+    from scontorna import predict, solidify
+    m = predict(frame.convert("RGB"), "u2net_human_seg", 320, (0.485, 0.456, 0.406), (0.229, 0.224, 0.225))
+    m = np.clip((m - 0.18) / 0.64, 0, 1)
+    m = solidify(m, erode=15)
+    # solo la figura più grande: niente pezzi di scritte o simboli rimasti attorno
+    import cv2
+    b = (m > 0.5).astype(np.uint8)
+    n, lab, st, _ = cv2.connectedComponentsWithStats(b, 8)
+    if n > 2:
+        keep = 1 + int(np.argmax(st[1:, cv2.CC_STAT_AREA]))
+        m = m * cv2.dilate((lab == keep).astype(np.uint8), np.ones((11, 11), np.uint8))
+    return m
 
 
 _VEIL = None

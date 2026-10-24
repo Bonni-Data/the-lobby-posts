@@ -1,0 +1,75 @@
+{
+ "nota": "Scegli la foto in base alla rubrica; non usare la stessa foto due giorni di fila. Mai foto con simboli di partito.",
+ "foto": {
+  "sorriso-2": {
+   "espressione": "sorriso aperto, giacca e cravatta, senza occhiali",
+   "rubriche": [
+    "founder",
+    "presentazione",
+    "pillole",
+    "lezioni"
+   ],
+   "qualita": "alta"
+  },
+  "sorriso-4": {
+   "espressione": "sorriso, occhiali, giacca blu",
+   "rubriche": [
+    "ritratti",
+    "lezioni",
+    "attualita"
+   ],
+   "qualita": "alta"
+  },
+  "sicuro-1": {
+   "espressione": "mezzo sorriso sicuro, giacca e cravatta, occhiali",
+   "rubriche": [
+    "lezioni",
+    "attualita",
+    "ritratti"
+   ],
+   "qualita": "alta"
+  },
+  "indica-1": {
+   "espressione": "sorriso e indice in alto (indica il testo a sinistra)",
+   "rubriche": [
+    "opportunita",
+    "annunci"
+   ],
+   "lato": "right",
+   "qualita": "alta"
+  },
+  "voto-1": {
+   "espressione": "sorriso, braccio teso verso destra",
+   "rubriche": [
+    "opportunita",
+    "elezioni"
+   ],
+   "lato": "left",
+   "qualita": "media"
+  },
+  "pensieroso-1": {
+   "espressione": "serio, guarda in alto (pensieroso)",
+   "rubriche": [
+    "quiz",
+    "lo-sapevi"
+   ],
+   "qualita": "media"
+  },
+  "parla-1": {
+   "espressione": "serio al microfono",
+   "rubriche": [
+    "public-speaking",
+    "masterclass"
+   ],
+   "qualita": "media"
+  },
+  "ascolta-1": {
+   "espressione": "seduto, ascolta di lato",
+   "rubriche": [
+    "networking",
+    "eventi"
+   ],
+   "qualita": "bassa"
+  }
+ }
+}
