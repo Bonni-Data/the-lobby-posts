@@ -23,8 +23,9 @@ foto, video o voci di Andrea generati con l'IA.
 
 Ogni foto ha un `tono` (serio, neutro, sorriso). Per le notizie tristi o delicate (cronaca, processi, lutti, guerre,
 disastri) il lavoro di `faccia.py` mette `"tono": "serio"`; per i temi seri ma non tristi `"tono": "neutro"` (niente
-sorrisi). Le foto «sorriso-5», «perplesso-1», «sornione-1» (selfie in polo) e «sfida-1» (gilet e cravatta) mostrano anche
-il lato quotidiano; «mani-aperte-1» e «sorpreso-1» sono fotogrammi a mezzo busto (`face_h` 230 per far vedere le mani).
+sorrisi). «mani-aperte-1» è un fotogramma a mezzo busto (`face_h` 230 per far vedere le mani): ad Andrea piace molto
+con «TE LO / SPIEGO». Le altre 5 foto ricavate il 24/10 (selfie in polo, selfie con il gilet, «sorpreso») le ha
+scartate: non rimetterle.
 
 Foto escluse il 24/10/2026 (non sono qui): santino elettorale, comizio con i simboli, grafica «Nuovo consigliere
 comunale», foto di profilo con lo striscione, panel con altre persone in primo piano, foto con la mano di un'altra

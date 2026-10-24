@@ -79,51 +79,6 @@
    "qualita": "media",
    "tono": "serio"
   },
-  "sorriso-5": {
-   "espressione": "sorriso aperto, polo bianca (lato quotidiano)",
-   "rubriche": [
-    "founder",
-    "presentazione",
-    "pillole",
-    "lezioni",
-    "opportunita"
-   ],
-   "qualita": "alta",
-   "tono": "sorriso"
-  },
-  "perplesso-1": {
-   "espressione": "sopracciglia alzate, scettico («Davvero?»), polo bianca",
-   "rubriche": [
-    "notizie",
-    "quiz",
-    "lo-sapevi",
-    "attualita"
-   ],
-   "qualita": "alta",
-   "tono": "neutro"
-  },
-  "sornione-1": {
-   "espressione": "testa inclinata, mezzo sorriso di sfida, polo bianca",
-   "rubriche": [
-    "notizie",
-    "quiz",
-    "attualita",
-    "lo-sapevi"
-   ],
-   "qualita": "alta",
-   "tono": "neutro"
-  },
-  "sfida-1": {
-   "espressione": "serio, sguardo dritto in camera, gilet e cravatta",
-   "rubriche": [
-    "notizie",
-    "attualita",
-    "quiz",
-    "lezioni"
-   ],
-   "qualita": "alta",
-   "tono": "serio"
-  },
   "mani-aperte-1": {
    "espressione": "spiega a mani aperte, abito blu, mezzo busto",
    "rubriche": [
@@ -131,16 +86,6 @@
     "pillole",
     "notizie",
     "presentazione"
-   ],
-   "qualita": "media",
-   "tono": "neutro"
-  },
-  "sorpreso-1": {
-   "espressione": "sorpreso, bocca a «O», abito blu, mezzo busto",
-   "rubriche": [
-    "lo-sapevi",
-    "quiz",
-    "opportunita"
    ],
    "qualita": "media",
    "tono": "neutro"
