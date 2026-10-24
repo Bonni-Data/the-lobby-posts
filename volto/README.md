@@ -36,4 +36,7 @@ comunale», foto di profilo con lo striscione, panel con altre persone in primo 
 persona sulla spalla, foto con la persona dietro sovrapposta; video del consiglio comunale e video davanti al logo.
 Video del 24/10/2026: la story con l'articolo di giornale (rivela la carica) è esclusa del tutto; dal video davanti al
 pannello dell'evento si usa solo il fotogramma scontornato «mani-aperte-1», controllato senza tracce del pannello; il
-video con lo sfondo sostituito e senza audio è in prova (24/10, in attesa dell'ok di Andrea); il selfie in polo non si usa.
+formato con lo sfondo sostituito e senza audio è approvato (24/10), ma da quel video esce pulito un solo spezzone
+(`clip/spiega-1`): negli altri tratti le mani veloci si portano dietro pezzi delle scritte del pannello (scartati
+spiega-2 e spiega-3, provati a 6,3 s, 11,8 s, 19,9 s, 24,6 s e 30,7 s). Per avere altri spezzoni serve un video nuovo
+girato davanti a un muro neutro, senza scritte. Il selfie in polo non si usa.
