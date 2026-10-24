@@ -31,5 +31,5 @@ Foto escluse il 24/10/2026 (non sono qui): santino elettorale, comizio con i sim
 comunale», foto di profilo con lo striscione, panel con altre persone in primo piano, foto con la mano di un'altra
 persona sulla spalla, foto con la persona dietro sovrapposta; video del consiglio comunale e video davanti al logo.
 Video del 24/10/2026: la story con l'articolo di giornale (rivela la carica) è esclusa del tutto; dal video davanti al
-pannello dell'evento si usano solo i due fotogrammi scontornati, controllati senza tracce del pannello, mai il video né
-l'audio; il selfie in polo si può usare anche come video più avanti, quando Andrea deciderà di riprendere i video.
+pannello dell'evento si usa solo il fotogramma scontornato «mani-aperte-1», controllato senza tracce del pannello; il
+video con lo sfondo sostituito e senza audio è in prova (24/10, in attesa dell'ok di Andrea); il selfie in polo non si usa.
