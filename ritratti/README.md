@@ -126,12 +126,17 @@ Finita la lista, si ricomincia con nomi nuovi scelti con le stesse regole (mai l
    giovani di talento. Tutto gratis.»; «Entra dal link in bio 👆 o su thelobbyitalia.it»; un invito a salvare o
    condividere; «Fonti: ...»; «Foto: <autore>, <licenza>, via Wikimedia Commons (ritagliata). La persona ritratta
    non ha legami con THE LOBBY.»; esattamente 5 hashtag (#thelobby #ritratti più 3, tra cui il nome della persona).
-7. **GitHub:** aggiungi la voce a `history-ritratti.json` e fai commit e push di dati, slide, foto, storico,
-   `data/faccia-<data>.json` e `volto/uso.json`.
+7. **Storia e GitHub:** prima del commit crea la storia (vedi `../comunicazione/PUBBLICA.md`):
+   `python3 make_storia.py posts/ritratti/<data>/01.png posts/storie/<data>-ritratto.png --hint "Scorri il carosello sul profilo"`
+   (`make_storia.py`, non `make_story.py`) e aprila con Read. Poi aggiungi la voce a `history-ritratti.json` e fai
+   commit e push di dati, slide, foto, storico, `data/faccia-<data>.json`, `volto/uso.json` e
+   `posts/storie/<data>-ritratto.png`.
 8. **Metricool:** un post Instagram + Facebook di tipo POST con tutte le slide in ordine (diventa un carosello),
    `isAiGenerated` false, `mediaAltText` una descrizione per slide. Negli indirizzi delle slide usa il commit appena
    pubblicato al posto di `main` (`https://raw.githubusercontent.com/Bonni-Data/the-lobby-posts/<sha del commit>/posts/ritratti/<data>/01.png`),
-   così Metricool prende sempre la versione giusta.
+   così Metricool prende sempre la versione giusta. Sempre `firstCommentText` (un primo commento come spiega
+   `../comunicazione/PUBBLICA.md`, senza link). Poi la storia: seconda chiamata con `posts/storie/<data>-ritratto.png`,
+   `instagramData` {"type": "STORY"}, `facebookData` {"type": "STORY"}, senza testo, 5 minuti dopo il post.
 
 Formato dello storico:
 `{"AAAA-MM-GG": {"nome": "...", "paese": "...", "area": "...", "partito": "...", "stato": "in attività|ex|storica", "genere": "donna|uomo", "motivo": "settimanale|riserva", "file": "posts/ritratti/AAAA-MM-GG/", "foto": {"file": "...", "autore": "...", "licenza": "..."}, "fonti": ["url", "url"]}}`
