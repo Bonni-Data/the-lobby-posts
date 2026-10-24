@@ -8,7 +8,8 @@
     "presentazione",
     "pillole",
     "lezioni",
-    "notizie"
+    "notizie",
+    "premium"
    ],
    "qualita": "alta",
    "tono": "sorriso"
@@ -20,7 +21,8 @@
     "lezioni",
     "attualita",
     "pillole",
-    "notizie"
+    "notizie",
+    "premium"
    ],
    "qualita": "alta",
    "tono": "sorriso"
@@ -32,7 +34,8 @@
     "attualita",
     "ritratti",
     "quiz",
-    "notizie"
+    "notizie",
+    "premium"
    ],
    "qualita": "alta",
    "tono": "neutro"
@@ -85,7 +88,8 @@
     "lezioni",
     "pillole",
     "notizie",
-    "presentazione"
+    "presentazione",
+    "premium"
    ],
    "qualita": "media",
    "tono": "neutro"

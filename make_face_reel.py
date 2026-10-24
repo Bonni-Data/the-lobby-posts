@@ -305,6 +305,63 @@ def veil():
     return _VEIL
 
 
+def clip_chrome(data):
+    """Livelli sopra lo spezzone base (volto/clip/*.mp4): logo, nome, fascia delle promesse, sito; e il gancio a parte."""
+    lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    draw_logo(lay, 64, 150, 0.72)
+    d = ImageDraw.Draw(lay)
+    d.rectangle((0, STRIP_Y + BAND, W, H), fill=NAVY)   # copre il bordo basso dello spezzone
+    sub = Image.new("RGBA", (W, BAND), (0, 0, 0, 0))
+    promise_band(ImageDraw.Draw(sub), W, BAND)
+    lay.alpha_composite(sub, (0, STRIP_Y))
+    tf = font(BOLD, 34)
+    t = "thelobbyitalia.it · link in bio"
+    d.text(((W - tw(d, t, tf)) / 2, STRIP_Y + BAND + 40), t, font=tf, fill=CORAL)
+    nf = font(BOLD, 30)
+    nw = tw(d, "Andrea Bonazzi", nf)
+    d.rounded_rectangle((46, STRIP_Y - 72, 46 + nw + 36, STRIP_Y - 18), radius=27, fill=NAVY)
+    d.text((64, STRIP_Y - 70), "Andrea Bonazzi", font=nf, fill=IVORY)
+    hook = hook_layer(data, 64, 540)   # colonna di sinistra: Andrea nello spezzone sta a destra
+    return lay, hook
+
+
+def clip_intro(data, out):
+    """Intro di 3 s con Andrea in movimento (decisione di Andrea del 24/10/2026): spezzone base + gancio + musica.
+    data: {"clip": "volto/clip/spiega-1.mp4", "words": [...], "kicker": "..."}. L'audio dello spezzone non esiste."""
+    clip = data["clip"] if os.path.isabs(data["clip"]) else os.path.join(HERE, data["clip"])
+    lay, hook = clip_chrome(data)
+    dec = subprocess.Popen(["ffmpeg", "-loglevel", "error", "-i", clip, "-vf", f"scale={W}:{H},fps={FPS}", "-f", "rawvideo",
+                            "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE)
+    tmp = out[:-4] + ".noaudio.mp4"
+    enc = subprocess.Popen(["ffmpeg", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
+                            "-r", str(FPS), "-i", "-", "-c:v", "libx264", "-preset", "medium", "-crf", "19",
+                            "-pix_fmt", "yuv420p", tmp], stdin=subprocess.PIPE)
+    i = 0
+    while True:
+        raw = dec.stdout.read(W * H * 3)
+        if len(raw) < W * H * 3:
+            break
+        frame = Image.frombytes("RGB", (W, H), raw).convert("RGBA")
+        frame.alpha_composite(lay)
+        a = ease((i / FPS) / 0.4)
+        h2 = hook.copy()
+        if a < 1:
+            h2.putalpha(h2.split()[-1].point(lambda v: int(v * a)))
+        frame.alpha_composite(h2, (int(-80 * (1 - a)), 300))
+        enc.stdin.write(frame.convert("RGB").tobytes())
+        i += 1
+    enc.stdin.close(); enc.wait()
+    dec.stdout.close(); dec.wait()
+    dur = i / FPS
+    wav = out[:-4] + ".wav"
+    subprocess.run([sys.executable, os.path.join(HERE, "cinema", "music_epic.py"), wav, str(int(dur) + 1)], check=True,
+                   stdout=subprocess.DEVNULL)
+    subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", tmp, "-i", wav, "-map", "0:v", "-map", "1:a", "-c:v", "copy",
+                    "-c:a", "aac", "-b:a", "160k", "-t", f"{dur:.2f}", out], check=True)
+    os.remove(wav); os.remove(tmp)
+    return out
+
+
 if __name__ == "__main__":
     with open(sys.argv[1], encoding="utf-8") as fh:
         print("ok", run(json.load(fh), sys.argv[2]))

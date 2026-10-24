@@ -10,6 +10,10 @@ Ogni contenuto mostra Andrea, in foto o in video, con 1-2 parole grandi accanto.
 - `scontorna.py foto.jpg uscita.png`: toglie lo sfondo a una foto nuova (modelli ONNX in ~/.u2net, da
   github.com/danielgatis/rembg/releases/v0.0.0: isnet-general-use.onnx e u2net_human_seg.onnx). Controlla sempre il
   risultato su fondo magenta: niente pezzi di altre persone, simboli, bandiere o scritte.
+- `clip/`: spezzoni di 3 secondi di Andrea in movimento, già con lo sfondo di THE LOBBY e senza audio (decisione del
+  24/10/2026: piace il formato video). `faccia.py` li mette da solo come intro dei reel al posto della foto, a
+  rotazione (`clip/indice.json`); per i temi tristi (`"tono": "serio"`) usa la foto. Nuovi spezzoni solo con
+  `clip_base.py`, controllando TUTTI i fotogrammi.
 - `../make_face.py`: copertine post (1080x1350) e cover reel/storie (1080x1920). Opzioni utili: `side`, `face_h`,
   `face_x`, `face_shift`, `words_y` (per le foto in cui Andrea indica in alto: le parole sopra il dito), `card`
   (ritratti: la foto del personaggio in una cornice che Andrea presenta).

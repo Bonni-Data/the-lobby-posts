@@ -14,7 +14,7 @@ lavoro.json:
                                # "reel": 2,5 s con il volto e le parole messi DAVANTI al reel già pronto
                                #         + copertina 1080x1920
   "rubrica": "opportunita",    # opportunita | lezioni | ritratti | lo-sapevi | pillole | quiz | founder |
-                               # presentazione | attualita | notizie
+                               # presentazione | attualita | notizie | premium (cene e lezioni live)
   "words": ["VIAGGI", "GRATIS"],   # 1 o 2 parole, max ~10 lettere l'una, in maiuscolo: il concetto in un colpo d'occhio
   "kicker": "Opportunità",     # facoltativo, etichetta piccola (max ~22 caratteri)
   "sub": "3 bandi con le spese coperte dagli enti",   # facoltativo, una riga (max ~45 caratteri)
@@ -23,6 +23,9 @@ lavoro.json:
                                # o "neutro" (temi seri: niente sorrisi); senza tono vanno bene tutte le foto
   "card": {...},               # facoltativo (ritratti): foto del personaggio, vedi make_face.py
   "video": "reels/2026-10-28.mp4",   # solo mode reel: il reel già pronto (grafico o cinematografico)
+                               # Nei reel l'intro è uno spezzone di Andrea in movimento (volto/clip/indice.json,
+                               # decisione del 24/10/2026); se non ce n'è uno adatto, o con "tono": "serio",
+                               # l'intro è la foto con lo zoom. "clip": false per forzare la foto.
   "out": "posts/2026-10-27-faccia.png" # post: il PNG; reel: l'MP4 finale (scrive anche <out>-cover.jpg)
 }
 Stampa la foto scelta. Controlla SEMPRE il risultato con Read (e per il reel 2 fotogrammi: -ss 1 e -ss 4).
@@ -36,6 +39,7 @@ import tempfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 LIB = os.path.join(HERE, "volto", "libreria")
+CLIP = os.path.join(HERE, "volto", "clip")
 USO = os.path.join(HERE, "volto", "uso.json")
 
 # rubrica -> foto preferite, in ordine (se non c'è nulla di adatto si usa la rotazione su tutte le «alta»)
@@ -75,10 +79,27 @@ def choose(rubrica, tono=None):
     return order[0]
 
 
-def record(foto, job):
+def choose_clip(rubrica, tono=None):
+    """Spezzone in movimento per l'intro del reel: il meno usato tra quelli adatti; nessuno per i temi tristi."""
+    if tono == "serio":
+        return None
+    idx = load(os.path.join(CLIP, "indice.json"), {}).get("clip", {})
+    cands = [k for k, v in idx.items() if os.path.exists(os.path.join(CLIP, k + ".mp4"))
+             and (rubrica in v.get("rubriche", []) or not v.get("rubriche"))]
+    if not cands:
+        return None
+    uso = load(USO, [])
+    last = {k: -1 for k in cands}
+    for i, u in enumerate(uso):
+        if u.get("clip") in last:
+            last[u["clip"]] = i
+    return sorted(cands, key=lambda k: last[k])[0]
+
+
+def record(foto, job, clip=None):
     uso = load(USO, [])
     uso.append({"data": datetime.date.today().isoformat(), "rubrica": job.get("rubrica"), "mode": job.get("mode"),
-                "foto": foto, "words": job.get("words"), "out": job.get("out")})
+                "foto": foto, "clip": clip, "words": job.get("words"), "out": job.get("out")})
     with open(USO, "w", encoding="utf-8") as fh:
         json.dump(uso[-400:], fh, ensure_ascii=False, indent=1)
 
@@ -110,9 +131,15 @@ def run(job):
         video = job["video"] if os.path.isabs(job["video"]) else os.path.join(HERE, job["video"])
         tmp = tempfile.mkdtemp()
         intro = os.path.join(tmp, "intro.mp4")
-        make_face_reel.run({"face": os.path.join(LIB, foto + ".png"), "words": job["words"][:2],
-                            "kicker": job.get("kicker"), "duration": float(job.get("intro", 2.5)), "endcard": False},
-                           intro)
+        clip = choose_clip(job.get("rubrica", ""), job.get("tono")) if job.get("clip", True) else None
+        if clip:
+            make_face_reel.clip_intro({"clip": os.path.join(CLIP, clip + ".mp4"), "words": job["words"][:2],
+                                       "kicker": job.get("kicker")}, intro)
+            print("intro in movimento:", clip)
+        else:
+            make_face_reel.run({"face": os.path.join(LIB, foto + ".png"), "words": job["words"][:2],
+                                "kicker": job.get("kicker"), "duration": float(job.get("intro", 2.5)), "endcard": False},
+                               intro)
         norm = "fps=30,scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2:color=0x111C35,setsar=1,format=yuv420p"
         subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", intro, "-i", video, "-filter_complex",
                         f"[0:v]{norm}[v0];[1:v]{norm}[v1];[0:a]aresample=44100,aformat=channel_layouts=stereo[a0];"
@@ -125,7 +152,7 @@ def run(job):
         from PIL import Image
         Image.open(png).convert("RGB").save(cover, "JPEG", quality=92)
         print("copertina", cover)
-    record(foto, job)
+    record(foto, job, locals().get("clip"))
     print("ok", out, "foto:", foto)
     return out
 

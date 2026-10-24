@@ -5,6 +5,8 @@ Uso: python3 make_pill.py data.json output.png
 data.json:
 {
   "number": 1,
+  "label": "CENA DI NETWORKING",                              # opzionale, al posto di «PILLOLA #n»
+  "footer": "Premium è gratuito · thelobbyitalia.it",          # opzionale, al posto di «Altre pillole così...»
   "course": "Il Comune, senza segreti",
   "title": "Chi nomina gli assessori? (non il consiglio)",   # gancio, max ~70 caratteri
   "points": ["frase breve", "frase breve", "frase breve"],     # 3 punti, max ~85 caratteri ciascuno
@@ -121,7 +123,7 @@ def make(data, out):
     draw_logo(img, 70, 62, 1.0)
 
     # etichetta pillola
-    label = "PILLOLA #%s" % data.get("number", "")
+    label = data.get("label") or "PILLOLA #%s" % data.get("number", "")   # "label": etichetta diversa (es. CENA DI NETWORKING)
     lf = font(BOLD, 28)
     lw = tw(d, label, lf) + 44
     d.rounded_rectangle((70, 200, 70 + lw, 252), radius=26, fill=CORAL)
@@ -163,7 +165,7 @@ def make(data, out):
     if tk:
         kf, kl, ks = fit_block(d, tk, BOLD, W - 140, 1, 36, 26)
         d.text((70, ty), kl[0], font=kf, fill=CORAL)
-    cta = "Altre pillole così nella web app · link in bio"
+    cta = data.get("footer") or "Altre pillole così nella web app · link in bio"   # "footer": riga finale diversa
     cf = fit_block(d, cta, MED, W - 140, 1, 28, 20)[0]
     d.text((70, ty + 56), cta, font=cf, fill=IVORY)
 

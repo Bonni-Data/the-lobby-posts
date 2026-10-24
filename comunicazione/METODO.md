@@ -4,6 +4,8 @@ Andrea ha chiesto di impostare la comunicazione sui meccanismi che hanno reso ef
 (la macchina social ideata da Luca Morisi dal 2013) e la comunicazione di Roberto Vannacci, che ne riprende i
 principi. Qui c'è cosa abbiamo studiato, cosa prendiamo e cosa NO. Vale per tutte le rubriche: è vincolante.
 
+Come si pubblica (primo commento, reel, storia dopo ogni post, cene e lezioni live): `PUBBLICA.md`, anch'esso vincolante.
+
 ## Cosa dicono le fonti
 
 **La Bestia** (Open, 28/9/2021; Il Messaggero; Key4biz; TPI):

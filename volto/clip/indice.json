@@ -1,0 +1,6 @@
+{
+ "nota": "Spezzoni di 3 secondi di Andrea in movimento, già con lo sfondo di THE LOBBY e senza audio, per l'intro dei reel (decisione di Andrea del 24/10/2026). Ogni spezzone è stato controllato fotogramma per fotogramma: nessuna traccia dello sfondo originale. Prima di aggiungerne uno nuovo leggi volto/clip_base.py.",
+ "clip": {
+  "spiega-1": {"desc": "abito blu, parla con calma, mani unite", "tono": "neutro", "rubriche": [], "controllato": "2026-10-24"}
+ }
+}
