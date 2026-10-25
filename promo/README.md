@@ -24,18 +24,22 @@ Ogni promo pubblicato va in `../history-promo.json` (chiave: data di oggi) con `
 
 Carosello di 2 immagini in `posts/promo/<AAAA-MM-GG>/`:
 1. `01.png` con il volto di Andrea: `python3 faccia.py` con `{"mode": "post", "rubrica": "premium", "words": [...],
-   "kicker": "Cena di networking" o "Lezione live", "sub": "<data · luogo · posti, max 45 caratteri>", "swipe": true}`.
-   Parole vere e corte: CENA / CON ME?, ULTIMI / POSTI (solo se è vero), LIVE / SU TEAMS, PRENOTA / IL POSTO.
+   "kicker": "Cena di networking" o "Lezione live", "sub": "<data · luogo, max 45 caratteri>", "swipe": true}`.
+   Parole vere e corte: CENA / CON ME?, A NUMERO / CHIUSO, LIVE / SU TEAMS, PRENOTA / IL POSTO.
 2. `02.png` con i dettagli: `python3 make_pill.py` con `{"label": "CENA DI NETWORKING" o "LEZIONE LIVE SU TEAMS",
    "course": "Premium · gratuito, su selezione", "title": "<max 70 caratteri>", "points": [3 righe vere: quando e
-   dove (per le cene solo la città: il locale arriva a chi conferma), per chi e quanti posti, cosa succede e i costi
+   dove (per le cene solo la città: il locale arriva a chi conferma), per chi (per le cene si può dire quanti posti ha il tavolo), cosa succede e i costi
    (per le cene: ognuno paga la propria cena)], "takeaway": "Candidati dal link in bio" (o, per chi è già in Premium,
    "Rispondi presente nell'app"), "footer": "Premium è gratuito · thelobbyitalia.it"}`.
 
 ## Regole
 
-- Solo fatti del calendario: data, ora (convertita in ora di Roma), città, posti, costi come sono scritti in
-  `premium_events`. Mai inventare ospiti, locali, menu, posti rimasti o «ultimi posti» se non è vero.
+- Solo fatti del calendario: data, ora (convertita in ora di Roma), città, posti del tavolo, costi come sono scritti in
+  `premium_events`. Mai inventare ospiti, locali, menu.
+- **Prenotazioni nascoste (decisione di Andrea del 25 ottobre 2026: «non voglio che la gente lo veda»).** Mai scrivere
+  o mostrare quante persone hanno prenotato una lezione live o risposto «presente» a una cena, quanti posti restano,
+  «ultimi posti», «quasi pieno», «al completo», né quanti iscritti mancano perché una live parta. I conteggi di
+  `event_rsvps` servono solo a decidere se pubblicare (la cena al completo non si promuove) e al resoconto per Andrea.
 - Le cene sono solo per maggiorenni in Premium: scrivilo sempre. Il locale esatto non si pubblica mai.
 - Premium non si compra: «gratuito, su selezione, ti candidi dall'app e Andrea legge ogni candidatura».
 - Tono e regole di sempre: `../comunicazione/METODO.md`, `../comunicazione/PUBBLICA.md`, `../volto/README.md`. Mai
