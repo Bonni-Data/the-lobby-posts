@@ -1,0 +1,13 @@
+{
+  "format": "news",
+  "kicker": "ATTUALITÀ IN 30 SECONDI",
+  "hook": "AI Act: le regole sull'IA sono slittate?",
+  "points": [
+    {"title": "Cos'è l'AI Act", "text": "È il regolamento europeo sull'intelligenza artificiale. Non scatta tutto insieme: arriva a tappe."},
+    {"title": "Cosa vale già", "text": "Dal 2025 valgono i divieti, l'obbligo di formare chi usa l'IA al lavoro e le regole per i grandi modelli."},
+    {"title": "Cosa cambia", "text": "Con l'Omnibus digitale l'alto rischio slitta al 2 dicembre 2027 e al 2 agosto 2028. Dal 2 dicembre 2026 nuovi divieti."},
+    {"title": "Chi è a favore, chi è contro", "text": "Per chi lo sostiene dà tempo a imprese e autorità. Per i critici lascia le persone meno tutelate più a lungo."}
+  ],
+  "payoff": "Dal 2 dicembre 2026 vietate le app che creano nudi falsi senza consenso.",
+  "cta": "Il corso è gratis e si aggiorna ogni mese"
+}

@@ -10,5 +10,17 @@
    "2 TURNI?"
   ],
   "out": "posts/notizie/2026-10-25/01.png"
+ },
+ {
+  "data": "2026-10-25",
+  "rubrica": "attualita",
+  "mode": "reel",
+  "foto": "sorriso-4",
+  "clip": "spiega-1",
+  "words": [
+   "AI ACT",
+   "SLITTA?"
+  ],
+  "out": "reels/2026-10-25-faccia.mp4"
  }
 ]

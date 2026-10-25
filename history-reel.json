@@ -45,5 +45,15 @@
     "file": "reels/2026-10-23.mp4",
     "cinema": false,
     "note": "crediti OpenArt 40: reel grafico"
+  },
+  "2026-10-25": {
+    "format": "news",
+    "topic": "AI Act dopo l'Omnibus digitale: alto rischio rinviato al 2/12/2027 e 2/8/2028, nuovi divieti dal 2/12/2026",
+    "course": "intelligenza-artificiale-regole",
+    "lesson": "Il calendario, dopo l'Omnibus digitale",
+    "file": "reels/2026-10-25-faccia.mp4",
+    "faccia": true,
+    "cinema": false,
+    "note": "crediti OpenArt 40: reel grafico"
   }
 }
