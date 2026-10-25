@@ -1,1 +1,23 @@
-{}
+{
+  "2026-10-25": {
+    "notizia": "Ballottaggio presidenziale in Brasile tra Lula e Flávio Bolsonaro (25/10); primo turno 4/10: 47,03% a 45,16%",
+    "meccanismo": "Doppio turno: maggioranza assoluta dei voti validi al primo turno, altrimenti ballottaggio tra i due più votati; bianche e nulle non contano (TSE Ris. 23.748/2026, artt. 5-6); voto da 16 anni",
+    "course": "rappresentante-di-lista",
+    "lesson": "Lo scrutinio, voto per voto",
+    "fonti": [
+      "https://www.ilfattoquotidiano.it/2026/10/05/elezioni-brasile-bolsonaro-lula-ballottaggio-notizie/8527504/",
+      "https://www.vaticannews.va/it/mondo/news/2026-10/brasile-elezioni-lula-bolsonaro-america-politica.html",
+      "https://www.ansa.it/sito/notizie/topnews/2026/10/05/media-lula-e-bolsonaro-andranno-al-ballottaggio-il-25-ottobre_6a5e1939-6d1a-4bb4-9b32-7ce88753b128.html",
+      "https://tg24.sky.it/mondo/2026/10/23/brasile-lula-bolsonaro-sondaggi",
+      "https://it.euronews.com/2026/10/05/elezioni-presidenziali-in-brasile-bolsonaro-e-lula-senza-maggioranza-si-va-al-ballottaggio",
+      "https://www.tse.jus.br/eleicoes/eleicoes-2026-content/normas-e-documentacoes/arquivos-2026/resolucao-e-voto-sistemas"
+    ],
+    "scartate": [
+      "Cortei del Movimento 17 ottobre e 500 militari a Milano (molti minorenni coinvolti, indagini in corso: escluso)",
+      "Decreto sicurezza dl 190/2026 (del 22/10, legato a criminalità minorile)",
+      "Congresso federale straordinario della Lega a Milano (tema di partito)",
+      "Riunione del «Correntone» Pd a Montepulciano (tema di partito)",
+      "Elezioni anticipate in Serbia e presidenziali in Bulgaria"
+    ]
+  }
+}
