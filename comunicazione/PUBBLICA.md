@@ -44,7 +44,36 @@ Ogni volta che pubblichi un post, lo rilanci anche nella storia di Instagram e d
 3. Controlla con getScheduledPosts che la storia risulti programmata. Se la creazione fallisce, riprova UNA volta; se
    fallisce ancora, il post resta valido: scrivilo nel resoconto e vai avanti.
 
-## 3. Cene e lezioni live
+## 3. Altre reti: TikTok, YouTube Shorts, Threads (piano del 25 ottobre 2026: «oltre i contatti che già ho»)
+
+Sono le reti che mostrano i contenuti soprattutto a chi non ci segue. Si usano SOLO quando Andrea le ha collegate a
+Metricool: prima di programmare, chiama getBrandSettings e guarda `networksData` del brand 7398010. Una rete che non
+compare lì non va mai messa nei `providers` (Metricool rifiuterebbe tutto il post). Oggi (25/10) ci sono solo Instagram e
+Facebook: finché è così, questa sezione non cambia niente.
+
+- **Reel → TikTok e YouTube Shorts, nello stesso post.** Aggiungi ai `providers` del reel `{"network":"tiktok"}` e/o
+  `{"network":"youtube"}`, con:
+  - `tiktokData` {"title": <il gancio, al massimo 90 caratteri>, "privacyOption": "PUBLIC_TO_EVERYONE", "autoAddMusic": false,
+    "isAigc": <come isAiGenerated del post>, "commercialContentOwnBrand": false, "commercialContentThirdParty": false};
+  - `youtubeData` {"type": "short", "title": <il gancio, al massimo 100 caratteri>, "privacy": "public", "madeForKids": false,
+    "category": "EDUCATION", "tags": <i 5 hashtag senza #>, "isAiGeneratedContent": <come isAiGenerated del post>}.
+  - La didascalia (`text`) resta la stessa di Instagram. Su YouTube diventa la descrizione: va bene così.
+- **Caroselli → TikTok in modalità foto**, nello stesso post: `{"network":"tiktok"}` con `tiktokData` come sopra e
+  `"photoCoverIndex": 0` (la copertina con il volto di Andrea). Su YouTube i caroselli non vanno.
+- **Threads → un post a parte, solo per «Dietro la notizia» delle 8:00**, programmato alle 8:05 con una seconda chiamata
+  createScheduledPost: `providers` [{"network":"threads"}], `threadsData` {}, `media` = [la copertina 01.png del giorno,
+  con il volto di Andrea], `text` al massimo 450 caratteri: il gancio, due righe su come funziona, il link alla pagina
+  `https://thelobbyitalia.it/notizie/<data>-<slug>/` (su Threads i link si aprono), la riga delle tre promesse
+  («Formazione per giovani politici, le migliori opportunità internazionali e networking con altri giovani di talento»).
+  Niente hashtag in fila: al massimo uno (#thelobby).
+- **Se Metricool rifiuta il post per colpa di una delle nuove reti**, rifallo subito senza quella rete: il post su
+  Instagram e Facebook non deve mai saltare. Scrivi nel resoconto quale rete ha dato errore.
+- **Piano gratuito di Metricool:** pubblica al massimo 20 post al mese. Se il calendario del mese è vicino al limite,
+  il post a parte di Threads è il primo a saltare.
+- **Canale Telegram:** non passa da Metricool. Lo pubblica ogni mattina l'automazione «Canale Telegram» del repository
+  dell'app (vedi `the-lobby-app/docs/TELEGRAM.md`); qui non serve fare niente.
+
+## 4. Cene e lezioni live
 
 Le cene di networking e le lezioni live su Teams (il Premium, gratuito e su selezione) le promuove l'automazione
 «Promo cene e lezioni live», che legge il calendario dell'app. Le altre rubriche possono citarle in una riga
