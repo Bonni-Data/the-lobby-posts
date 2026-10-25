@@ -1,0 +1,35 @@
+# THE LOBBY · contatti pubblici dei moltiplicatori (Eurodesk, scuole di Milano, redazioni): solo indirizzi pubblicati
+# dagli enti sulle loro pagine ufficiali. Parte quando cambia outreach/contatti.py o a mano.
+name: Contatti pubblici
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'outreach/contatti.py'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: contatti
+  cancel-in-progress: false
+
+jobs:
+  raccogli:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 outreach/contatti.py
+      - name: Salva
+        run: |
+          git config user.name "THE LOBBY bot"
+          git config user.email "thelobbysupport@gmail.com"
+          git add outreach/*.csv
+          git diff --cached --quiet && exit 0
+          git commit -m "Contatti pubblici aggiornati $(date -u +%Y-%m-%d)"
+          for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 5; done
