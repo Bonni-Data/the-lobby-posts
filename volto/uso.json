@@ -58,5 +58,17 @@
    "5 MOSSE"
   ],
   "out": "posts/caroselli/2026-10-26/01.png"
+ },
+ {
+  "data": "2026-10-26",
+  "rubrica": "ritratti",
+  "mode": "post",
+  "foto": "sicuro-1",
+  "clip": null,
+  "words": [
+   "PIÙ",
+   "GIOVANE"
+  ],
+  "out": "posts/ritratti/2026-10-26/01.png"
  }
 ]
