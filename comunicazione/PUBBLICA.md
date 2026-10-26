@@ -1,6 +1,6 @@
 # Come si pubblica (decisione di Andrea del 24 ottobre 2026: «fai il possibile per renderlo virale»)
 
-Vale per OGNI automazione che pubblica su Instagram e Facebook, insieme a `METODO.md` (il tono) e a `../volto/README.md`
+Vale per OGNI automazione che pubblica sui social (Instagram, Facebook e le reti della sezione 3), insieme a `METODO.md` (il tono) e a `../volto/README.md`
 (la faccia). Sono le leve che Metricool ci dà davvero: usale tutte, sempre, senza spendere nulla.
 
 ## 1. Il post
@@ -44,32 +44,44 @@ Ogni volta che pubblichi un post, lo rilanci anche nella storia di Instagram e d
 3. Controlla con getScheduledPosts che la storia risulti programmata. Se la creazione fallisce, riprova UNA volta; se
    fallisce ancora, il post resta valido: scrivilo nel resoconto e vai avanti.
 
-## 3. Altre reti: TikTok, YouTube Shorts, Threads (piano del 25 ottobre 2026: «oltre i contatti che già ho»)
+## 3. Altre reti: TikTok, YouTube Shorts, Threads, LinkedIn
 
-Sono le reti che mostrano i contenuti soprattutto a chi non ci segue. Si usano SOLO quando Andrea le ha collegate a
-Metricool: prima di programmare, chiama getBrandSettings e guarda `networksData` del brand 7398010. Una rete che non
-compare lì non va mai messa nei `providers` (Metricool rifiuterebbe tutto il post). Oggi (25/10) ci sono solo Instagram e
-Facebook: finché è così, questa sezione non cambia niente.
+Decisioni di Andrea: il 25 ottobre 2026 «oltre i contatti che già ho»; il 26 ottobre 2026 ha attivato il piano Starter di
+Metricool («usiamo tutte le funzionalità utili, tra cui voglio anche la pubblicazione dei contenuti su TikTok»). Con
+Starter i post sono illimitati: nessun contenuto si salta per il numero di uscite del mese.
 
-- **Reel → TikTok e YouTube Shorts, nello stesso post.** Aggiungi ai `providers` del reel `{"network":"tiktok"}` e/o
-  `{"network":"youtube"}`, con:
-  - `tiktokData` {"title": <il gancio, al massimo 90 caratteri>, "privacyOption": "PUBLIC_TO_EVERYONE", "autoAddMusic": false,
-    "isAigc": <come isAiGenerated del post>, "commercialContentOwnBrand": false, "commercialContentThirdParty": false};
-  - `youtubeData` {"type": "short", "title": <il gancio, al massimo 100 caratteri>, "privacy": "public", "madeForKids": false,
-    "category": "EDUCATION", "tags": <i 5 hashtag senza #>, "isAiGeneratedContent": <come isAiGenerated del post>}.
-  - La didascalia (`text`) resta la stessa di Instagram. Su YouTube diventa la descrizione: va bene così.
-- **Caroselli → TikTok in modalità foto**, nello stesso post: `{"network":"tiktok"}` con `tiktokData` come sopra e
-  `"photoCoverIndex": 0` (la copertina con il volto di Andrea). Su YouTube i caroselli non vanno.
-- **Threads → un post a parte, solo per «Dietro la notizia» delle 8:00**, programmato alle 8:05 con una seconda chiamata
-  createScheduledPost: `providers` [{"network":"threads"}], `threadsData` {}, `media` = [la copertina 01.png del giorno,
-  con il volto di Andrea], `text` al massimo 450 caratteri: il gancio, due righe su come funziona, il link alla pagina
-  `https://thelobbyitalia.it/notizie/<data>-<slug>/` (su Threads i link si aprono), la riga delle tre promesse
-  («Formazione per giovani politici, le migliori opportunità internazionali e networking con altri giovani di talento»).
-  Niente hashtag in fila: al massimo uno (#thelobby).
-- **Se Metricool rifiuta il post per colpa di una delle nuove reti**, rifallo subito senza quella rete: il post su
-  Instagram e Facebook non deve mai saltare. Scrivi nel resoconto quale rete ha dato errore.
-- **Piano gratuito di Metricool:** pubblica al massimo 20 post al mese. Se il calendario del mese è vicino al limite,
-  il post a parte di Threads è il primo a saltare.
+Queste reti mostrano i contenuti soprattutto a chi non ci segue. Si usano SOLO quando sono collegate al brand 7398010:
+**prima di ogni createScheduledPost di un post o di un reel chiama getBrandSettings e guarda `networksData`.** Una rete
+che non compare lì non va mai messa nei `providers` (Metricool rifiuterebbe tutto il post). Le storie restano solo su
+Instagram e Facebook.
+
+- **TikTok (quando c'è `tiktokData` in networksData), su TUTTO quello che esce nel feed:** reel e caroselli o post con
+  immagini, nello stesso createScheduledPost di Instagram e Facebook. Aggiungi `{"network":"tiktok"}` ai `providers` e
+  `tiktokData` {"title": <il gancio, al massimo 90 caratteri>, "privacyOption": "PUBLIC_TO_EVERYONE",
+  "autoAddMusic": false, "disableComment": false, "disableDuet": false, "disableStitch": false,
+  "isAigc": <come isAiGenerated del post>, "commercialContentOwnBrand": false, "commercialContentThirdParty": false}.
+  Per i caroselli aggiungi `"photoCoverIndex": 0` (la copertina con il volto di Andrea). La didascalia (`text`) resta
+  quella di Instagram. Niente musica di tendenza di terzi (vale anche su TikTok).
+- **YouTube Shorts (quando c'è `youtubeData`), solo per i reel**, nello stesso post: `{"network":"youtube"}` con
+  `youtubeData` {"type": "short", "title": <il gancio, al massimo 100 caratteri>, "privacy": "public", "madeForKids": false,
+  "category": "EDUCATION", "tags": <i 5 hashtag senza #>, "isAiGeneratedContent": <come isAiGenerated del post>}.
+- **Threads (quando c'è `threadsData`) → un post a parte, solo per «Dietro la notizia» delle 8:00**, programmato alle 8:05
+  con una seconda chiamata createScheduledPost: `providers` [{"network":"threads"}], `threadsData` {}, `media` = [la
+  copertina 01.png del giorno, con il volto di Andrea], `text` al massimo 450 caratteri: il gancio, due righe su come
+  funziona, il link alla pagina `https://thelobbyitalia.it/notizie/<data>-<slug>/` (su Threads i link si aprono), la riga
+  delle tre promesse («Formazione per giovani politici, le migliori opportunità internazionali e networking con altri
+  giovani di talento»). Al massimo un hashtag (#thelobby).
+- **LinkedIn (quando c'è `linkedinData`; deve essere la Pagina di THE LOBBY, mai il profilo personale di Andrea)**, nello
+  stesso post, solo per «Dietro la notizia», il carosello del lunedì, il ritratto e le opportunità del martedì:
+  `{"network":"linkedin"}` con `linkedinData` {"type": "post", "publishImagesAsPDF": true,
+  "documentTitle": <il titolo della copertina, al massimo 60 caratteri>, "previewIncluded": true}. Il testo resta lo
+  stesso. Se il brand mostra un profilo personale invece della pagina, non pubblicare su LinkedIn e scrivilo nel resoconto.
+- **Se Metricool rifiuta il post per colpa di una delle nuove reti** (formato, durata, permessi), rifallo subito senza
+  quella rete: il post su Instagram e Facebook non deve mai saltare. Scrivi nel resoconto quale rete ha dato errore e il
+  messaggio.
+- **Errori di limite del piano: non si recuperano** (decisione di Andrea del 26 ottobre 2026). I post andati in ERROR con
+  «You have reached your Metricool account limit» (il 25 e il 26 ottobre 2026, prima del piano Starter) non vanno mai
+  ripubblicati dal controllo dei giorni precedenti.
 - **Canale Telegram:** non passa da Metricool. Lo pubblica ogni mattina l'automazione «Canale Telegram» del repository
   dell'app (vedi `the-lobby-app/docs/TELEGRAM.md`); qui non serve fare niente.
 
