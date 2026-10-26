@@ -1,0 +1,13 @@
+{"kicker": "LEZIONE IN 8 SLIDE",
+ "title": "Stai per condividere una bufala? Scoprilo in 5 mosse",
+ "subtitle": "Il metodo per controllare una notizia prima di girarla",
+ "slides": [
+  {"tag": "MOSSA 1", "title": "Fermati", "text": "Un titolo che ti fa arrabbiare tantissimo è il primo campanello d'allarme. Esempio: «Vergogna, ecco cosa hanno deciso!». Prima di premere condividi, conta fino a dieci."},
+  {"tag": "MOSSA 2", "title": "Controlla la fonte", "text": "Chi la pubblica? Esiste davvero, ha una redazione e un direttore responsabile? Una pagina nata la settimana scorsa senza nomi né contatti non è un giornale."},
+  {"tag": "MOSSA 3", "title": "Leggi lateralmente", "text": "Non restare sulla pagina: apri altre schede e cerca cosa dicono altre fonti affidabili. Se una notizia enorme la riporta un solo sito, c'è qualcosa che non torna."},
+  {"tag": "MOSSA 4", "title": "Risali all'originale", "text": "Per una legge cerca il testo su Normattiva, per un dato l'ISTAT, per una dichiarazione il comunicato ufficiale o il video integrale. Il ritaglio di 10 secondi non basta."},
+  {"tag": "MOSSA 5", "title": "Data e contesto", "text": "Molte bufale sono notizie vere ma vecchie, o foto scattate altrove. La ricerca inversa per immagini ti dice dove e quando una foto è già comparsa. E diffida di audio scioccanti senza fonte."},
+  {"tag": "SE SBAGLI", "title": "Correggi in modo visibile", "text": "Capita a tutti. Se hai condiviso qualcosa di falso non cancellare in silenzio: scrivi che era sbagliato. Chi fa politica e ammette l'errore guadagna credibilità."}
+ ],
+ "cta": {"title": "Lezione completa gratis", "text": "Lezioni da 5 minuti, quiz e certificato nella web app"},
+ "source": "Fonte: EDMO, Osservatorio europeo dei media digitali"}
