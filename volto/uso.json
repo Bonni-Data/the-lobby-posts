@@ -34,5 +34,17 @@
    "CON ME?"
   ],
   "out": "posts/promo/2026-10-25/01.png"
+ },
+ {
+  "data": "2026-10-26",
+  "rubrica": "notizie",
+  "mode": "post",
+  "foto": "pensieroso-1",
+  "clip": null,
+  "words": [
+   "ACCISE",
+   "CHI DECIDE?"
+  ],
+  "out": "posts/notizie/2026-10-26/01.png"
  }
 ]
