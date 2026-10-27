@@ -106,5 +106,17 @@
    "OCCASIONI"
   ],
   "out": "posts/2026-10-27-faccia.png"
+ },
+ {
+  "data": "2026-10-27",
+  "rubrica": "premium",
+  "mode": "post",
+  "foto": "sorriso-4",
+  "clip": null,
+  "words": [
+   "LIVE",
+   "SU TEAMS"
+  ],
+  "out": "posts/promo/2026-10-27/01.png"
  }
 ]

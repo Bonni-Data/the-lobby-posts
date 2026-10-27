@@ -4,5 +4,11 @@
     "tipo": "annuncio",
     "titolo": "Cena della Lobby · novembre",
     "file": "posts/promo/2026-10-25/"
+  },
+  "2026-10-27": {
+    "event_id": "e1f924bc-e4e8-4175-a1c2-b6c75d148ace",
+    "tipo": "prenotazioni",
+    "titolo": "Candidarsi",
+    "file": "posts/promo/2026-10-27/"
   }
 }
