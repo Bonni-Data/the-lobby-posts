@@ -45,5 +45,28 @@
       "Midterm Usa del 3 novembre",
       "Rientro di María Corina Machado in Venezuela"
     ]
+  },
+  "2026-10-27": {
+    "notizia": "Manovra 2027 (circa 23,5 miliardi) non ancora approvata dal Cdm, attesa tra il 27 e il 28/10; saltato il termine del 20/10 per la presentazione alle Camere; trattativa con Bruxelles sulla flessibilità",
+    "meccanismo": "Ciclo di bilancio: DPFP a inizio ottobre, Documento programmatico di bilancio a Commissione ed Eurogruppo entro il 15/10 (L. 196/2009 art. 9 c. 1-bis), ddl di bilancio alle Camere entro il 20/10 (art. 7, come mod. L. 163/2016); il Cdm approva un disegno di legge, la legge la votano le Camere; approvazione entro il 31/12, altrimenti esercizio provvisorio per legge, max 4 mesi (art. 81 Cost.)",
+    "course": "conti-dello-stato",
+    "lesson": "La manovra, passo per passo",
+    "fonti": [
+      "https://ansa.it/sito/notizie/economia/2026/10/25/martedi-la-manovra-i-partiti-in-pressing-sulle-misure_f9716c32-4521-4899-ab7d-728795c8c122.html",
+      "https://www.ansa.it/sito/notizie/politica/2026/10/13/niente-manovra-in-consiglio-dei-ministri-si-ragiona-sul-taglio-dellirpef_31ea9120-89ce-42d0-b4fd-565adedd88ff.html",
+      "https://tg24.sky.it/economia/2026/10/15/manovra-2027-dpb-coperture-tagli",
+      "https://www.agi.it/economia/news/2026-10-23/manovra-governo-cdm-misure-per-giovani-ceto-medio-39665073/",
+      "https://www.milanofinanza.it/news/manovra-al-rush-finale-tra-pensioni-e-irpef-il-governo-tratta-con-bruxelles-ma-il-cdm-e-vicino-202610262059067770",
+      "https://www.ilgiornale.it/news/politica-economica/la-manovra-arriva-allultimo-miglio-partiti-in-pressing/",
+      "https://www.normattiva.it/eli/id/2016/08/25/16G00174/ORIGINAL"
+    ],
+    "scartate": [
+      "Elezioni in Israele oggi (tema elettorale già trattato il 25/10, guerra a Gaza: molto divisivo)",
+      "Violenza su una studentessa nella metro (violenza sessuale: escluso)",
+      "Comey incriminato per la terza volta negli Usa",
+      "Anthropic deposita i documenti per la quotazione in borsa",
+      "Machado tornata a Caracas",
+      "Serie A infrasettimanale"
+    ]
   }
 }
