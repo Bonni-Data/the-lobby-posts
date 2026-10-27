@@ -82,5 +82,29 @@
    "CHI DECIDE?"
   ],
   "out": "posts/notizie/2026-10-27/01.png"
+ },
+ {
+  "data": "2026-10-27",
+  "rubrica": "opportunita",
+  "mode": "post",
+  "foto": "indica-1",
+  "clip": null,
+  "words": [
+   "VIAGGIO",
+   "SPESATO"
+  ],
+  "out": "posts/2026-10-27-faccia.png"
+ },
+ {
+  "data": "2026-10-27",
+  "rubrica": "opportunita",
+  "mode": "post",
+  "foto": "voto-1",
+  "clip": null,
+  "words": [
+   "3",
+   "OCCASIONI"
+  ],
+  "out": "posts/2026-10-27-faccia.png"
  }
 ]
