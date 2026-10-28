@@ -1,0 +1,32 @@
+{
+ "kicker": "DIETRO LA NOTIZIA",
+ "title": "Israele ha votato. Ma chi governa?",
+ "subtitle": "Il Likud è primo partito, ma nessun blocco ha la maggioranza",
+ "slides": [
+  {
+   "tag": "COSA È SUCCESSO",
+   "title": "Il voto per la Knesset del 27 ottobre",
+   "text": "Il 27 ottobre Israele ha rinnovato la Knesset, il Parlamento da 120 seggi. Da exit poll e scrutinio parziale il Likud di Netanyahu è primo partito, ma nessuno dei due blocchi arriva a 61 seggi. I risultati ufficiali sono attesi il 4 novembre."
+  },
+  {
+   "tag": "IL MECCANISMO",
+   "title": "Un solo collegio, soglia al 3,25%",
+   "text": "Si vota una lista, non un candidato: tutto il Paese è un unico collegio. I 120 seggi si dividono in proporzione ai voti tra le liste che superano il 3,25%. Per governare servono almeno 61 deputati: quasi sempre una coalizione."
+  },
+  {
+   "tag": "IL PUNTO",
+   "title": "Primo partito non vuol dire governo",
+   "text": "Il presidente consulta i partiti eletti e dà l'incarico a chi ha più chance di formare un governo, di solito il leader del primo partito. Ha 28 giorni, più al massimo 14 di proroga. Se fallisce, l'incarico può passare a un altro deputato."
+  },
+  {
+   "tag": "LA LEZIONE",
+   "title": "Coalizioni: l'Italia le conosce bene",
+   "text": "Col proporzionale i voti non bastano: contano le alleanze dopo il voto. L'Italia lo ha vissuto per decenni. Te lo spieghiamo nella lezione «La Prima Repubblica: partiti di massa e governi di coalizione»."
+  }
+ ],
+ "cta": {
+  "title": "Capire batte commentare.",
+  "text": "Lezioni da 5 minuti per capire le notizie. Gratis."
+ },
+ "source": "Fonti: ANSA, DIRE, Sky TG24, LaPresse; Governo di Israele (FAQ elezioni)"
+}

@@ -118,5 +118,17 @@
    "SU TEAMS"
   ],
   "out": "posts/promo/2026-10-27/01.png"
+ },
+ {
+  "data": "2026-10-28",
+  "rubrica": "notizie",
+  "mode": "post",
+  "foto": "pensieroso-1",
+  "clip": null,
+  "words": [
+   "ISRAELE",
+   "E ORA?"
+  ],
+  "out": "posts/notizie/2026-10-28/01.png"
  }
 ]

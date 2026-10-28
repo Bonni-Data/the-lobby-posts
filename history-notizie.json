@@ -1,72 +1,93 @@
 {
-  "2026-10-25": {
-    "notizia": "Ballottaggio presidenziale in Brasile tra Lula e Flávio Bolsonaro (25/10); primo turno 4/10: 47,03% a 45,16%",
-    "meccanismo": "Doppio turno: maggioranza assoluta dei voti validi al primo turno, altrimenti ballottaggio tra i due più votati; bianche e nulle non contano (TSE Ris. 23.748/2026, artt. 5-6); voto da 16 anni",
-    "course": "rappresentante-di-lista",
-    "lesson": "Lo scrutinio, voto per voto",
-    "fonti": [
-      "https://www.ilfattoquotidiano.it/2026/10/05/elezioni-brasile-bolsonaro-lula-ballottaggio-notizie/8527504/",
-      "https://www.vaticannews.va/it/mondo/news/2026-10/brasile-elezioni-lula-bolsonaro-america-politica.html",
-      "https://www.ansa.it/sito/notizie/topnews/2026/10/05/media-lula-e-bolsonaro-andranno-al-ballottaggio-il-25-ottobre_6a5e1939-6d1a-4bb4-9b32-7ce88753b128.html",
-      "https://tg24.sky.it/mondo/2026/10/23/brasile-lula-bolsonaro-sondaggi",
-      "https://it.euronews.com/2026/10/05/elezioni-presidenziali-in-brasile-bolsonaro-e-lula-senza-maggioranza-si-va-al-ballottaggio",
-      "https://www.tse.jus.br/eleicoes/eleicoes-2026-content/normas-e-documentacoes/arquivos-2026/resolucao-e-voto-sistemas"
-    ],
-    "scartate": [
-      "Cortei del Movimento 17 ottobre e 500 militari a Milano (molti minorenni coinvolti, indagini in corso: escluso)",
-      "Decreto sicurezza dl 190/2026 (del 22/10, legato a criminalità minorile)",
-      "Congresso federale straordinario della Lega a Milano (tema di partito)",
-      "Riunione del «Correntone» Pd a Montepulciano (tema di partito)",
-      "Elezioni anticipate in Serbia e presidenziali in Bulgaria"
-    ]
-  },
-  "2026-10-26": {
-    "notizia": "Caro carburanti: presidio dei tassisti al Mit (26/10, 10-13), autotrasportatori al Mit il 27/10; gasolio self medio 2,261 €/l (Mimit, 25/10)",
-    "meccanismo": "Accisa fissa per litro + Iva 22% calcolata anche sull'accisa (Dir. 2006/112/CE art. 78); accisa mobile (L. 244/2007 art. 1 c. 290-291, mod. DL 5/2023): taglio compensato dal maggior gettito Iva se il prezzo medio del bimestre supera il riferimento del DEF, con decreto MEF-MASE; il 6/10 non è scattata",
-    "course": "fisco-senza-paura",
-    "lesson": "Le tasse che paghi davvero",
-    "fonti": [
-      "https://www.ansa.it/sito/notizie/economia/2026/10/23/taxi-siamo-tanti-manifestazione-del-26-si-sposta-di-fronte-al-mit_774dc0ee-f604-4462-afb6-78da181501a8.html",
-      "https://ansa.it/sito/notizie/cronaca/2026/10/23/rimossi-i-blocchi-dei-tir-scendono-in-piazza-i-taxi_fd94eea8-5def-4c2c-a53e-ef58e99b697f.html",
-      "https://www.corrierenazionale.net/2026/10/26/tir-trattori-taxi-sciopero-roma-mit/",
-      "https://www.agenzianova.com/news/carburanti-prezzo-medio-self-benzina-a-2019-euro-al-litro-gasolio-a-2261/",
-      "https://www.agenziagiornalisticaopinione.it/opinionews/mimit-carburanti-domenica-25-ottobre-2026-prezzo-medio-self-benzina-a-2019-e-l-gasolio-a-2261-e-l/",
-      "https://tg24.sky.it/economia/2026/10/06/accise-mobili-carburanti-prezzo-diesel-benzina",
-      "https://ansa.it/canale_motori/notizie/istituzioni/2026/10/06/da-oggi-accise-sul-gasolio-piu-alte-nessun-decreto-in-gazzetta_5d0b1426-cd66-4a50-9d69-8e04bbe77190.html",
-      "https://temi.camera.it/leg19/provvedimento/d-l-5-2023-decreto-in-materia-di-carburanti-sorveglianza-sui-prezzi-e-trasporto-pubblico.html",
-      "https://www.assocostieri.it/wp-content/uploads/2026/08/DM-accise.pdf",
-      "https://legislation.gov.uk/eudr/2006/112/article/78?view=plain"
-    ],
-    "scartate": [
-      "Lula rieletto in Brasile al ballottaggio (tema di ieri)",
-      "Manovra 2027 in Cdm martedì (coperture ancora aperte)",
-      "Proteste del Movimento 17 ottobre e «baby guerriglieri» (minori coinvolti: escluso)",
-      "Tensioni nella maggioranza sul conto della Lega (tema di partito)",
-      "Midterm Usa del 3 novembre",
-      "Rientro di María Corina Machado in Venezuela"
-    ]
-  },
-  "2026-10-27": {
-    "notizia": "Manovra 2027 (circa 23,5 miliardi) non ancora approvata dal Cdm, attesa tra il 27 e il 28/10; saltato il termine del 20/10 per la presentazione alle Camere; trattativa con Bruxelles sulla flessibilità",
-    "meccanismo": "Ciclo di bilancio: DPFP a inizio ottobre, Documento programmatico di bilancio a Commissione ed Eurogruppo entro il 15/10 (L. 196/2009 art. 9 c. 1-bis), ddl di bilancio alle Camere entro il 20/10 (art. 7, come mod. L. 163/2016); il Cdm approva un disegno di legge, la legge la votano le Camere; approvazione entro il 31/12, altrimenti esercizio provvisorio per legge, max 4 mesi (art. 81 Cost.)",
-    "course": "conti-dello-stato",
-    "lesson": "La manovra, passo per passo",
-    "fonti": [
-      "https://ansa.it/sito/notizie/economia/2026/10/25/martedi-la-manovra-i-partiti-in-pressing-sulle-misure_f9716c32-4521-4899-ab7d-728795c8c122.html",
-      "https://www.ansa.it/sito/notizie/politica/2026/10/13/niente-manovra-in-consiglio-dei-ministri-si-ragiona-sul-taglio-dellirpef_31ea9120-89ce-42d0-b4fd-565adedd88ff.html",
-      "https://tg24.sky.it/economia/2026/10/15/manovra-2027-dpb-coperture-tagli",
-      "https://www.agi.it/economia/news/2026-10-23/manovra-governo-cdm-misure-per-giovani-ceto-medio-39665073/",
-      "https://www.milanofinanza.it/news/manovra-al-rush-finale-tra-pensioni-e-irpef-il-governo-tratta-con-bruxelles-ma-il-cdm-e-vicino-202610262059067770",
-      "https://www.ilgiornale.it/news/politica-economica/la-manovra-arriva-allultimo-miglio-partiti-in-pressing/",
-      "https://www.normattiva.it/eli/id/2016/08/25/16G00174/ORIGINAL"
-    ],
-    "scartate": [
-      "Elezioni in Israele oggi (tema elettorale già trattato il 25/10, guerra a Gaza: molto divisivo)",
-      "Violenza su una studentessa nella metro (violenza sessuale: escluso)",
-      "Comey incriminato per la terza volta negli Usa",
-      "Anthropic deposita i documenti per la quotazione in borsa",
-      "Machado tornata a Caracas",
-      "Serie A infrasettimanale"
-    ]
-  }
+ "2026-10-25": {
+  "notizia": "Ballottaggio presidenziale in Brasile tra Lula e Flávio Bolsonaro (25/10); primo turno 4/10: 47,03% a 45,16%",
+  "meccanismo": "Doppio turno: maggioranza assoluta dei voti validi al primo turno, altrimenti ballottaggio tra i due più votati; bianche e nulle non contano (TSE Ris. 23.748/2026, artt. 5-6); voto da 16 anni",
+  "course": "rappresentante-di-lista",
+  "lesson": "Lo scrutinio, voto per voto",
+  "fonti": [
+   "https://www.ilfattoquotidiano.it/2026/10/05/elezioni-brasile-bolsonaro-lula-ballottaggio-notizie/8527504/",
+   "https://www.vaticannews.va/it/mondo/news/2026-10/brasile-elezioni-lula-bolsonaro-america-politica.html",
+   "https://www.ansa.it/sito/notizie/topnews/2026/10/05/media-lula-e-bolsonaro-andranno-al-ballottaggio-il-25-ottobre_6a5e1939-6d1a-4bb4-9b32-7ce88753b128.html",
+   "https://tg24.sky.it/mondo/2026/10/23/brasile-lula-bolsonaro-sondaggi",
+   "https://it.euronews.com/2026/10/05/elezioni-presidenziali-in-brasile-bolsonaro-e-lula-senza-maggioranza-si-va-al-ballottaggio",
+   "https://www.tse.jus.br/eleicoes/eleicoes-2026-content/normas-e-documentacoes/arquivos-2026/resolucao-e-voto-sistemas"
+  ],
+  "scartate": [
+   "Cortei del Movimento 17 ottobre e 500 militari a Milano (molti minorenni coinvolti, indagini in corso: escluso)",
+   "Decreto sicurezza dl 190/2026 (del 22/10, legato a criminalità minorile)",
+   "Congresso federale straordinario della Lega a Milano (tema di partito)",
+   "Riunione del «Correntone» Pd a Montepulciano (tema di partito)",
+   "Elezioni anticipate in Serbia e presidenziali in Bulgaria"
+  ]
+ },
+ "2026-10-26": {
+  "notizia": "Caro carburanti: presidio dei tassisti al Mit (26/10, 10-13), autotrasportatori al Mit il 27/10; gasolio self medio 2,261 €/l (Mimit, 25/10)",
+  "meccanismo": "Accisa fissa per litro + Iva 22% calcolata anche sull'accisa (Dir. 2006/112/CE art. 78); accisa mobile (L. 244/2007 art. 1 c. 290-291, mod. DL 5/2023): taglio compensato dal maggior gettito Iva se il prezzo medio del bimestre supera il riferimento del DEF, con decreto MEF-MASE; il 6/10 non è scattata",
+  "course": "fisco-senza-paura",
+  "lesson": "Le tasse che paghi davvero",
+  "fonti": [
+   "https://www.ansa.it/sito/notizie/economia/2026/10/23/taxi-siamo-tanti-manifestazione-del-26-si-sposta-di-fronte-al-mit_774dc0ee-f604-4462-afb6-78da181501a8.html",
+   "https://ansa.it/sito/notizie/cronaca/2026/10/23/rimossi-i-blocchi-dei-tir-scendono-in-piazza-i-taxi_fd94eea8-5def-4c2c-a53e-ef58e99b697f.html",
+   "https://www.corrierenazionale.net/2026/10/26/tir-trattori-taxi-sciopero-roma-mit/",
+   "https://www.agenzianova.com/news/carburanti-prezzo-medio-self-benzina-a-2019-euro-al-litro-gasolio-a-2261/",
+   "https://www.agenziagiornalisticaopinione.it/opinionews/mimit-carburanti-domenica-25-ottobre-2026-prezzo-medio-self-benzina-a-2019-e-l-gasolio-a-2261-e-l/",
+   "https://tg24.sky.it/economia/2026/10/06/accise-mobili-carburanti-prezzo-diesel-benzina",
+   "https://ansa.it/canale_motori/notizie/istituzioni/2026/10/06/da-oggi-accise-sul-gasolio-piu-alte-nessun-decreto-in-gazzetta_5d0b1426-cd66-4a50-9d69-8e04bbe77190.html",
+   "https://temi.camera.it/leg19/provvedimento/d-l-5-2023-decreto-in-materia-di-carburanti-sorveglianza-sui-prezzi-e-trasporto-pubblico.html",
+   "https://www.assocostieri.it/wp-content/uploads/2026/08/DM-accise.pdf",
+   "https://legislation.gov.uk/eudr/2006/112/article/78?view=plain"
+  ],
+  "scartate": [
+   "Lula rieletto in Brasile al ballottaggio (tema di ieri)",
+   "Manovra 2027 in Cdm martedì (coperture ancora aperte)",
+   "Proteste del Movimento 17 ottobre e «baby guerriglieri» (minori coinvolti: escluso)",
+   "Tensioni nella maggioranza sul conto della Lega (tema di partito)",
+   "Midterm Usa del 3 novembre",
+   "Rientro di María Corina Machado in Venezuela"
+  ]
+ },
+ "2026-10-27": {
+  "notizia": "Manovra 2027 (circa 23,5 miliardi) non ancora approvata dal Cdm, attesa tra il 27 e il 28/10; saltato il termine del 20/10 per la presentazione alle Camere; trattativa con Bruxelles sulla flessibilità",
+  "meccanismo": "Ciclo di bilancio: DPFP a inizio ottobre, Documento programmatico di bilancio a Commissione ed Eurogruppo entro il 15/10 (L. 196/2009 art. 9 c. 1-bis), ddl di bilancio alle Camere entro il 20/10 (art. 7, come mod. L. 163/2016); il Cdm approva un disegno di legge, la legge la votano le Camere; approvazione entro il 31/12, altrimenti esercizio provvisorio per legge, max 4 mesi (art. 81 Cost.)",
+  "course": "conti-dello-stato",
+  "lesson": "La manovra, passo per passo",
+  "fonti": [
+   "https://ansa.it/sito/notizie/economia/2026/10/25/martedi-la-manovra-i-partiti-in-pressing-sulle-misure_f9716c32-4521-4899-ab7d-728795c8c122.html",
+   "https://www.ansa.it/sito/notizie/politica/2026/10/13/niente-manovra-in-consiglio-dei-ministri-si-ragiona-sul-taglio-dellirpef_31ea9120-89ce-42d0-b4fd-565adedd88ff.html",
+   "https://tg24.sky.it/economia/2026/10/15/manovra-2027-dpb-coperture-tagli",
+   "https://www.agi.it/economia/news/2026-10-23/manovra-governo-cdm-misure-per-giovani-ceto-medio-39665073/",
+   "https://www.milanofinanza.it/news/manovra-al-rush-finale-tra-pensioni-e-irpef-il-governo-tratta-con-bruxelles-ma-il-cdm-e-vicino-202610262059067770",
+   "https://www.ilgiornale.it/news/politica-economica/la-manovra-arriva-allultimo-miglio-partiti-in-pressing/",
+   "https://www.normattiva.it/eli/id/2016/08/25/16G00174/ORIGINAL"
+  ],
+  "scartate": [
+   "Elezioni in Israele oggi (tema elettorale già trattato il 25/10, guerra a Gaza: molto divisivo)",
+   "Violenza su una studentessa nella metro (violenza sessuale: escluso)",
+   "Comey incriminato per la terza volta negli Usa",
+   "Anthropic deposita i documenti per la quotazione in borsa",
+   "Machado tornata a Caracas",
+   "Serie A infrasettimanale"
+  ]
+ },
+ "2026-10-28": {
+  "notizia": "Elezioni per la 26a Knesset in Israele (27/10): da exit poll e scrutinio parziale (ANSA, 3.024 seggi su oltre 12.000) Likud primo partito col 23,36%, nessun blocco a 61 seggi; risultati ufficiali attesi il 4/11",
+  "meccanismo": "Proporzionale con collegio unico nazionale, 120 seggi, soglia 3,25%; il presidente consulta i partiti e dà l'incarico (28 giorni + max 14 di proroga), poi può passarlo a un altro deputato; il governo serve la fiducia della Knesset (61)",
+  "course": "storia-politica-italia",
+  "lesson": "La Prima Repubblica: partiti di massa e governi di coalizione",
+  "fonti": [
+   "https://www.ansa.it/sito/notizie/topnews/2026/10/28/israele-ad-un-quarto-dei-seggi-scrutinati-likud-in-testa-con-il-2336_7deb335d-addd-4b29-b6c3-516b4cc75f31.html",
+   "https://www.dire.it/27-10-2026/1281503-elezioni-in-israele-primi-exit-poll-opposizione-in-testa-likud-primo-partito/",
+   "https://tg24.sky.it/mondo/2026/10/27/elezioni-israele-2026-news-diretta",
+   "https://www.lapresse.it/esteri/2026/10/27/elezioni-israele-2026-sfida-eisenkot-netanyahu-urne-aperte-fino-alle-22-la-diretta-27-ottobre/",
+   "https://embassies.gov.il/wellington/NewsAndEvents/Pages/Israeli-Elections-FAQ.aspx"
+  ],
+  "scartate": [
+   "Manovra 2027 in Cdm (tema di ieri)",
+   "Scioperi trasporti 28/10 (solo locali: Napoli AIR, Trenitalia Emilia-Romagna)",
+   "Tifoso aggredito, 8 arresti (cronaca violenta)",
+   "Pallone d'Oro a Kane (poco meccanismo)",
+   "Oxford Street pedonale",
+   "Agenti IA nei conti bancari Usa"
+  ]
+ }
 }
