@@ -130,5 +130,17 @@
    "E ORA?"
   ],
   "out": "posts/notizie/2026-10-28/01.png"
+ },
+ {
+  "data": "2026-10-28",
+  "rubrica": "lo-sapevi",
+  "mode": "reel",
+  "foto": "indica-1",
+  "clip": "spiega-1",
+  "words": [
+   "50.000",
+   "FIRME"
+  ],
+  "out": "reels/2026-10-28-faccia.mp4"
  }
 ]
