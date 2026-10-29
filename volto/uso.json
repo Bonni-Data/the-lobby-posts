@@ -154,5 +154,16 @@
    "RINVIATO?"
   ],
   "out": "posts/notizie/2026-10-29/01.png"
+ },
+ {
+  "data": "2026-10-29",
+  "rubrica": "pillole",
+  "mode": "post",
+  "foto": "sorriso-2",
+  "clip": null,
+  "words": [
+   "DUE VOTI"
+  ],
+  "out": "posts/pillola-2026-10-29-faccia.png"
  }
 ]
