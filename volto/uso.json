@@ -142,5 +142,17 @@
    "FIRME"
   ],
   "out": "reels/2026-10-28-faccia.mp4"
+ },
+ {
+  "data": "2026-10-29",
+  "rubrica": "notizie",
+  "mode": "post",
+  "foto": "mani-aperte-1",
+  "clip": null,
+  "words": [
+   "SCIOPERO",
+   "RINVIATO?"
+  ],
+  "out": "posts/notizie/2026-10-29/01.png"
  }
 ]

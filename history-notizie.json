@@ -89,5 +89,24 @@
    "Oxford Street pedonale",
    "Agenti IA nei conti bancari Usa"
   ]
+ },
+ "2026-10-29": {
+  "notizia": "Il Mit ha firmato l'ordinanza di precettazione che chiede di differire ad altra data lo sciopero generale Usb di 24 ore del 30/10 nei trasporti (aereo, taxi, Tpl, ferroviario, marittimo, appalti ferroviari), per la franchigia legata alla commemorazione dei defunti, recependo i rilievi della Commissione di garanzia; l'Usb conferma lo sciopero",
+  "meccanismo": "Art. 40 Cost.; L. 146/1990: preavviso minimo 10 giorni e prestazioni indispensabili (art. 2), franchigie nelle regole di settore; precettazione (art. 8): Presidente del Consiglio o ministro delegato (prefetto se locale), su segnalazione della Commissione di garanzia o d'urgenza, può differire, unificare, ridurre o imporre livelli minimi, almeno 48 ore prima; sanzioni (art. 9): 500-1.000 euro al giorno per i lavoratori, 2.500-50.000 per le organizzazioni",
+  "course": "lavoro-che-cambia",
+  "lesson": "Sicurezza, smart working e diritti",
+  "fonti": [
+   "https://www.ansa.it/sito/notizie/economia/2026/10/27/mit-precetta-sciopero-trasporti-del-30.-usb-lo-confermiamo_52da6537-118e-493c-810c-43b7d7f1b17b.html",
+   "https://www.dire.it/28-10-2026/1282048-stop-allo-sciopero-del-30-ottobre-treni-e-bus-tornano-regolari-dopo-la-precettazione-del-mit/",
+   "https://www.affaritaliani.it/politica/sciopero-dei-trasporti-di-venerdi-30-ottobre-salvini-precetta-e-lusb-risponde-cosi-disobbediamo.html",
+   "https://www.normattiva.it/eli/id/1990/06/14/0090G190/CONSOLIDATED/20180802"
+  ],
+  "scartate": [
+   "Manovra 2027 approvata dal Cdm (26 mld, Irpef, affitti, dote neonati): tema già trattato il 27/10",
+   "Midterm Usa a una settimana dal voto",
+   "Flávio Bolsonaro negli Usa dopo la sconfitta in Brasile (tema 25/10)",
+   "Fed: tassi invariati",
+   "Scontri ai cortei e allerta del Viminale per venerdì (cronaca, fatti in evoluzione)"
+  ]
  }
 }
