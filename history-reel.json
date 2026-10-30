@@ -65,5 +65,16 @@
     "faccia": true,
     "cinema": false,
     "note": "crediti OpenArt 40: reel grafico"
+  },
+  "2026-10-30": {
+    "format": "quiz",
+    "topic": "Giunta comunale: gli assessori li nomina (e può revocarli) il sindaco, art. 46 TUEL",
+    "course": "comune-senza-segreti",
+    "lesson": "Chi fa cosa: sindaco, giunta e consiglio",
+    "question_id": "1d09da3e-c49a-4676-9197-e0cfd3107763",
+    "file": "reels/2026-10-30-faccia.mp4",
+    "faccia": true,
+    "cinema": false,
+    "note": "crediti OpenArt 40: reel grafico"
   }
 }

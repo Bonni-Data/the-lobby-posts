@@ -177,5 +177,17 @@
    "CHI DECIDE?"
   ],
   "out": "posts/notizie/2026-10-30/01.png"
+ },
+ {
+  "data": "2026-10-30",
+  "rubrica": "quiz",
+  "mode": "reel",
+  "foto": "sicuro-1",
+  "clip": "spiega-1",
+  "words": [
+   "CHI",
+   "SCEGLIE?"
+  ],
+  "out": "reels/2026-10-30-faccia.mp4"
  }
 ]
