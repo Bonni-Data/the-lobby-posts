@@ -165,5 +165,17 @@
    "DUE VOTI"
   ],
   "out": "posts/pillola-2026-10-29-faccia.png"
+ },
+ {
+  "data": "2026-10-30",
+  "rubrica": "notizie",
+  "mode": "post",
+  "foto": "pensieroso-1",
+  "clip": null,
+  "words": [
+   "MISSIONI",
+   "CHI DECIDE?"
+  ],
+  "out": "posts/notizie/2026-10-30/01.png"
  }
 ]

@@ -108,5 +108,28 @@
    "Fed: tassi invariati",
    "Scontri ai cortei e allerta del Viminale per venerdì (cronaca, fatti in evoluzione)"
   ]
+ },
+ "2026-10-30": {
+  "notizia": "Elicottero CH-47 dell'Esercito precipitato il 29/10 vicino a Brčko (Bosnia) durante un volo di addestramento della missione UE EUFOR Althea: 4 morti (2 militari dell'Esercito, 2 del Corpo militare volontario CRI), 11 feriti non in pericolo di vita; cause da accertare",
+  "meccanismo": "L. 145/2016: il Consiglio dei ministri delibera la partecipazione previa comunicazione al Presidente della Repubblica (area, obiettivi, base giuridica, personale massimo, durata, fabbisogno); le Camere autorizzano o negano con atti di indirizzo (art. 2); ogni anno relazione analitica del Governo e proroga autorizzata dalle Camere missione per missione (art. 3). EUFOR Althea avviata dall'UE il 2/12/2004 (SEAE)",
+  "course": "europa-futuro",
+  "lesson": "Difesa e sicurezza",
+  "fonti": [
+   "https://www.tgcom24.mediaset.it/mondo/elicottero-italiano-di-eufor-althea-precipita-in-bosnia_118308479-202602k.shtml",
+   "https://www.fanpage.it/esteri/chi-sono-i-quattro-militari-italiani-morti-nellincidente-in-bosnia-il-loro-elicottero-era-partito-da-viterbo/",
+   "https://www.ilfattoquotidiano.it/2026/10/29/elicottero-militare-italiano-precipitato-bosnia-notizie/8554703/",
+   "https://www.ansa.it/sito/notizie/topnews/index.shtml",
+   "https://documenti.camera.it/leg19/dossier/pdf/DI0089a.pdf",
+   "https://documenti.camera.it/leg17/dossier/pdf/DI0571.pdf",
+   "https://www.eeas.europa.eu/node/89321"
+  ],
+  "scartate": [
+   "Sciopero generale Usb del 30/10 e cortei (tema di ieri)",
+   "Israele, risultati definitivi del voto (tema 28/10)",
+   "Cinque attivisti italiani fermati in Cisgiordania (fatti in evoluzione)",
+   "BCE e spread a 114 punti",
+   "Delfin e l'eredità Del Vecchio",
+   "Morte di Patrick Stewart"
+  ]
  }
 }
