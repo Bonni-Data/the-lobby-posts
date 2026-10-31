@@ -1,0 +1,32 @@
+{
+ "kicker": "DIETRO LA NOTIZIA",
+ "title": "Prezzi su del 5,4%. Chi lo misura, chi lo frena?",
+ "subtitle": "Inflazione: come si calcola e chi può davvero fermarla",
+ "slides": [
+  {
+   "tag": "COSA È SUCCESSO",
+   "title": "Inflazione al 5,4% a ottobre",
+   "text": "Secondo le stime preliminari dell'Istat del 30 ottobre, a ottobre i prezzi sono saliti del 5,4% in un anno (a settembre +4,2%). A spingere sono i beni energetici: +31,4%. E nel terzo trimestre il Pil è rimasto fermo."
+  },
+  {
+   "tag": "IL MECCANISMO",
+   "title": "Come si misura l'inflazione",
+   "text": "L'Istat segue i prezzi di un «paniere» di 531 voci di spesa, aggiornato ogni anno: milioni di prezzi al mese da supermercati, 80 Comuni, carburanti e affitti. Il 5,4% è quanto costa in più quel paniere in un anno."
+  },
+  {
+   "tag": "IL PUNTO",
+   "title": "I tassi non li decide il governo",
+   "text": "Contro l'inflazione la leva principale sono i tassi d'interesse. Li decide la BCE, con il suo Consiglio direttivo, non Palazzo Chigi. L'obiettivo è il 2% a medio termine, misurato su tutta l'area euro: non sull'Italia da sola."
+  },
+  {
+   "tag": "LA LEZIONE",
+   "title": "Leggere i numeri, non subirli",
+   "text": "Prezzi su del 5,4% vuol dire che, se il tuo stipendio resta uguale, con gli stessi soldi compri meno. Sapere chi misura e chi decide ti fa capire le scelte. Lezione «Prezzi e potere d'acquisto» su THE LOBBY."
+  }
+ ],
+ "cta": {
+  "title": "Capire batte commentare.",
+  "text": "Lezioni da 5 minuti per capire le notizie. Gratis."
+ },
+ "source": "Fonti: Istat (30/10/2026; paniere 2026), ANSA, MF-Milano Finanza; BCE, strategia di politica monetaria"
+}

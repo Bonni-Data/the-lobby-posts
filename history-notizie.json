@@ -131,5 +131,26 @@
    "Delfin e l'eredità Del Vecchio",
    "Morte di Patrick Stewart"
   ]
+ },
+ "2026-10-31": {
+  "notizia": "Istat, stima preliminare del 30/10: inflazione a ottobre +5,4% su base annua (settembre +4,2%), beni energetici +31,4%; Pil del terzo trimestre fermo (0,0% congiunturale, +0,8% tendenziale)",
+  "meccanismo": "Misura dell'inflazione: paniere Istat 2026 (531 aggregati di prodotto NIC/FOI, 537 IPCA; scanner data GDO, 80 comuni, carburanti MIMIT, affitti), aggiornato ogni anno; politica monetaria: la BCE (Consiglio direttivo) persegue un'inflazione del 2% a medio termine, misurata con lo IAPC dell'area euro; strumento principale i tassi di riferimento",
+  "course": "italia-in-numeri",
+  "lesson": "Prezzi e potere d'acquisto",
+  "fonti": [
+   "https://www.ansa.it/sito/notizie/economia/2026/10/30/il-caro-energia-fa-danni-vola-linflazione-e-la-crescita-si-ferma_6ea6c523-9671-4e3d-b1df-e2cfbfa1e6fd.html",
+   "https://www.milanofinanza.it/news/istat-si-ferma-la-crescita-economica-e-l-inflazione-vola-a-5-4-202610301233246409",
+   "https://www.istat.it/wp-content/uploads/2026/02/NOTA_INFORMATIVA_PANIERE_2026.pdf",
+   "https://www.ecb.europa.eu/mopo/strategy/strategy-review/ecb.strategyreview202506_strategy_statement.it.html"
+  ],
+  "scartate": [
+   "Mattarella autorizza la legge di bilancio (tema manovra del 27/10)",
+   "Sciopero generale e cortei del 30/10 (tema del 29/10)",
+   "Elicottero in Bosnia (tema di ieri)",
+   "Polonia, sospeso il presidente della Corte costituzionale (fatti ancora poco chiari)",
+   "Caso Siher, attacchi sessisti a giudice e pm (cronaca delicata)",
+   "Derby Milan-Inter stasera (nessun meccanismo forte)",
+   "Morte di Patrick Stewart (nessun meccanismo)"
+  ]
  }
 }
