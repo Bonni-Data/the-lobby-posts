@@ -201,5 +201,17 @@
    "CHI DECIDE?"
   ],
   "out": "posts/notizie/2026-10-31/01.png"
+ },
+ {
+  "data": "2026-10-31",
+  "rubrica": "presentazione",
+  "mode": "post",
+  "foto": "mani-aperte-1",
+  "clip": null,
+  "words": [
+   "OGNI",
+   "MESE"
+  ],
+  "out": "posts/sabato-2026-10-31-faccia.png"
  }
 ]
