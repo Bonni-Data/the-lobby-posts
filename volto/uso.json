@@ -225,5 +225,17 @@
    "CHI DECIDE?"
   ],
   "out": "posts/notizie/2026-11-01/01.png"
+ },
+ {
+  "data": "2026-11-01",
+  "rubrica": "attualita",
+  "mode": "reel",
+  "foto": "voto-1",
+  "clip": "spiega-1",
+  "words": [
+   "LEGGE",
+   "ELETTORALE"
+  ],
+  "out": "reels/2026-11-01-faccia.mp4"
  }
 ]

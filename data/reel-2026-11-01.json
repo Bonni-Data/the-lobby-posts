@@ -1,0 +1,13 @@
+{
+  "format": "news",
+  "kicker": "ATTUALITÀ IN 30 SECONDI",
+  "hook": "Nuova legge elettorale: cosa cambia davvero?",
+  "points": [
+    {"title": "Cos'è", "text": "È la legge 180/2026, in vigore dal 24 ottobre. Sostituisce il Rosatellum dalle prossime elezioni politiche."},
+    {"title": "Cosa cambia", "text": "Tutto proporzionale, niente collegi uninominali. Chi arriva al 42% in entrambe le Camere prende un premio di seggi."},
+    {"title": "Cosa vuol dire per te", "text": "Croce sul simbolo e fino a 3 preferenze, alternando i generi. E chi studia fuori sede potrà votare dove vive."},
+    {"title": "Chi è a favore, chi è contro", "text": "Per il governo porta governi stabili. Per le opposizioni può dare la maggioranza dei seggi a chi ha meno della metà dei voti."}
+  ],
+  "payoff": "Soglie: 3% per le liste, 10% per le coalizioni. Niente ballottaggio.",
+  "cta": "Il corso è gratis e si aggiorna ogni mese"
+}
