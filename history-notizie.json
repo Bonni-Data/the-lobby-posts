@@ -152,5 +152,28 @@
    "Derby Milan-Inter stasera (nessun meccanismo forte)",
    "Morte di Patrick Stewart (nessun meccanismo)"
   ]
+ },
+ "2026-11-01": {
+  "notizia": "Elezioni di metà mandato negli Stati Uniti martedì 3/11/2026: in palio i 435 seggi della Camera e 35 dei 100 del Senato (33 Classe 2 + 2 suppletive); oggi maggioranza repubblicana in entrambe le Camere",
+  "meccanismo": "Camera rinnovata tutta ogni 2 anni; senatori 6 anni, un terzo ogni 2 anni (Cost. Usa art. I sez. 3); nuovo Congresso dal 3 gennaio degli anni dispari; leggi approvate da entrambe le Camere, veto presidenziale superabile con i 2/3 di ciascuna; Senato conferma nomine e ratifica trattati (2/3), Camera avvia leggi fiscali e impeachment",
+  "course": "chi-decide-cosa",
+  "lesson": "La mappa dei poteri",
+  "fonti": [
+   "https://lab24.ilsole24ore.com/midterm-usa-2026/",
+   "https://www.tgcom24.mediaset.it/elezioni-estero/usa-midterm-2026/usa-elezioni-di-midterm-cosa-sono-quando-si-vota_117250500-202602k.shtml",
+   "https://www.money.it/elezioni-midterm-usa-2026-cosa-sapere-in-10-punti",
+   "https://www.senate.gov/about/origins-foundations/senate-and-constitution/senate-classes.htm",
+   "https://www.house.gov/the-house-explained/history-of-the-house",
+   "https://trumpwhitehouse.archives.gov/about-the-white-house/the-legislative-branch"
+  ],
+  "scartate": [
+   "Polonia: scontro presidente-governo sui giudici del Tribunale costituzionale, la Commissione Ue chiede di convalidare le nomine (in evoluzione, fonti discordanti sul numero dei giudici: 5 o 8)",
+   "Trump sull'Iran: 'non abbiamo fretta' (guerra, fatti incerti)",
+   "Fbi: Corea del Nord dietro l'attacco hacker a Binance",
+   "Maltempo e allerte del 1/11 (ciclone)",
+   "Repubblica Centrafricana: sventato tentativo di presa del potere",
+   "Texas: 7,5 milioni di voti anticipati (una sola fonte, non usato nel carosello)",
+   "Accoltellamento in una stazione nel Frusinate (cronaca nera, escluso)"
+  ]
  }
 }
