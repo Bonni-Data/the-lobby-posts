@@ -249,5 +249,17 @@
    "COME?"
   ],
   "out": "posts/notizie/2026-11-02/01.png"
+ },
+ {
+  "data": "2026-11-02",
+  "rubrica": "lezioni",
+  "mode": "post",
+  "foto": "sicuro-1",
+  "clip": null,
+  "words": [
+   "DECRETI",
+   "E FIDUCIA"
+  ],
+  "out": "posts/caroselli/2026-11-02/01.png"
  }
 ]

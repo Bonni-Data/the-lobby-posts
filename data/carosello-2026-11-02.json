@@ -1,0 +1,13 @@
+{"kicker": "LEZIONE IN 8 SLIDE",
+ "title": "Il Governo fa le leggi? Le 3 scorciatoie che usa",
+ "subtitle": "Decreto-legge, decreto legislativo e fiducia, spiegati chiari",
+ "slides": [
+  {"tag": "IL PUNTO DI PARTENZA", "title": "La strada normale è lenta", "text": "Le leggi le fa il Parlamento: commissioni, aula, due Camere. Per questo la Costituzione prevede strumenti più rapidi, nati come eccezione e diventati, nei fatti, molto frequenti."},
+  {"tag": "SCORCIATOIA 1 · ART. 77", "title": "Decreto-legge: vale subito", "text": "In casi straordinari di necessità e urgenza il Governo adotta un decreto-legge: vale subito, appena pubblicato. Ma è provvisorio: le Camere devono convertirlo in legge entro 60 giorni."},
+  {"tag": "OCCHIO AI 60 GIORNI", "title": "Se non è convertito, sparisce", "text": "Se il Parlamento non lo converte in tempo, il decreto perde efficacia fin dall'inizio, come se non fosse mai esistito. E la Corte costituzionale chiede urgenza vera e contenuto omogeneo."},
+  {"tag": "SCORCIATOIA 2 · ART. 76", "title": "Decreto legislativo: su delega", "text": "Il Parlamento approva una legge delega con principi, criteri, oggetto e tempi; poi il Governo scrive il testo. Si usa per riforme tecniche, come i codici. Esempio: il TUEL, la legge dei Comuni."},
+  {"tag": "SCORCIATOIA 3", "title": "La questione di fiducia", "text": "Il Governo dice: «O approvate questo testo, o cado». Se la fiducia passa, gli emendamenti decadono e si vota il testo del Governo, spesso un maxiemendamento. Se non passa, il Governo si dimette."},
+  {"tag": "PERCHÉ SE NE DISCUTE", "title": "Velocità contro dibattito", "text": "Questi strumenti rendono il Governo più rapido, ma riducono lo spazio di discussione del Parlamento. Maggioranze di ogni colore hanno cambiato idea a seconda che fossero al governo o all'opposizione."}
+ ],
+ "cta": {"title": "La lezione completa è gratis", "text": "Lezioni da 5 minuti, quiz e certificato nella web app"},
+ "source": "Fonte: Costituzione, artt. 76 e 77 (Senato)"}
