@@ -175,5 +175,24 @@
    "Texas: 7,5 milioni di voti anticipati (una sola fonte, non usato nel carosello)",
    "Accoltellamento in una stazione nel Frusinate (cronaca nera, escluso)"
   ]
+ },
+ "2026-11-02": {
+  "notizia": "Kimi Antonelli (Mercedes) campione del mondo di F1 2026 al GP del Messico (1/11): 3° dietro Verstappen e Hamilton, a 20 anni il più giovane di sempre (prima Vettel, 23 anni e 134 giorni); primo italiano dopo Ascari (1953); 380 punti, 119 sul secondo, 4 gare da correre",
+  "meccanismo": "Regolamento FIA F1 2026, sez. A, art. A2.2: punti ai primi 10 del GP (25-18-15-12-10-8-6-4-2-1), Sprint ai primi 8 (8-1); campione chi ha più punti (A2.1.4), parità decisa dal numero di vittorie; titolo matematico quando il vantaggio supera i punti rimasti (4 GP senza Sprint = max 100). Collegamento: la legge elettorale trasforma i voti in seggi",
+  "course": "nuova-legge-elettorale",
+  "lesson": "Come funziona la legge 180/2026",
+  "fonti": [
+   "https://www.ansa.it/sito/notizie/sport/f1/2026/11/02/f1-antonelli-fa-la-storia-in-messico-e-campione-del-mondo-73-anni-dopo-ascari_623e8e68-b9e6-4b58-abc1-674b8f0bc473.html",
+   "https://www.cdt.ch/sport/motori/kimi-antonelli-campione-del-mondo-di-f1-e-il-piu-giovane-443346",
+   "https://www.formula1.it/news/33652/1/gp-messico-vince-verstappen-antonelli-scrive-la-storia-e-campione-del-mondo!",
+   "https://www.fia.com/system/files/documents/fia_2026_f1_regulations_-_section_a_general_provisions_-_iss_02_-_2026-02-27.pdf",
+   "https://www.mercedesamgf1.com/news/f1-announces-2026-sprint-race-calendar"
+  ],
+  "scartate": [
+   "Allerta arancione maltempo in Puglia e Basilicata, gialla in 5 regioni (Protezione civile)",
+   "Manovra 2027 e pensioni verso le Camere (tema del 27/10)",
+   "Midterm Usa del 3/11 (tema di ieri)",
+   "Poliziotta ferita da un proiettile in questura (cronaca, dinamica da chiarire)"
+  ]
  }
 }

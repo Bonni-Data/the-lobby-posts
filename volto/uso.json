@@ -237,5 +237,17 @@
    "ELETTORALE"
   ],
   "out": "reels/2026-11-01-faccia.mp4"
+ },
+ {
+  "data": "2026-11-02",
+  "rubrica": "notizie",
+  "mode": "post",
+  "foto": "indica-1",
+  "clip": null,
+  "words": [
+   "MONDIALE",
+   "COME?"
+  ],
+  "out": "posts/notizie/2026-11-02/01.png"
  }
 ]
