@@ -261,5 +261,17 @@
    "E FIDUCIA"
   ],
   "out": "posts/caroselli/2026-11-02/01.png"
+ },
+ {
+  "data": "2026-11-02",
+  "rubrica": "ritratti",
+  "mode": "post",
+  "foto": "sorriso-4",
+  "clip": null,
+  "words": [
+   "VOLONTARIA",
+   "LEADER"
+  ],
+  "out": "posts/ritratti/2026-11-02/01.png"
  }
 ]
