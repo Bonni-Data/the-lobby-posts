@@ -88,7 +88,14 @@ def hook_layer(data, x0=64, x1=W - 64, y=300, align="left"):
         d.rounded_rectangle((x0, yy, x0 + kw, yy + 52), radius=26, fill=CORAL)
         d.text((x0 + 20, yy + 8), k, font=kf, fill=NAVY)
         yy += 84
-    words_block(d, [w.upper() for w in data["words"][:2]], x0, x1, yy, align, 170)
+    yy = words_block(d, [w.upper() for w in data["words"][:2]], x0, x1, yy, align, 170)
+    if data.get("sub"):
+        # il gancio vero in una frase (piano di crescita del 3/11/2026): dice perché restare a guardare
+        sx1 = min(x1, data.get("sub_x1", x1))
+        f, lines, size = fit_block(d, data["sub"], BOLD, sx1 - x0, 3, 50, 36)
+        for ln in lines[:3]:
+            d.text((x0, yy + 6), ln, font=f, fill=IVORY, stroke_width=5, stroke_fill=NAVY)
+            yy += int(size * 1.18)
     return layer
 
 
@@ -128,7 +135,7 @@ def endcard():
     return img
 
 
-def photo_scene(face_path):
+def photo_scene(face_path, drop=0):
     """Sfondo con arco + Andrea scontornato, a grandezza piena: lo zoom lo fa il montaggio."""
     bg = Image.new("RGBA", (W, H), NAVY + (255,))
     d = ImageDraw.Draw(bg)
@@ -140,7 +147,7 @@ def photo_scene(face_path):
     face = face.resize((int(face.width * s), int(face.height * s)), Image.LANCZOS)
     fx, fy, fw, fh = fx * s, fy * s, fw * s, fh * s
     x = int(W * 0.62 - (fx + fw / 2))
-    y = int(800 - fy)              # il viso sotto le parole del gancio; il busto può uscire dal fondo
+    y = int(800 - fy + drop)       # il viso sotto le parole del gancio (più in basso se c'è la frase); il busto può uscire dal fondo
     st, pad = sticker(face, 12)
     bg.alpha_composite(st, (x - pad, y - pad))
     return bg
@@ -170,7 +177,7 @@ def run(data, out):
             vh = min(H, Image.open(io.BytesIO(fr)).height)
     else:
         dur = float(data.get("duration", 12))
-        scene = photo_scene(data["face"])
+        scene = photo_scene(data["face"], 190 if data.get("sub") else 0)
     caps = data.get("captions") or (chunks_from_script(data["script"], dur) if data.get("script") else [])
     cap_layers = [(c["t"], c["e"], caption_layer(c["text"])) for c in caps]
     end_len = END if data.get("endcard", True) else 0.0   # l'intro dei reel esistenti non ha la chiusura

@@ -17,7 +17,9 @@ lavoro.json:
                                # presentazione | attualita | notizie | premium (cene e lezioni live)
   "words": ["VIAGGI", "GRATIS"],   # 1 o 2 parole, max ~10 lettere l'una, in maiuscolo: il concetto in un colpo d'occhio
   "kicker": "Opportunità",     # facoltativo, etichetta piccola (max ~22 caratteri)
-  "sub": "3 bandi con le spese coperte dagli enti",   # facoltativo, una riga (max ~45 caratteri)
+  "sub": "3 bandi con le spese coperte dagli enti",   # facoltativo: post una riga (max ~45 caratteri); reel la frase
+                               # del gancio (max ~70 caratteri), scritta sotto le parole. Deve essere SPECIFICA del
+                               # contenuto di oggi, mai una formula fissa (piano di crescita del 3/11/2026)
   "swipe": true,               # facoltativo (post): freccia «Scorri» quando dopo ci sono altre immagini
   "tono": "serio",             # facoltativo: "serio" (cronaca, processi, lutti, guerre, disastri: solo foto serie)
                                # o "neutro" (temi seri: niente sorrisi); senza tono vanno bene tutte le foto
@@ -118,9 +120,24 @@ def face_data(job, foto, fmt):
     return d
 
 
+def warn_repeat(job):
+    """Copertine tutte uguali fanno scorrere via (piano di crescita del 3/11/2026): avvisa se le parole o la frase
+    sono già uscite nelle ultime 20 copertine."""
+    uso = load(USO, [])[-20:]
+    w = [x.upper() for x in job.get("words", [])]
+    for u in uso:
+        uw = [x.upper() for x in (u.get("words") or [])]
+        if uw and (uw == w or (len(w) > 1 and len(uw) > 1 and uw[1] == w[1])):
+            print(f"ATTENZIONE: parole già usate il {u.get('data')} ({' / '.join(uw)}): scegline altre")
+            break
+    if (job.get("sub") or "").strip().lower().startswith("tutti ne parlano"):
+        print("ATTENZIONE: «Tutti ne parlano…» è una formula fissa: scrivi il gancio specifico di oggi")
+
+
 def run(job):
     sys.path.insert(0, HERE)
     import make_face
+    warn_repeat(job)
     foto = choose(job.get("rubrica", ""), job.get("tono"))
     out = os.path.join(HERE, job["out"]) if not os.path.isabs(job["out"]) else job["out"]
     os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
@@ -131,20 +148,30 @@ def run(job):
         video = job["video"] if os.path.isabs(job["video"]) else os.path.join(HERE, job["video"])
         tmp = tempfile.mkdtemp()
         intro = os.path.join(tmp, "intro.mp4")
-        clip = choose_clip(job.get("rubrica", ""), job.get("tono")) if job.get("clip", True) else None
+        # Piano di crescita del 3/11/2026: con un solo spezzone ogni reel apriva con gli stessi 3 secondi identici
+        # (Instagram premia i contenuti originali e ogni apertura uguale fa scorrere via). Lo spezzone si usa solo
+        # se in volto/clip/ ce ne sono almeno 3 tra cui ruotare; altrimenti la foto, che ruota su tutta la libreria.
+        n_clip = len([k for k in load(os.path.join(CLIP, "indice.json"), {}).get("clip", {})
+                      if os.path.exists(os.path.join(CLIP, k + ".mp4"))])
+        clip = choose_clip(job.get("rubrica", ""), job.get("tono")) if job.get("clip", n_clip >= 3) else None
         if clip:
             make_face_reel.clip_intro({"clip": os.path.join(CLIP, clip + ".mp4"), "words": job["words"][:2],
                                        "kicker": job.get("kicker")}, intro)
             print("intro in movimento:", clip)
         else:
             make_face_reel.run({"face": os.path.join(LIB, foto + ".png"), "words": job["words"][:2],
-                                "kicker": job.get("kicker"), "duration": float(job.get("intro", 2.5)), "endcard": False},
+                                "kicker": job.get("kicker"), "sub": job.get("sub"), "sub_x1": 600,
+                                "duration": float(job.get("intro", 2.5)), "endcard": False},
                                intro)
+            print("intro con la foto:", foto)
         norm = "fps=30,scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2:color=0x111C35,setsar=1,format=yuv420p"
+        # audio senza stacchi: la musica dell'intro sfuma in quella del reel (prima c'era un taglio netto al secondo 3)
         subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", intro, "-i", video, "-filter_complex",
-                        f"[0:v]{norm}[v0];[1:v]{norm}[v1];[0:a]aresample=44100,aformat=channel_layouts=stereo[a0];"
-                        f"[1:a]aresample=44100,aformat=channel_layouts=stereo[a1];[v0][a0][v1][a1]concat=n=2:v=1:a=1[v][a]",
-                        "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-preset", "medium", "-crf", "20",
+                        f"[0:v]{norm}[v0];[1:v]{norm}[v1];[v0][v1]concat=n=2:v=1:a=0[v];"
+                        f"[0:a]aresample=44100,aformat=channel_layouts=stereo[a0];"
+                        f"[1:a]aresample=44100,aformat=channel_layouts=stereo[a1];"
+                        f"[a0][a1]acrossfade=d=0.4:c1=tri:c2=tri,apad=pad_dur=0.4[a]",
+                        "-map", "[v]", "-map", "[a]", "-shortest", "-c:v", "libx264", "-preset", "medium", "-crf", "20",
                         "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", out], check=True)
         cover = out[:-4] + "-cover.jpg"
         png = os.path.join(tmp, "cover.png")
