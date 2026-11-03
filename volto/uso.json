@@ -273,5 +273,17 @@
    "LEADER"
   ],
   "out": "posts/ritratti/2026-11-02/01.png"
+ },
+ {
+  "data": "2026-11-03",
+  "rubrica": "opportunita",
+  "mode": "post",
+  "foto": "voto-1",
+  "clip": null,
+  "words": [
+   "3",
+   "OCCASIONI"
+  ],
+  "out": "posts/2026-11-03-faccia.png"
  }
 ]
