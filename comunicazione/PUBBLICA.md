@@ -1,7 +1,8 @@
 # Come si pubblica (decisione di Andrea del 24 ottobre 2026: «fai il possibile per renderlo virale»)
 
 Vale per OGNI automazione che pubblica sui social (Instagram, Facebook e le reti della sezione 3), insieme a `METODO.md` (il tono) e a `../volto/README.md`
-(la faccia). Sono le leve che Metricool ci dà davvero: usale tutte, sempre, senza spendere nulla.
+(la faccia). **Dal 3 novembre 2026 vale prima di tutto `CRESCITA.md` (piano di crescita deciso da Andrea): dove è in conflitto con
+questo file, prevale CRESCITA.md** (per esempio: su Facebook i post con immagini diventano video, vedi CRESCITA.md sezione 1). Sono le leve che Metricool ci dà davvero: usale tutte, sempre, senza spendere nulla.
 
 ## 1. Il post
 

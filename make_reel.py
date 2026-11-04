@@ -225,12 +225,17 @@ def build(data):
     fmt = data.get("format", "fact")
     kicker = data.get("kicker") or {"fact": "LO SAPEVI?", "quiz": "QUIZ LAMPO", "news": "ATTUALITÀ IN 30 SECONDI"}[fmt]
     scenes = []
+    # "skip_hook": true quando davanti al reel c'è l'intro di faccia.py con il gancio (piano di crescita del 3/11/2026):
+    # due ganci di fila fanno 4-5 secondi prima del contenuto e la gente scorre via (tempo medio di visione 2-4 s)
+    skip = data.get("skip_hook")
     if fmt == "quiz":
-        scenes.append(scene_hook(kicker, data.get("hook") or "Lo sai o tiri a indovinare?", 2.4))
+        if not skip:
+            scenes.append(scene_hook(kicker, data.get("hook") or "Lo sai o tiri a indovinare?", 2.4))
         scenes += quiz_scenes(data)
         scenes.append(scene_cta(data.get("cta") or "Mettiti alla prova con il quiz completo"))
     else:
-        scenes.append(scene_hook(kicker, data["hook"]))
+        if not skip:
+            scenes.append(scene_hook(kicker, data["hook"]))
         for i, p in enumerate(data["points"][:4], 1):
             words = len((p.get("title", "") + " " + p.get("text", "")).split())
             scenes.append(scene_point(i, p["title"], p["text"], max(3.0, min(5.0, 1.4 + words * 0.17))))

@@ -161,7 +161,7 @@ def run(job):
         else:
             make_face_reel.run({"face": os.path.join(LIB, foto + ".png"), "words": job["words"][:2],
                                 "kicker": job.get("kicker"), "sub": job.get("sub"), "sub_x1": 600,
-                                "duration": float(job.get("intro", 2.5)), "endcard": False},
+                                "duration": float(job.get("intro", 1.8)), "endcard": False},
                                intro)
             print("intro con la foto:", foto)
         norm = "fps=30,scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2:color=0x111C35,setsar=1,format=yuv420p"
