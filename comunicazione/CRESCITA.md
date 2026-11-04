@@ -30,16 +30,22 @@ sabato, promo, riserva):
    `...-slide-cover.jpg`). Controlli: ffprobe 1080x1920, h264 e aac; estrai 2 fotogrammi (-ss 1 e 1 secondo prima della
    fine) e aprili con Read. Aggiungi video e copertina al commit del post.
 2. **Instagram, post con immagini**: resta come prima, ma nei `providers` del post NON metti Facebook.
-3. **Facebook + Instagram, il video**: una createScheduledPost separata con `providers`
-   [{"network":"facebook"},{"network":"instagram"}], `media` = [indirizzo raw.githubusercontent.com con lo sha del
-   video], `videoThumbnailUrl` = indirizzo della sua copertina, `facebookData` {"type": "REEL"}, `instagramData`
-   {"type": "TRIAL_REEL", "autoPublish": true, "isAiGenerated": <come il post>, "shareTrialAutomatically": true},
-   `text` = la stessa didascalia (puoi accorciarla: restano gancio, contenuto, tre promesse, link in bio, invito,
-   5 hashtag), `firstCommentText` = una domanda con risposta di una parola, `mediaAltText`, `draft` false,
-   `autoPublish` true, data = 2 minuti dopo il post. Il Trial Reel lo vedono solo persone che non ci seguono: serve a
-   trovarne di nuove senza riempire il feed di chi ci segue già.
-   Se Metricool rifiuta `TRIAL_REEL` o `shareTrialAutomatically`, riprova una volta senza `shareTrialAutomatically`,
-   poi solo con Facebook (REEL). Scrivi nel resoconto cosa è uscito.
+3. **Il video, in DUE createScheduledPost separate** (stessi campi in tutte e due: `media` = [indirizzo
+   raw.githubusercontent.com con lo sha del video], `videoThumbnailUrl` = indirizzo della sua copertina, `text` = la
+   stessa didascalia (puoi accorciarla: restano gancio, contenuto, tre promesse, link in bio, invito, 5 hashtag),
+   `firstCommentText` = una domanda con risposta di una parola, `mediaAltText`, `draft` false, `autoPublish` true):
+   a) **Facebook**: `providers` [{"network":"facebook"}], `facebookData` {"type": "REEL"}, data = 2 minuti dopo il post.
+   b) **Instagram**: `providers` [{"network":"instagram"}], `instagramData` {"type": "REEL", "autoPublish": true,
+      "isAiGenerated": <come il post>, "showReelOnFeed": true}. **Mai `TRIAL_REEL`**: Instagram concede i Trial Reel
+      solo agli account con almeno 1.000 follower; il 4 novembre 2026 Metricool l'ha rifiutato con «Trial Reel Not
+      Enough Followers». Orario: almeno 4 ore dopo il post, nel primo di questi orari che è libero, oggi o domani:
+      **12:40, 13:40, 21:10** (ora di Roma). Libero vuol dire che getScheduledPosts (da 45 minuti prima a 45 minuti
+      dopo) non mostra un altro post o reel su Instagram (le storie non contano). Esempi: la notizia delle 8:00 → 12:40
+      dello stesso giorno; il promo delle 15:00 → 21:10; un post delle 18:00 o delle 19:00 → 12:40 del giorno dopo (o
+      13:40 se alle 12:40 c'è già la notizia). Così chi ci segue non vede lo stesso contenuto due volte di fila e il
+      reel ha una seconda occasione di arrivare a chi non ci segue (scheda Reels ed Esplora).
+   Se una delle due programmazioni fallisce, riprova una volta, poi scrivilo nel resoconto. Quando Instagram supera
+   i 1.000 follower, l'automazione «Crescita social» lo scrive in RISULTATI.md e il punto b torna `TRIAL_REEL`.
 4. **La storia** resta su Instagram e Facebook, come prima.
 5. Se il video non si monta (errore due volte), su Facebook pubblica il post con immagini come prima e scrivilo.
 
