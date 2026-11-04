@@ -21,7 +21,7 @@ veri della settimana e le correzioni da fare.
   contenuti su elezioni, leggi e temi sociali (si può cambiare solo dalle impostazioni di ogni utente). Le notizie su
   elezioni estere, partiti e leader non arrivano a nuove persone.
 
-## 1. Video ovunque (Facebook reel + Trial Reel di Instagram)
+## 1. Video ovunque (reel su Facebook e su Instagram)
 
 Per OGNI post con immagini (carosello o post singolo: notizia, lezione in slide, ritratto, opportunità, pillola,
 sabato, promo, riserva):
