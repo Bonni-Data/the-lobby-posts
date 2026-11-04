@@ -8,7 +8,7 @@ monta in un reel 1080x1920 di 12-22 secondi: la copertina con il volto per prima
 entrano da destra come quando si scorre un carosello, uno zoom lento, la musica sintetizzata di THE LOBBY
 (cinema/music_epic.py, nessun brano di terzi) e una barra di avanzamento. Nessuna immagine generata con l'IA.
 
-Uso: python3 make_slideshow.py <cartella o PNG in ordine...> uscita.mp4 [--per 3.4] [--cover 2.2] [--max 7]
+Uso: python3 make_slideshow.py <cartella o PNG in ordine...> uscita.mp4 [--per 3.4] [--cover 2.2] [--max 8]
 Esempio: python3 make_slideshow.py posts/notizie/2026-11-04/ reels/notizia-2026-11-04.mp4
 Scrive anche uscita-cover.jpg (copertina 1080x1920 per videoThumbnailUrl). Stampa la durata.
 Controlla SEMPRE il risultato: ffprobe (1080x1920, h264, aac) e 3 fotogrammi con Read (-ss 1, a metà, 1 s prima della fine).
@@ -90,7 +90,9 @@ def main(argv):
     for p in inputs:
         files += sorted(glob.glob(os.path.join(p, "*.png"))) if os.path.isdir(p) else [p]
     files = [f for f in files if os.path.basename(f)[0].isdigit()] or files
-    files = files[: int(opts.get("max", 7))]
+    mx = int(opts.get("max", 8))
+    if len(files) > mx:   # si tengono la copertina e l'ultima slide (le tre promesse e l'invito)
+        files = files[: mx - 1] + files[-1:]
     if not files:
         sys.exit("nessuna slide trovata")
     slides = [fit(Image.open(f)) for f in files]
