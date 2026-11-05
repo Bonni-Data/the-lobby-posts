@@ -7,3 +7,5 @@
 2026-11-05T18:31:30Z | passo 7 | ok | 10s | WebSearch extended: 9 risultati
 2026-11-05T18:31:32Z | passo 8 | errore | 0s | WebFetch ansa.it: PROVENANCE_REQUIRED, richiesta di permesso non risposta (sessione non presidiata) - nessuna risposta
 2026-11-05T18:31:33Z | passo 9 | ok | 2s | execute_sql count(*) public.courses = 36
+2026-11-05T18:31:35Z | nota: git clone fallito (cartella già presente), usato clone esistente su HEAD 1761c27
+2026-11-05T18:31:35Z | FINE
