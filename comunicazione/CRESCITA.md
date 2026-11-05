@@ -4,6 +4,10 @@ Andrea, 3 novembre 2026: «i post non vanno virali e hanno zero interazione. Tro
 salire la pagina in qualsiasi modo […] sia su Facebook che su Instagram». Queste regole valgono per OGNI automazione
 che pubblica e, dove sono in conflitto con il prompt dell'automazione, **prevalgono loro**. Restano validi tutti i
 vincoli di sempre (METODO.md, PUBBLICA.md, volto/README.md, niente partito, cariche o lavoro di Andrea, niente spese).
+**Attestato, mai «certificato»** (decisione di Andrea del 5 novembre 2026): alla fine dei corsi THE LOBBY rilascia un
+«attestato di completamento», che non ha valore legale. In didascalie, slide, video, primo commento ed email scrivi sempre
+«attestato» (es. «quiz e attestato»), anche dove il prompt dell'automazione dice «certificato»; mai «certificato»,
+«certificazione», «diploma» o «riconosciuto», e mai crediti formativi o ore PCTO (li decide la scuola).
 Prima di pubblicare leggi anche `RISULTATI.md`: lo aggiorna ogni lunedì l'automazione «Crescita social» con i numeri
 veri della settimana e le correzioni da fare.
 

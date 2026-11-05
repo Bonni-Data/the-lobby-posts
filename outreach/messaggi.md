@@ -38,7 +38,7 @@ Gentile Dirigente, gentili docenti dell'istituto «{ENTE}»,
 
 sono Andrea Bonazzi, fondatore di THE LOBBY, un'academy online gratuita, senza pubblicità e indipendente da qualsiasi partito.
 
-Abbiamo preparato {N_LEZIONI} lezioni da cinque minuti su Costituzione, istituzioni, Unione europea, economia e cittadinanza digitale, con domande di verifica, quiz, simulazioni e certificato finale. Seguono i nuclei delle Linee guida per l'educazione civica e si possono proiettare in classe. Le trovate divise per tema qui: https://thelobbyitalia.it/docenti/
+Abbiamo preparato {N_LEZIONI} lezioni da cinque minuti su Costituzione, istituzioni, Unione europea, economia e cittadinanza digitale, con domande di verifica, quiz, simulazioni e attestato finale di completamento. Seguono i nuclei delle Linee guida per l'educazione civica e si possono proiettare in classe. Le trovate divise per tema qui: https://thelobbyitalia.it/docenti/
 
 Vi chiedo la cortesia di inoltrare questa email al referente per l'educazione civica e ai docenti di diritto e di storia, se lo ritenete utile. Ogni lezione indica le fonti ufficiali e la data dell'ultimo controllo; se trovate un errore o vi manca un tema, rispondete a questa email e lo prepariamo.
 
@@ -70,7 +70,7 @@ Oggetto: Segnalazione: lezioni gratuite di educazione civica e opportunità euro
 
 Gentile redazione,
 
-vi segnalo THE LOBBY, un'academy online gratuita, senza pubblicità e indipendente da qualsiasi partito. Per i docenti abbiamo appena pubblicato una pagina con {N_LEZIONI} lezioni da cinque minuti divise secondo i nuclei delle Linee guida per l'educazione civica (Costituzione, istituzioni, Unione europea, economia, cittadinanza digitale), con quiz e certificato: https://thelobbyitalia.it/docenti/
+vi segnalo THE LOBBY, un'academy online gratuita, senza pubblicità e indipendente da qualsiasi partito. Per i docenti abbiamo appena pubblicato una pagina con {N_LEZIONI} lezioni da cinque minuti divise secondo i nuclei delle Linee guida per l'educazione civica (Costituzione, istituzioni, Unione europea, economia, cittadinanza digitale), con quiz e attestato di completamento: https://thelobbyitalia.it/docenti/
 
 Per gli studenti, ogni mattina raccogliamo e verifichiamo sulle fonti ufficiali tirocini UE, concorsi, bandi e viaggi con spese coperte dagli enti: https://thelobbyitalia.it/opportunita/
 

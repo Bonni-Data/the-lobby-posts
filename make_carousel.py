@@ -12,7 +12,7 @@ data.json:
   "slides": [                                        # da 2 a 7 slide di contenuto
     {"title": "Il consiglio", "text": "Approva bilancio e regolamenti. ...", "tag": "facoltativo, max ~22"}
   ],
-  "cta": {"title": "Il corso completo è gratis", "text": "5 lezioni da 5 minuti, quiz e certificato."},
+  "cta": {"title": "Il corso completo è gratis", "text": "5 lezioni da 5 minuti, quiz e attestato."},
   "source": "Fonte: TUEL, d.lgs. 267/2000"           # facoltativo, in piccolo sull'ultima slide di contenuto
 }
 Testi: titolo di slide max ~50 caratteri, testo max ~260 caratteri.

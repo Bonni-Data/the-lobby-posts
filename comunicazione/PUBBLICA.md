@@ -3,6 +3,7 @@
 Vale per OGNI automazione che pubblica sui social (Instagram, Facebook e le reti della sezione 3), insieme a `METODO.md` (il tono) e a `../volto/README.md`
 (la faccia). **Dal 3 novembre 2026 vale prima di tutto `CRESCITA.md` (piano di crescita deciso da Andrea): dove è in conflitto con
 questo file, prevale CRESCITA.md** (per esempio: su Facebook i post con immagini diventano video, vedi CRESCITA.md sezione 1). Sono le leve che Metricool ci dà davvero: usale tutte, sempre, senza spendere nulla.
+**Dal 5 novembre 2026: «attestato di completamento», mai «certificato»** (vedi CRESCITA.md, in testa), anche se il prompt dice «certificato».
 
 ## 1. Il post
 

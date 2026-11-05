@@ -105,7 +105,7 @@ Finita la lista, si ricomincia con nomi nuovi scelti con le stesse regole (mai l
    - una slide finale `tag` «COSA IMPARI DA LEI» o «COSA IMPARI DA LUI»: il metodo (studio, gavetta, territorio,
      competenze, perseveranza) e sempre la frase «Le sue idee puoi condividerle o no: il metodo vale per tutti.»
      o una equivalente;
-   - `cta`: {"title": "Inizia da qui.", "text": "Lezioni da 5 minuti, quiz e certificato. Gratis."};
+   - `cta`: {"title": "Inizia da qui.", "text": "Lezioni da 5 minuti, quiz e attestato. Gratis."};
    - `source`: «Fonti: ...» con le fonti usate.
    Esegui `python3 make_carousel.py data/ritratto-<data>.json posts/ritratti/<data>/`.
    **Copertina «faccia prima»** (decisione di Andrea del 24 ottobre 2026): la copertina 01.png si rifà con il volto
