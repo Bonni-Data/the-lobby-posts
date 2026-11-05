@@ -1,0 +1,94 @@
+{
+ "job": "jobs/render/2026-11-05-test-1.json",
+ "steps": [
+  {
+   "step": [
+    "make_carousel.py",
+    "data/notizia-2026-11-02.json",
+    "tmp/rendertest/c/"
+   ],
+   "exit": 0,
+   "output": "ok tmp/rendertest/c/01.png\nok tmp/rendertest/c/02.png\nok tmp/rendertest/c/03.png\nok tmp/rendertest/c/04.png\nok tmp/rendertest/c/05.png\nok tmp/rendertest/c/06.png",
+   "seconds": 0.9
+  },
+  {
+   "step": [
+    "faccia.py",
+    "tmp/rendertest/faccia.json"
+   ],
+   "exit": 0,
+   "output": "ok /home/runner/work/the-lobby-posts/the-lobby-posts/tmp/rendertest/c/01.png foto: sorriso-2",
+   "seconds": 1.7
+  },
+  {
+   "step": [
+    "make_storia.py",
+    "tmp/rendertest/c/01.png",
+    "tmp/rendertest/storia.png",
+    "--hint",
+    "Scorri il carosello sul profilo"
+   ],
+   "exit": 0,
+   "output": "ok tmp/rendertest/storia.png",
+   "seconds": 0.5
+  },
+  {
+   "step": [
+    "make_slideshow.py",
+    "tmp/rendertest/c/",
+    "tmp/rendertest/slide.mp4"
+   ],
+   "exit": 0,
+   "output": "ok tmp/rendertest/slide.mp4 (6 slide, 19.8 s) copertina tmp/rendertest/slide-cover.jpg",
+   "seconds": 22.9
+  },
+  {
+   "step": [
+    "estrai_fotogrammi.py",
+    "tmp/rendertest/slide.mp4",
+    "tmp/rendertest/check",
+    "1",
+    "-1"
+   ],
+   "exit": 0,
+   "output": "ok tmp/rendertest/check durata 19.8 s f_1.jpg, f_-1.jpg",
+   "seconds": 0.6
+  },
+  {
+   "step": [
+    "../evil.py"
+   ],
+   "exit": null,
+   "error": "passo non ammesso (script fuori elenco o percorso non valido)",
+   "seconds": 0.0
+  },
+  {
+   "step": [
+    "make_post.py",
+    "/etc/passwd"
+   ],
+   "exit": null,
+   "error": "passo non ammesso (script fuori elenco o percorso non valido)",
+   "seconds": 0.0
+  }
+ ],
+ "probe": [
+  {
+   "file": "tmp/rendertest/slide.mp4",
+   "duration": 19.8,
+   "streams": [
+    {
+     "codec_type": "video",
+     "codec_name": "h264",
+     "width": 1080,
+     "height": 1920
+    },
+    {
+     "codec_type": "audio",
+     "codec_name": "aac"
+    }
+   ]
+  }
+ ],
+ "ok": false
+}

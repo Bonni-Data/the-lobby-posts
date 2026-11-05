@@ -285,5 +285,17 @@
    "OCCASIONI"
   ],
   "out": "posts/2026-11-03-faccia.png"
+ },
+ {
+  "data": "2026-11-05",
+  "rubrica": "notizie",
+  "mode": "post",
+  "foto": "sorriso-2",
+  "clip": null,
+  "words": [
+   "PROVA",
+   "RENDER"
+  ],
+  "out": "tmp/rendertest/c/01.png"
  }
 ]
