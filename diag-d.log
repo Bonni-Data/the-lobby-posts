@@ -5,3 +5,4 @@
 2026-11-05T18:26:10Z | passo 5 | errore | 0s | esecuzione make_slideshow.py negata dal classificatore permessi (codice da repo esterno)
 2026-11-05T18:26:20Z | passo 6 | ok | 3s | getScheduledPosts: 3 post restituiti
 2026-11-05T18:31:30Z | passo 7 | ok | 10s | WebSearch extended: 9 risultati
+2026-11-05T18:31:32Z | passo 8 | errore | 0s | WebFetch ansa.it: PROVENANCE_REQUIRED, richiesta di permesso non risposta (sessione non presidiata) - nessuna risposta
