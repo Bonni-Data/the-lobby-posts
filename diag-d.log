@@ -1,1 +1,2 @@
 2026-11-05T18:25:16Z | passo 1 | ok | 1s | 12.3.0 /usr/local/bin/ffmpeg /usr/bin/ffprobe 
+2026-11-05T18:25:43Z | passo 2 | errore | 0s | esecuzione make_carousel.py negata dal classificatore permessi (codice da repo esterno) - nessun output
