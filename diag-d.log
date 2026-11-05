@@ -1,3 +1,4 @@
 2026-11-05T18:25:16Z | passo 1 | ok | 1s | 12.3.0 /usr/local/bin/ffmpeg /usr/bin/ffprobe 
 2026-11-05T18:25:43Z | passo 2 | errore | 0s | esecuzione make_carousel.py negata dal classificatore permessi (codice da repo esterno) - nessun output
 2026-11-05T18:25:51Z | passo 3 | errore | 0s | f.json creato; esecuzione faccia.py negata dal classificatore permessi (codice da repo esterno)
+2026-11-05T18:26:04Z | passo 4 | errore | 0s | /tmp/d/c/01.png non esiste (passo 3 non eseguito)
