@@ -1,0 +1,77 @@
+{
+ "job": "jobs/render/2026-11-06-notizie-1.json",
+ "steps": [
+  {
+   "step": [
+    "make_carousel.py",
+    "data/notizia-2026-11-06.json",
+    "posts/notizie/2026-11-06/"
+   ],
+   "exit": 0,
+   "output": "ok posts/notizie/2026-11-06/01.png\nok posts/notizie/2026-11-06/02.png\nok posts/notizie/2026-11-06/03.png\nok posts/notizie/2026-11-06/04.png\nok posts/notizie/2026-11-06/05.png\nok posts/notizie/2026-11-06/06.png",
+   "seconds": 0.8
+  },
+  {
+   "step": [
+    "faccia.py",
+    "data/faccia-2026-11-06-notizia.json"
+   ],
+   "exit": 0,
+   "output": "ok /home/runner/work/the-lobby-posts/the-lobby-posts/posts/notizie/2026-11-06/01.png foto: parla-1",
+   "seconds": 1.2
+  },
+  {
+   "step": [
+    "make_storia.py",
+    "posts/notizie/2026-11-06/01.png",
+    "posts/storie/2026-11-06-notizia.png",
+    "--hint",
+    "Scorri il carosello sul profilo"
+   ],
+   "exit": 0,
+   "output": "ok posts/storie/2026-11-06-notizia.png",
+   "seconds": 0.5
+  },
+  {
+   "step": [
+    "make_slideshow.py",
+    "posts/notizie/2026-11-06/",
+    "reels/2026-11-06-notizia-slide.mp4"
+   ],
+   "exit": 0,
+   "output": "ok reels/2026-11-06-notizia-slide.mp4 (6 slide, 19.8 s) copertina reels/2026-11-06-notizia-slide-cover.jpg",
+   "seconds": 18.9
+  },
+  {
+   "step": [
+    "estrai_fotogrammi.py",
+    "reels/2026-11-06-notizia-slide.mp4",
+    "tmp/check/2026-11-06-notizia",
+    "1",
+    "-1"
+   ],
+   "exit": 0,
+   "output": "ok tmp/check/2026-11-06-notizia durata 19.8 s f_1.jpg, f_-1.jpg",
+   "seconds": 0.4
+  }
+ ],
+ "probe": [
+  {
+   "file": "reels/2026-11-06-notizia-slide.mp4",
+   "duration": 19.8,
+   "streams": [
+    {
+     "codec_type": "video",
+     "codec_name": "h264",
+     "width": 1080,
+     "height": 1920
+    },
+    {
+     "codec_type": "audio",
+     "codec_name": "aac"
+    }
+   ]
+  }
+ ],
+ "ok": true
+}

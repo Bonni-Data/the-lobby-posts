@@ -285,5 +285,17 @@
    "OCCASIONI"
   ],
   "out": "posts/2026-11-03-faccia.png"
+ },
+ {
+  "data": "2026-11-06",
+  "rubrica": "notizie",
+  "mode": "post",
+  "foto": "parla-1",
+  "clip": null,
+  "words": [
+   "BOLLETTA",
+   "GIÙ?"
+  ],
+  "out": "posts/notizie/2026-11-06/01.png"
  }
 ]
