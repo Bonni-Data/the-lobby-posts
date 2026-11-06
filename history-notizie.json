@@ -194,5 +194,23 @@
    "Midterm Usa del 3/11 (tema di ieri)",
    "Poliziotta ferita da un proiettile in questura (cronaca, dinamica da chiarire)"
   ]
+ },
+ "2026-11-06": {
+  "notizia": "Il Cdm del 5/11 rinvia di nuovo (dopo il 28/10) il decreto Bollette: per Palazzo Chigi servono approfondimenti (dubbi della Ragioneria sulle coperture, secondo QN/ANSA); tetto di 58,9 €/MWh sul gas delle centrali elettriche per 12 mesi prorogabili a 18, dal 1/1/2027; torna in Cdm la prossima settimana",
+  "meccanismo": "Borsa elettrica GME e prezzo marginale: tutti i produttori accettati ricevono il prezzo dell'ultimo impianto necessario, spesso a gas; per questo un tetto al gas delle centrali abbassa il prezzo di tutta l'elettricità; nodo: chi paga la differenza col gas di mercato (>100 €/MWh)",
+  "course": "caro-energia-bollette",
+  "lesson": "Come si forma il prezzo della luce",
+  "fonti": [
+   "https://tg24.sky.it/economia/2026/11/05/decreto-bollette-cdm-oggi-novita-prezzo-gas-2027",
+   "https://www.lapresse.it/economia/2026/11/05/decreto-bollette-slitta-ancora-il-via-libera/",
+   "https://www.quotidiano.net/politica/rinvio-decreto-bollette--a4a57edb",
+   "https://www.mercatoelettrico.org/"
+  ],
+  "scartate": [
+   "Salvini e lo strappo nella maggioranza (partiti: escluso)",
+   "Guerra in Ucraina: raffineria colpita in Russia, attacchi alle centrali",
+   "Scioperi nei trasporti di novembre (sciopero aereo interregionale del 6/11)",
+   "Caos nei cieli e regia dei ritardi aerei (fonti non aperte)"
+  ]
  }
 }
