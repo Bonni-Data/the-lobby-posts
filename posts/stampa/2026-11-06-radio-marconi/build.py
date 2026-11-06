@@ -70,8 +70,8 @@ def scorri(d):
 # ---------- 1. copertina ----------
 img = Image.new('RGB', (W, H), NAVY)
 d = ImageDraw.Draw(img)
-draw_arch(d, 250, 300, 760, 1060, NAVY_SOFT, 30)
-draw_arch(d, 330, 390, 600, 960, CORAL, 9)
+draw_arch(d, 470, 260, 700, 1100, NAVY_SOFT, 30)
+draw_arch(d, 545, 340, 540, 1000, CORAL, 9)
 draw_logo(img, 64, 56, 0.62)
 d = ImageDraw.Draw(img)
 fk = font(BOLD, 28); t = T['kicker']
