@@ -11,6 +11,42 @@ vincoli di sempre (METODO.md, PUBBLICA.md, volto/README.md, niente partito, cari
 Prima di pubblicare leggi anche `RISULTATI.md`: lo aggiorna ogni lunedì l'automazione «Crescita social» con i numeri
 veri della settimana e le correzioni da fare.
 
+## 0. Come si eseguono gli script e si leggono le fonti (dal 5 novembre 2026, vale prima di tutto il resto)
+
+Dal 3 novembre le automazioni non pubblicavano più: nelle sessioni automatiche il controllo dei permessi **nega
+l'esecuzione degli script del repository** («codice da repo esterno») e **WebFetch su indirizzi che non vengono da una
+ricerca** (PROVENANCE_REQUIRED). Quindi, in tutte le automazioni, anche dove il prompt dice altro:
+- **Repository**: se lo strumento add_repo non c'è, non serve: `git clone` e `git push` su main funzionano già.
+- **Mai eseguire in sessione** `python3 make_*.py`, `faccia.py`, `make_slideshow.py`, `cinema/render_assets.py` o altri
+  script del repository, e non cercare giri alternativi (copiarli, incollarne il codice, `python3 -c`). Li esegue
+  GitHub: scrivi i JSON dei dati come sempre (data/…, lavoro di faccia.py) e poi un **lavoro di render**
+  `jobs/render/<AAAA-MM-GG>-<rubrica>-<n>.json` (n parte da 1) con TUTTI i passi in ordine, per esempio:
+  `{"steps": [["make_carousel.py","data/notizia-2026-11-06.json","posts/notizie/2026-11-06/"],
+  ["faccia.py","data/faccia-2026-11-06-notizia.json"],
+  ["make_storia.py","posts/notizie/2026-11-06/01.png","posts/storie/2026-11-06-notizia.png","--hint","Scorri il carosello sul profilo"],
+  ["make_slideshow.py","posts/notizie/2026-11-06/","reels/2026-11-06-notizia-slide.mp4"],
+  ["estrai_fotogrammi.py","reels/2026-11-06-notizia-slide.mp4","tmp/check/2026-11-06-notizia","1","-1"]],
+  "probe": ["reels/2026-11-06-notizia-slide.mp4"]}`
+  Gli argomenti sono gli stessi che il prompt dà per la riga di comando (percorsi relativi, mai `/` iniziale o `..`).
+  Script ammessi: make_carousel.py, faccia.py, make_storia.py, make_story.py, make_pill.py, make_post.py,
+  make_slideshow.py, make_reel.py, make_face.py, estrai_fotogrammi.py, cinema/render_assets.py. Per i video metti
+  sempre un passo estrai_fotogrammi.py (scrive i fotogrammi e `foglio.jpg`) e il file in `probe`.
+- **Commit e push** dei JSON dei dati e del lavoro insieme, poi **aspetta il risultato**: lancia in background (Bash con
+  run_in_background, il `sleep` in primo piano è bloccato) il ciclo
+  `for i in $(seq 1 30); do git fetch -q origin main; git cat-file -e origin/main:jobs/render/<nome>.result.json && break; sleep 20; done`
+  e attendi che finisca (di solito 2-4 minuti). Poi `git pull --rebase origin main`.
+- **Controlli**: leggi `jobs/render/<nome>.result.json` (per ogni passo `exit` 0 e l'output dello script; in `probe`
+  durata, 1080x1920, h264 e aac al posto di ffprobe) e apri con Read le immagini prodotte e i fotogrammi. Se va
+  corretto qualcosa, cambia i dati e scrivi un nuovo lavoro `<n+1>` (mai riusare un nome: un lavoro con il
+  result.json non viene rieseguito). I file prodotti li ha già salvati GitHub: per gli indirizzi
+  raw.githubusercontent.com usa lo sha di `git log -1 --format=%H -- <file>`.
+- Se dopo 10 minuti il result.json non c'è, scrivi un nuovo lavoro `<n+1>` una sola volta; se anche quello non arriva,
+  non pubblicare e scrivilo nel resoconto.
+- **Fonti web**: WebFetch solo su indirizzi apparsi nei risultati di WebSearch in questa sessione (cerca prima la
+  notizia, poi apri il risultato). Se un'azione viene negata dal controllo dei permessi, non riprovarla in un altro
+  modo: passa alla fonte successiva o scrivilo nel resoconto.
+- Il resto non cambia: Metricool, Supabase, Gmail e la lettura dei file funzionano come prima.
+
 ## Cosa dicevano i numeri (Metricool, 13 ottobre - 3 novembre 2026)
 
 - **Instagram**: 30 follower. I post del feed arrivano a 7-27 persone, quasi tutte già follower; i primi post
@@ -29,10 +65,10 @@ veri della settimana e le correzioni da fare.
 
 Per OGNI post con immagini (carosello o post singolo: notizia, lezione in slide, ritratto, opportunità, pillola,
 sabato, promo, riserva):
-1. **Prima del commit**, monta il video dalle immagini del post, nello stesso ordine (copertina con il volto per prima):
-   `python3 make_slideshow.py <cartella o PNG in ordine> reels/<AAAA-MM-GG>-<rubrica>-slide.mp4` (scrive anche
-   `...-slide-cover.jpg`). Controlli: ffprobe 1080x1920, h264 e aac; estrai 2 fotogrammi (-ss 1 e 1 secondo prima della
-   fine) e aprili con Read. Aggiungi video e copertina al commit del post.
+1. **Nello stesso lavoro di render del post** (sezione 0), monta il video dalle immagini del post, nello stesso ordine
+   (copertina con il volto per prima): passo `["make_slideshow.py","<cartella o PNG in ordine>","reels/<AAAA-MM-GG>-<rubrica>-slide.mp4"]`
+   (scrive anche `...-slide-cover.jpg`), poi estrai_fotogrammi.py con i tempi 1 e -1 e il video in `probe`.
+   Controlli: nel result.json 1080x1920, h264 e aac; apri i fotogrammi con Read.
 2. **Instagram, post con immagini**: resta come prima, ma nei `providers` del post NON metti Facebook.
 3. **Il video, in DUE createScheduledPost separate** (stessi campi in tutte e due: `media` = [indirizzo
    raw.githubusercontent.com con lo sha del video], `videoThumbnailUrl` = indirizzo della sua copertina, `text` = la
