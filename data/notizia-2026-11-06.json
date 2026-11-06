@@ -1,0 +1,29 @@
+{
+ "kicker": "DIETRO LA NOTIZIA",
+ "title": "Un tetto al gas può abbassare la tua bolletta della luce",
+ "subtitle": "Il decreto Bollette slitta ancora. Ecco il trucco del prezzo marginale",
+ "slides": [
+  {
+   "tag": "COSA È SUCCESSO",
+   "title": "Decreto Bollette, secondo rinvio",
+   "text": "Il 5 novembre il Consiglio dei ministri ha rinviato di nuovo il decreto Bollette, già fermo dal 28 ottobre: per Palazzo Chigi servono approfondimenti. Il cuore: un tetto di 58,9 euro al megawattora sul gas delle centrali elettriche, dal 1° gennaio 2027."
+  },
+  {
+   "tag": "IL MECCANISMO",
+   "title": "La luce costa quanto l'ultima centrale",
+   "text": "L'elettricità si compra in borsa (GME), ora per ora. Le offerte si mettono in fila dalla più economica alla più cara finché si copre la domanda. Tutti i produttori accettati prendono il prezzo dell'ultimo impianto necessario: spesso è a gas."
+  },
+  {
+   "tag": "IL PUNTO",
+   "title": "Per questo si tocca il gas, non il sole",
+   "text": "Se il gas è caro, sale il prezzo di tutta l'elettricità di quell'ora, anche quella da sole e vento. Il tetto durerebbe 12 mesi, prorogabili a 18. Il nodo: chi paga la differenza con il gas di mercato, oggi sopra i 100 euro al MWh."
+  },
+  {
+   "tag": "LA LEZIONE",
+   "title": "Capisci il prezzo, capisci la bolletta",
+   "text": "Prezzo marginale, PUN, contratti fissi o indicizzati: chi conosce le regole del mercato capisce cosa decide davvero il governo. Lezione «Come si forma il prezzo della luce» su THE LOBBY: 5 minuti, gratis."
+  }
+ ],
+ "cta": {"title": "Capire batte commentare.", "text": "Lezioni da 5 minuti per capire le notizie. Gratis."},
+ "source": "Fonti: Sky TG24, LaPresse, Quotidiano Nazionale; GME; lezione THE LOBBY"
+}
