@@ -30,6 +30,7 @@ jobs:
           for j in $(git diff --name-only --diff-filter=AM HEAD~1 HEAD -- 'jobs/audio/*.json'); do
             n=$(basename "$j" .json)
             python3 trascrivi.py "$j" "out/$n"
+            echo "===== TRASCRIZIONE $n ====="; cat "out/$n/trascrizione.txt" 2>/dev/null || true
           done
       - uses: actions/upload-artifact@v4
         if: always()
