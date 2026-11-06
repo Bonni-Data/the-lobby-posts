@@ -24,9 +24,13 @@ def main(job_path, out_dir):
         subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-ss", str(a), "-to", str(b), "-i", audio,
                         "-c:a", "aac", "-b:a", "160k", os.path.join(out_dir, f"clip_{i}.m4a")], check=True)
     if job.get("transcribe", True):
+        import numpy as np
         from faster_whisper import WhisperModel
+        pcm = subprocess.run(["ffmpeg", "-loglevel", "error", "-i", audio, "-ar", "16000", "-ac", "1", "-f", "f32le", "-"],
+                             capture_output=True, check=True).stdout
+        samples = np.frombuffer(pcm, dtype=np.float32)
         model = WhisperModel(job.get("model", "medium"), device="cpu", compute_type="int8")
-        segs, info = model.transcribe(audio, language="it", vad_filter=True, beam_size=5)
+        segs, info = model.transcribe(samples, language="it", vad_filter=True, beam_size=5)
         lines = []
         with open(os.path.join(out_dir, "trascrizione.txt"), "w", encoding="utf-8") as f:
             for s in segs:
