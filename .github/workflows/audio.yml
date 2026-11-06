@@ -1,0 +1,38 @@
+name: Trascrivi audio
+# Scarica e trascrive le interviste di Andrea (jobs/audio/*.json). La trascrizione resta nell'artifact della Action,
+# non nel repository. Vedi trascrivi.py.
+on:
+  push:
+    branches: [main]
+    paths: ['jobs/audio/*.json']
+permissions:
+  contents: read
+concurrency:
+  group: trascrivi-audio
+  cancel-in-progress: false
+jobs:
+  trascrivi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Strumenti
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install -q faster-whisper
+      - name: Trascrivi i lavori nuovi
+        run: |
+          for j in $(git diff --name-only --diff-filter=AM HEAD~1 HEAD -- 'jobs/audio/*.json'); do
+            n=$(basename "$j" .json)
+            python3 trascrivi.py "$j" "out/$n"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: trascrizioni
+          path: out/
+          retention-days: 7
