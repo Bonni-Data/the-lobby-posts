@@ -1,5 +1,6 @@
 """Post e storia per l'intervista di Andrea a Radio Marconi («Belle Storie», 5 novembre 2026).
-python3 build.py  (dalla cartella del post). Foto: volto/libreria/mani-aperte-1.png, foto vera scontornata."""
+python3 build.py  (dalla cartella del post). Foto: foto-computer.png, la foto con il computer data da Andrea il 5/11 (generata con l'IA: post da
+segnare come contenuto IA), schermo rifatto e scontornata con volto/scontorna.py, su sua richiesta del 6/11."""
 import json
 import os
 import sys
@@ -13,7 +14,7 @@ from make_pill import (BOLD, MED, REG, CORAL, IVORY, NAVY, NAVY_SOFT, font, tw, 
 
 T = json.load(open(os.path.join(HERE, 'testi.json'), encoding='utf-8'))
 W, H = 1080, 1350
-PHOTO = Image.open(os.path.join(ROOT, 'volto/libreria/mani-aperte-1.png')).convert('RGBA')
+PHOTO = Image.open(os.path.join(HERE, 'foto-computer.png')).convert('RGBA')
 
 
 def person(height):
@@ -84,12 +85,12 @@ fc = font(BOLD, 74); t = T['cover_pill']
 pw = tw(d, t, fc) + 48
 d.rounded_rectangle((52, y + 10, 52 + pw, y + 108), radius=22, fill=CORAL)
 d.text((76, y + 10), t, font=fc, fill=NAVY)
-p = person(1000)
-paste_person(img, p, 540, H - 64 - p.height + 30)
+p = person(980)
+paste_person(img, p, W - p.width + 30, H - 64 - p.height + 30)
 d = ImageDraw.Draw(img)
 fq = font(BOLD, 36)
 qy = y + 160
-for ln in wrap(d, T['cover_quote'], fq, 450):
+for ln in wrap(d, T['cover_quote'], fq, 400):
     d.text((64, qy), ln, font=fq, fill=IVORY); qy += 50
 d.text((64, qy + 10), '— Andrea Bonazzi', font=font(MED, 28), fill=CORAL)
 player(img, 52, 1030, 500, T['programma'], T['data_breve'])
