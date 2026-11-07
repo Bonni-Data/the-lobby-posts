@@ -1,0 +1,78 @@
+{
+ "job": "jobs/render/2026-11-07-sabato-1.json",
+ "steps": [
+  {
+   "step": [
+    "make_story.py",
+    "data/sabato-2026-11-07.json",
+    "posts/sabato-2026-11-07.png"
+   ],
+   "exit": 0,
+   "output": "ok posts/sabato-2026-11-07.png",
+   "seconds": 0.2
+  },
+  {
+   "step": [
+    "faccia.py",
+    "data/faccia-2026-11-07.json"
+   ],
+   "exit": 0,
+   "output": "ok /home/runner/work/the-lobby-posts/the-lobby-posts/posts/sabato-2026-11-07-faccia.png foto: sorriso-2",
+   "seconds": 0.9
+  },
+  {
+   "step": [
+    "make_storia.py",
+    "posts/sabato-2026-11-07-faccia.png",
+    "posts/storie/2026-11-07-sabato.png",
+    "--hint",
+    "Scorri il carosello sul profilo"
+   ],
+   "exit": 0,
+   "output": "ok posts/storie/2026-11-07-sabato.png",
+   "seconds": 0.3
+  },
+  {
+   "step": [
+    "make_slideshow.py",
+    "posts/sabato-2026-11-07-faccia.png",
+    "posts/sabato-2026-11-07.png",
+    "reels/2026-11-07-sabato-slide.mp4"
+   ],
+   "exit": 0,
+   "output": "ok reels/2026-11-07-sabato-slide.mp4 (2 slide, 8.8 s) copertina reels/2026-11-07-sabato-slide-cover.jpg",
+   "seconds": 7.0
+  },
+  {
+   "step": [
+    "estrai_fotogrammi.py",
+    "reels/2026-11-07-sabato-slide.mp4",
+    "tmp/check/2026-11-07-sabato",
+    "1",
+    "-1"
+   ],
+   "exit": 0,
+   "output": "ok tmp/check/2026-11-07-sabato durata 8.8 s f_1.jpg, f_-1.jpg",
+   "seconds": 0.5
+  }
+ ],
+ "probe": [
+  {
+   "file": "reels/2026-11-07-sabato-slide.mp4",
+   "duration": 8.8,
+   "streams": [
+    {
+     "codec_type": "video",
+     "codec_name": "h264",
+     "width": 1080,
+     "height": 1920
+    },
+    {
+     "codec_type": "audio",
+     "codec_name": "aac"
+    }
+   ]
+  }
+ ],
+ "ok": true
+}
