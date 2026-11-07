@@ -1,0 +1,6 @@
+{"steps": [["make_story.py","data/sabato-2026-11-07.json","posts/sabato-2026-11-07.png"],
+["faccia.py","data/faccia-2026-11-07.json"],
+["make_storia.py","posts/sabato-2026-11-07-faccia.png","posts/storie/2026-11-07-sabato.png","--hint","Scorri il carosello sul profilo"],
+["make_slideshow.py","posts/sabato-2026-11-07-faccia.png","posts/sabato-2026-11-07.png","reels/2026-11-07-sabato-slide.mp4"],
+["estrai_fotogrammi.py","reels/2026-11-07-sabato-slide.mp4","tmp/check/2026-11-07-sabato","1","-1"]],
+"probe": ["reels/2026-11-07-sabato-slide.mp4"]}
