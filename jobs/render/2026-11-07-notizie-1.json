@@ -1,0 +1,6 @@
+{"steps": [["make_carousel.py","data/notizia-2026-11-07.json","posts/notizie/2026-11-07/"],
+["faccia.py","data/faccia-2026-11-07-notizia.json"],
+["make_storia.py","posts/notizie/2026-11-07/01.png","posts/storie/2026-11-07-notizia.png","--hint","Scorri il carosello sul profilo"],
+["make_slideshow.py","posts/notizie/2026-11-07/","reels/2026-11-07-notizia-slide.mp4"],
+["estrai_fotogrammi.py","reels/2026-11-07-notizia-slide.mp4","tmp/check/2026-11-07-notizia","1","-1"]],
+"probe": ["reels/2026-11-07-notizia-slide.mp4"]}
