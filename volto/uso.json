@@ -297,5 +297,17 @@
    "GIÙ?"
   ],
   "out": "posts/notizie/2026-11-06/01.png"
+ },
+ {
+  "data": "2026-11-07",
+  "rubrica": "notizie",
+  "mode": "post",
+  "foto": "pensieroso-1",
+  "clip": null,
+  "words": [
+   "FALSO",
+   "ALLARME"
+  ],
+  "out": "posts/notizie/2026-11-07/01.png"
  }
 ]
