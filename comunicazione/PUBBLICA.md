@@ -89,6 +89,6 @@ Instagram e Facebook.
 
 ## 4. Cene e lezioni live
 
-Le cene di networking e le lezioni live su Teams (il Premium, gratuito e su selezione) le promuove l'automazione
+Le cene di networking e le lezioni live su Teams (gli Eventi, gratuiti e su selezione; mai «Premium») le promuove l'automazione
 «Promo cene e lezioni live», che legge il calendario dell'app. Le altre rubriche possono citarle in una riga
-(«In Premium ci sono le lezioni live con Andrea e le cene di networking»), mai con date o luoghi non confermati.
+(«Negli Eventi ci sono le lezioni live con Andrea e le cene di networking»), mai con date o luoghi non confermati.

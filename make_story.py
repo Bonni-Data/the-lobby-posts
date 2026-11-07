@@ -4,7 +4,7 @@
 Uso: python3 make_story.py data.json output.png
 
 Due impaginazioni:
-- "brand": presenta THE LOBBY o una sua parte (percorso, opportunità, corsi, Premium).
+- "brand": presenta THE LOBBY o una sua parte (percorso, opportunità, corsi, Eventi).
   {"layout": "brand", "kicker": "NASCE THE LOBBY", "title": "Capisci le regole. Cambia le cose.",
    "points": ["...", "...", "...", "..."], "cta": "Gratis · thelobbyitalia.it · link in bio"}
 - "founder": racconta il fondatore, con la sua foto scontornata (assets/andrea-cut.png).

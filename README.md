@@ -42,4 +42,4 @@ reel e copertina con la faccia. Dettagli in `volto/README.md`.
 
 Primo commento in ogni post, reel anche come reel su Facebook, e dopo ogni post la storia su Instagram e Facebook
 (`make_storia.py`, file in `posts/storie/`): `comunicazione/PUBBLICA.md`. Le cene di networking e le lezioni live
-(il Premium) le promuove ogni giorno l'automazione descritta in `promo/README.md` (file in `posts/promo/`).
+(gli Eventi, fino al 7/11/2026 «Premium») le promuove ogni giorno l'automazione descritta in `promo/README.md` (file in `posts/promo/`).

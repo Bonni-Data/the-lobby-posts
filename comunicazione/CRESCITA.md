@@ -8,6 +8,12 @@ vincoli di sempre (METODO.md, PUBBLICA.md, volto/README.md, niente partito, cari
 «attestato di completamento», che non ha valore legale. In didascalie, slide, video, primo commento ed email scrivi sempre
 «attestato» (es. «quiz e attestato»), anche dove il prompt dell'automazione dice «certificato»; mai «certificato»,
 «certificazione», «diploma» o «riconosciuto», e mai crediti formativi o ore PCTO (li decide la scuola).
+**Eventi, mai «Premium»** (decisione di Andrea del 7 novembre 2026): nell'app la sezione «Premium» si chiama ora «Eventi»
+e contiene le cene di networking e le lezioni live su Teams con Andrea; l'accesso resta gratuito e su selezione, con la
+candidatura che Andrea legge personalmente (dall'app, sezione Eventi). In didascalie, slide, storie, primo commento ed
+email scrivi sempre «Eventi» / «gli eventi» («candidati agli eventi», «riservate a chi è ammesso agli eventi»), anche
+dove il prompt dell'automazione dice «Premium»; mai la parola «Premium». Il resto non cambia (solo lezioni live e cene,
+niente ospiti promessi).
 Prima di pubblicare leggi anche `RISULTATI.md`: lo aggiorna ogni lunedì l'automazione «Crescita social» con i numeri
 veri della settimana e le correzioni da fare.
 

@@ -6,7 +6,7 @@ data.json:
 {
   "number": 1,
   "label": "CENA DI NETWORKING",                              # opzionale, al posto di «PILLOLA #n»
-  "footer": "Premium è gratuito · thelobbyitalia.it",          # opzionale, al posto di «Altre pillole così...»
+  "footer": "Eventi gratuiti · thelobbyitalia.it",          # opzionale, al posto di «Altre pillole così...»
   "course": "Il Comune, senza segreti",
   "title": "Chi nomina gli assessori? (non il consiglio)",   # gancio, max ~70 caratteri
   "points": ["frase breve", "frase breve", "frase breve"],     # 3 punti, max ~85 caratteri ciascuno
