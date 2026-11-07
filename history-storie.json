@@ -24,5 +24,10 @@
     "layout": "brand",
     "topic": "Corsi di attualità aggiornati il 1° di ogni mese",
     "file": "posts/sabato-2026-10-31.png"
+  },
+  "2026-11-07": {
+    "layout": "founder",
+    "topic": "Un consiglio pratico di Andrea dalle lezioni: chiedere dati al Comune con il FOIA (30 giorni, gratis)",
+    "file": "posts/sabato-2026-11-07.png"
   }
 }
