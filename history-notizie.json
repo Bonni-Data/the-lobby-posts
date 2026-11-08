@@ -212,5 +212,27 @@
    "Scioperi nei trasporti di novembre (sciopero aereo interregionale del 6/11)",
    "Caos nei cieli e regia dei ritardi aerei (fonti non aperte)"
   ]
+ },
+ "2026-11-08": {
+  "notizia": "Scaduto il 7/11 senza proroga il taglio dell'accisa sul gasolio (4 cent/l, 4,88 con IVA; aliquota da 632,90 a 672,90 €/1000 l) disposto dal dm Mef 27/10/2026 (GU n. 250) per il periodo 28/10-7/11, coperto con 38,7 mln di maggior gettito IVA di settembre; Adusbef stima +2,44 € a pieno da 50 l; gasolio self 2,224 €/l il 7/11 (Mimit)",
+  "meccanismo": "Accisa fissa per litro + IVA 22% calcolata anche sull'accisa; riduzione temporanea dell'accisa con decreto ministeriale Mef-Mase finanziato dal maggior gettito IVA dovuto al rialzo del greggio (art. 1, cc. 290-291, L. 244/2007; anche decreti-legge nel 2026); alla scadenza, senza nuovo decreto, l'aliquota torna piena",
+  "course": "fisco-senza-paura",
+  "lesson": "Le tasse che paghi davvero",
+  "fonti": [
+   "https://www.ansa.it/canale_motori/notizie/mondo_motori/2026/11/07/niente-proroga-sulle-accise-rischio-rincari-del-gasolio-_622eb62a-12b6-4716-8e39-b9ed79ac363a.html",
+   "https://www.ilfattoquotidiano.it/2026/11/07/accise-gasolio-scadenza-prezzi-notizie/8564288/",
+   "https://www.virgilio.it/notizie/stop-al-taglio-delle-accise-sul-gasolio-non-c-e-la-proroga-dello-sconto-dopo-l-8-novembre-cosa-succede-1794868",
+   "https://www.gazzettaufficiale.it/atto/vediMenuHTML?atto.codiceRedazionale=26A05715&atto.dataPubblicazioneGazzetta=2026-10-27&tipoSerie=serie_generale&tipoVigenza=originario",
+   "https://temi.camera.it/leg19/temi/d-l-133-2026-isposizioni-urgenti-in-materia-di-prezzi-petroliferi-connessi-alla-ulteriore-crisi-dei-mercati-internazionali-e-disposizioni-in-materia-di-ilva-s-p-a-in-amministrazione-straordinaria"
+  ],
+  "scartate": [
+   "Sparatoria a Cracovia (strage, esclusa)",
+   "Taglia di hacker su Tajani e Lo Voi, cyberattacco al Brennero (sicurezza, tema vicino a ieri)",
+   "Manovra sotto pressione (tema del 27/10)",
+   "Kiev al buio dopo attacco russo",
+   "Gualtieri si ricandida a Roma (partiti)",
+   "Marquez match point MotoGP in Qatar",
+   "Decreto Bollette bis lunedì in Cdm (tema del 6/11)"
+  ]
  }
 }
