@@ -1,0 +1,77 @@
+{
+ "job": "jobs/render/2026-11-08-notizie-2.json",
+ "steps": [
+  {
+   "step": [
+    "make_carousel.py",
+    "data/notizia-2026-11-08.json",
+    "posts/notizie/2026-11-08/"
+   ],
+   "exit": 0,
+   "output": "ok posts/notizie/2026-11-08/01.png\nok posts/notizie/2026-11-08/02.png\nok posts/notizie/2026-11-08/03.png\nok posts/notizie/2026-11-08/04.png\nok posts/notizie/2026-11-08/05.png\nok posts/notizie/2026-11-08/06.png",
+   "seconds": 0.6
+  },
+  {
+   "step": [
+    "faccia.py",
+    "data/faccia-2026-11-08-notizia.json"
+   ],
+   "exit": 0,
+   "output": "ATTENZIONE: parole già usate il 2026-11-08 (PIENO / PIÙ CARO): scegline altre\nok /home/runner/work/the-lobby-posts/the-lobby-posts/posts/notizie/2026-11-08/01.png foto: sicuro-1",
+   "seconds": 0.9
+  },
+  {
+   "step": [
+    "make_storia.py",
+    "posts/notizie/2026-11-08/01.png",
+    "posts/storie/2026-11-08-notizia.png",
+    "--hint",
+    "Scorri il carosello sul profilo"
+   ],
+   "exit": 0,
+   "output": "ok posts/storie/2026-11-08-notizia.png",
+   "seconds": 0.4
+  },
+  {
+   "step": [
+    "make_slideshow.py",
+    "posts/notizie/2026-11-08/",
+    "reels/2026-11-08-notizia-slide.mp4"
+   ],
+   "exit": 0,
+   "output": "ok reels/2026-11-08-notizia-slide.mp4 (6 slide, 19.8 s) copertina reels/2026-11-08-notizia-slide-cover.jpg",
+   "seconds": 13.6
+  },
+  {
+   "step": [
+    "estrai_fotogrammi.py",
+    "reels/2026-11-08-notizia-slide.mp4",
+    "tmp/check/2026-11-08-notizia",
+    "1",
+    "-1"
+   ],
+   "exit": 0,
+   "output": "ok tmp/check/2026-11-08-notizia durata 19.8 s f_1.jpg, f_-1.jpg",
+   "seconds": 0.3
+  }
+ ],
+ "probe": [
+  {
+   "file": "reels/2026-11-08-notizia-slide.mp4",
+   "duration": 19.8,
+   "streams": [
+    {
+     "codec_type": "video",
+     "codec_name": "h264",
+     "width": 1080,
+     "height": 1920
+    },
+    {
+     "codec_type": "audio",
+     "codec_name": "aac"
+    }
+   ]
+  }
+ ],
+ "ok": true
+}
