@@ -1,0 +1,49 @@
+{
+ "kicker": "RITRATTO DELLA SETTIMANA",
+ "title": "A 16 anni ad Auschwitz. A 52 guidava l'Europa.",
+ "subtitle": "Simone Veil, prima presidente del Parlamento europeo eletto",
+ "slides": [
+  {
+   "tag": "1944 · 16 ANNI",
+   "title": "La maturità, poi la deportazione",
+   "text": "Nata a Nizza nel 1927 in una famiglia ebrea. Nel marzo 1944 supera la maturità e il giorno dopo viene arrestata. Ad aprile è deportata ad Auschwitz-Birkenau con la madre e la sorella. Nel 1945 è liberata e torna in Francia."
+  },
+  {
+   "tag": "1945 · RICOMINCIARE",
+   "title": "Legge e Sciences Po",
+   "text": "Nell'autunno del 1945, appena tornata, si iscrive a Giurisprudenza e a Sciences Po a Parigi. Prima di tutto lo studio: il diritto, le istituzioni, come funziona lo Stato."
+  },
+  {
+   "tag": "ANNI '50 · LA GAVETTA",
+   "title": "Magistrata, per concorso",
+   "text": "Negli anni Cinquanta vince il concorso in magistratura e lavora al ministero della Giustizia. Nel 1970 è la prima donna segretaria del Consiglio superiore della magistratura francese."
+  },
+  {
+   "tag": "1974 · 46 ANNI",
+   "title": "Ministra della Sanità",
+   "text": "Il 28 maggio 1974 entra nel governo come ministra della Sanità. Porta in Parlamento una legge molto discussa, approvata nel gennaio 1975: in Francia ancora oggi si chiama «legge Veil»."
+  },
+  {
+   "tag": "1979 · 52 ANNI",
+   "title": "Prima presidente del Parlamento europeo",
+   "text": "Nel 1979 i cittadini europei votano per la prima volta il loro Parlamento. Il 17 luglio Simone Veil ne diventa presidente: è la prima donna a guidarlo. Resta in carica fino al 1982."
+  },
+  {
+   "tag": "1993-2008 · ANCORA",
+   "title": "Ministra, giudice, accademica",
+   "text": "Nel 1993 torna ministra di Stato. Dal 1998 siede nel Consiglio costituzionale francese e nel 2008 entra all'Académie française. Muore nel 2017; dal 2018 riposa al Pantheon di Parigi."
+  },
+  {
+   "tag": "COSA IMPARI DA LEI",
+   "title": "Ricominciare dallo studio",
+   "text": "Dopo il peggio, i libri. Poi un concorso, la gavetta nelle istituzioni, le responsabilità una alla volta. Le sue idee puoi condividerle o no: il metodo vale per tutti."
+  }
+ ],
+ "cta": {"title": "Inizia da qui.", "text": "Lezioni da 5 minuti, quiz e attestato. Gratis."},
+ "source": "Fonti: Assemblée nationale, Unione europea, Parlamento europeo (EPRS), Wikipedia",
+ "photo": "posts/ritratti/2026-11-09/foto-1.jpg",
+ "photo_credit": "Foto: Marie-Lan Nguyen · CC BY 3.0 · Wikimedia Commons (ritagliata)",
+ "photo_zoom": 1.2,
+ "photo_focus_x": 0.55,
+ "photo_focus": 0.25
+}

@@ -1,0 +1,6 @@
+{"steps": [["make_carousel.py","data/ritratto-2026-11-09.json","posts/ritratti/2026-11-09/"],
+["faccia.py","data/faccia-2026-11-09-ritratto.json"],
+["make_storia.py","posts/ritratti/2026-11-09/01.png","posts/storie/2026-11-09-ritratto.png","--hint","Scorri il carosello sul profilo"],
+["make_slideshow.py","posts/ritratti/2026-11-09/","reels/2026-11-09-ritratto-slide.mp4"],
+["estrai_fotogrammi.py","reels/2026-11-09-ritratto-slide.mp4","tmp/check/2026-11-09-ritratto","1","-1"]],
+"probe": ["reels/2026-11-09-ritratto-slide.mp4"]}
