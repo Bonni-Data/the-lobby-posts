@@ -345,5 +345,17 @@
    "PIÙ CARO"
   ],
   "out": "posts/notizie/2026-11-08/01.png"
+ },
+ {
+  "data": "2026-11-09",
+  "rubrica": "ritratti",
+  "mode": "post",
+  "foto": "sicuro-1",
+  "clip": null,
+  "words": [
+   "AUSCHWITZ",
+   "EUROPA"
+  ],
+  "out": "posts/ritratti/2026-11-09/01.png"
  }
 ]

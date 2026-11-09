@@ -1,0 +1,77 @@
+{
+ "job": "jobs/render/2026-11-09-ritratto-1.json",
+ "steps": [
+  {
+   "step": [
+    "make_carousel.py",
+    "data/ritratto-2026-11-09.json",
+    "posts/ritratti/2026-11-09/"
+   ],
+   "exit": 0,
+   "output": "ok posts/ritratti/2026-11-09/01.png\nok posts/ritratti/2026-11-09/02.png\nok posts/ritratti/2026-11-09/03.png\nok posts/ritratti/2026-11-09/04.png\nok posts/ritratti/2026-11-09/05.png\nok posts/ritratti/2026-11-09/06.png\nok posts/ritratti/2026-11-09/07.png\nok posts/ritratti/2026-11-09/08.png\nok posts/ritratti/2026-11-09/09.png",
+   "seconds": 1.5
+  },
+  {
+   "step": [
+    "faccia.py",
+    "data/faccia-2026-11-09-ritratto.json"
+   ],
+   "exit": 0,
+   "output": "ok /home/runner/work/the-lobby-posts/the-lobby-posts/posts/ritratti/2026-11-09/01.png foto: sicuro-1",
+   "seconds": 1.2
+  },
+  {
+   "step": [
+    "make_storia.py",
+    "posts/ritratti/2026-11-09/01.png",
+    "posts/storie/2026-11-09-ritratto.png",
+    "--hint",
+    "Scorri il carosello sul profilo"
+   ],
+   "exit": 0,
+   "output": "ok posts/storie/2026-11-09-ritratto.png",
+   "seconds": 0.4
+  },
+  {
+   "step": [
+    "make_slideshow.py",
+    "posts/ritratti/2026-11-09/",
+    "reels/2026-11-09-ritratto-slide.mp4"
+   ],
+   "exit": 0,
+   "output": "ok reels/2026-11-09-ritratto-slide.mp4 (8 slide, 26.6 s) copertina reels/2026-11-09-ritratto-slide-cover.jpg",
+   "seconds": 21.7
+  },
+  {
+   "step": [
+    "estrai_fotogrammi.py",
+    "reels/2026-11-09-ritratto-slide.mp4",
+    "tmp/check/2026-11-09-ritratto",
+    "1",
+    "-1"
+   ],
+   "exit": 0,
+   "output": "ok tmp/check/2026-11-09-ritratto durata 26.6 s f_1.jpg, f_-1.jpg",
+   "seconds": 0.4
+  }
+ ],
+ "probe": [
+  {
+   "file": "reels/2026-11-09-ritratto-slide.mp4",
+   "duration": 26.6,
+   "streams": [
+    {
+     "codec_type": "video",
+     "codec_name": "h264",
+     "width": 1080,
+     "height": 1920
+    },
+    {
+     "codec_type": "audio",
+     "codec_name": "aac"
+    }
+   ]
+  }
+ ],
+ "ok": true
+}
