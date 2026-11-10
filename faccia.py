@@ -46,6 +46,8 @@ USO = os.path.join(HERE, "volto", "uso.json")
 
 # rubrica -> foto preferite, in ordine (se non c'è nulla di adatto si usa la rotazione su tutte le «alta»)
 FALLBACK = ["sorriso-2", "sicuro-1", "sorriso-4"]
+THEME_BY_RUBRICA = {"notizie": "coral", "opportunita": "ivory", "pillole": "ivory", "founder": "ivory",
+                    "lezioni": "navy", "premium": "navy", "ritratti": "navy"}
 
 
 def load(p, default):
@@ -113,6 +115,9 @@ def face_data(job, foto, fmt):
         if job.get(k):
             d[k] = job[k]
     d.update(meta.get("layout", {}))
+    # 10/11/2026: colore della copertina secondo la rubrica, perché il feed alterni i colori; le notizie tristi
+    # (tono «serio») restano sempre su navy
+    d["theme"] = job.get("theme") or ("navy" if job.get("tono") == "serio" else THEME_BY_RUBRICA.get(job.get("rubrica", ""), "navy"))
     if job.get("card"):  # con la cornice del ritratto Andrea sta sempre a destra, a grandezza normale
         for k in ("face_h", "face_x", "face_shift", "words_y"):
             d.pop(k, None)

@@ -65,7 +65,7 @@ def load_face(path):
     return face, box
 
 
-def place_face(img, path, side, top, bottom, face_h, face_x=None, shift=0):
+def place_face(img, path, side, top, bottom, face_h, face_x=None, shift=0, rim=IVORY):
     """Scala la sagoma perché il viso sia alto face_h px e la appoggia sul fondo (bottom); restituisce il riquadro del viso."""
     W, H = img.size
     face, (fx, fy, fw, fh) = load_face(path)
@@ -78,7 +78,7 @@ def place_face(img, path, side, top, bottom, face_h, face_x=None, shift=0):
     cx = W * (face_x if face_x else (0.68 if side == "right" else 0.32))
     x = int(cx - (fx + fw / 2))
     y = int(bottom - face.height * 0.94) + int(shift)  # il fondo della sagoma (spesso irregolare) finisce sotto la fascia
-    st, pad = sticker(face)
+    st, pad = sticker(face, color=rim)
     img.alpha_composite(st, (x - pad, y - pad))
     global LAST_MASK
     LAST_MASK = Image.new("L", img.size, 0)
@@ -160,8 +160,131 @@ def photo_card(img, card, x, y, w, h, angle=-4):
     return y + rot.height
 
 
+# Copertine dei post, nuovo stile (decisione di Andrea del 10 novembre 2026: «uno stile grafico più accattivante,
+# più marketing»): parole enormi a tutta larghezza in alto, volto grande sotto, colore di fondo che cambia con la
+# rubrica (navy, corallo, crema) così il feed non è una fila di post tutti uguali, meno scritte piccole.
+THEMES = {
+    "navy": {"bg": NAVY, "soft": NAVY_SOFT, "line": CORAL, "ink": IVORY, "pill": CORAL, "pill_ink": NAVY,
+             "kick": CORAL, "kick_ink": NAVY, "logo": IVORY, "accent": CORAL, "band": CORAL, "band_ink": NAVY, "rim": IVORY},
+    "coral": {"bg": CORAL, "soft": (255, 137, 116), "line": NAVY, "ink": NAVY, "pill": NAVY, "pill_ink": IVORY,
+              "kick": NAVY, "kick_ink": IVORY, "logo": NAVY, "accent": NAVY, "band": NAVY, "band_ink": IVORY, "rim": IVORY},
+    "ivory": {"bg": IVORY, "soft": (232, 225, 211), "line": CORAL, "ink": NAVY, "pill": CORAL, "pill_ink": NAVY,
+              "kick": NAVY, "kick_ink": IVORY, "logo": NAVY, "accent": CORAL, "band": NAVY, "band_ink": IVORY, "rim": (255, 255, 255)},
+}
+
+
+def fit_size(d, text, width, top, low=60):
+    size = top
+    while size > low and tw(d, text, font(BOLD, size)) > width:
+        size -= 4
+    return size
+
+
+def make_top(data, out):
+    """Post 1080x1350: titolo enorme in alto a tutta larghezza, volto grande sotto, fondo del colore del tema."""
+    W, H = SIZES["post"]
+    th = THEMES.get(data.get("theme", "navy"), THEMES["navy"])
+    img = Image.new("RGBA", (W, H), th["bg"] + (255,))
+    d = ImageDraw.Draw(img)
+    band_y = H - BAND
+    side = data.get("side", "right")
+
+    draw_logo(img, 60, 52, 0.62, ink=th["logo"], accent=th["accent"])
+    d = ImageDraw.Draw(img)
+    y = 150
+    if data.get("kicker"):
+        kf = font(BOLD, 28)
+        k = data["kicker"].upper()
+        kw = tw(d, k, kf) + 44
+        d.rounded_rectangle((60, y, 60 + kw, y + 52), radius=26, fill=th["kick"])
+        d.text((82, y + 8), k, font=kf, fill=th["kick_ink"])
+        y += 76
+
+    # le parole: la prima enorme, la seconda in un riquadro; più è corta, più è grande (un numero diventa gigante)
+    words = [w.upper() for w in data["words"][:2]]
+    maxw = W - 120
+    s1 = fit_size(d, words[0], maxw, 250 if len(words[0]) <= 4 else 210)
+    f1 = font(BOLD, s1)
+    l, t, r, b = d.textbbox((0, 0), words[0], font=f1)
+    word_rows = [(words[0], f1, l, t, r, b)]
+    if len(words) > 1:
+        s2 = min(fit_size(d, words[1], maxw - 56, 190 if len(words[1]) <= 4 else 160), int(s1 * 0.95))
+        f2 = font(BOLD, s2)
+        word_rows.append((words[1],) + (f2,) + d.textbbox((0, 0), words[1], font=f2))
+    heights = [(b - t) for _, _, l, t, r, b in word_rows]
+    words_h = heights[0] + (heights[1] + 70 if len(word_rows) > 1 else 0)
+    words_end = y + words_h
+
+    # arco della porta dietro Andrea
+    ax = int(W * (0.66 if side == "right" else 0.34))
+    aw = 600
+    atop = max(words_end - 40, 420)
+    draw_arch(d, ax - aw // 2, atop, aw, band_y - atop + 40, th["soft"], 30)
+    draw_arch(d, ax - aw // 2 + 70, atop + 80, aw - 140, band_y - atop, th["line"], 12)
+
+    # volto grande, in basso; la testa non deve coprire le parole
+    face_h = int(data.get("face_h_top", 330))
+    layer = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    box = place_face(layer, data["face"], side, words_end, band_y, face_h, data.get("face_x"), 0, th["rim"])
+    if box[1] < words_end + 30:   # la testa sale sopra il titolo: si abbassa la figura
+        layer = Image.new("RGBA", img.size, (0, 0, 0, 0))
+        box = place_face(layer, data["face"], side, words_end, band_y, face_h, data.get("face_x"), words_end + 30 - box[1], th["rim"])
+    img.alpha_composite(layer)
+    d = ImageDraw.Draw(img)
+
+    # parole sopra a tutto
+    yy = y
+    for i, (w, f, l, t, r, b) in enumerate(word_rows):
+        if i == 0:
+            d.text((60 - l, yy - t), w, font=f, fill=th["ink"])
+            yy += (b - t) + 34
+        else:
+            pad = 26
+            d.rounded_rectangle((52, yy - 14, 52 + (r - l) + pad * 2, yy + (b - t) + 18), radius=22, fill=th["pill"])
+            d.text((52 + pad - l, yy - t), w, font=f, fill=th["pill_ink"])
+            yy += (b - t) + 36
+
+    # riga sotto le parole, a fianco del volto
+    fx, fy, fw, fh = box
+    x0 = 60 if side == "right" else int(fx + fw + 30)
+    x1 = int(fx - 30) if side == "right" else W - 60
+    sy = yy + 24
+    if data.get("sub"):
+        if side == "right":
+            x1 = max(free_x("right", sy, sy + 170, x1), x0 + 330)
+        else:
+            x0 = min(free_x("left", sy, sy + 170, x0), x1 - 330)
+        sf, sl, ss = fit_block(d, data["sub"], BOLD, x1 - x0, 3, 42, 28)
+        for ln in sl:
+            d.text((x0, sy), ln, font=sf, fill=th["ink"], stroke_width=6, stroke_fill=th["bg"])
+            sy += int(ss * 1.25)
+    # firma e «Scorri» dal lato libero: sotto a sinistra se Andrea è a destra; se è a sinistra, la firma va sotto la
+    # riga e «Scorri» in basso a destra
+    nf = font(BOLD, 30)
+    if side == "right":
+        d.text((60, band_y - (132 if data.get("swipe") else 70)), "Andrea Bonazzi", font=nf, fill=th["ink"],
+               stroke_width=5, stroke_fill=th["bg"])   # il volto ha sempre un nome
+    else:
+        d.text((x0, sy + 14), "Andrea Bonazzi", font=nf, fill=th["ink"], stroke_width=5, stroke_fill=th["bg"])
+    if data.get("swipe"):
+        sw, sf = "Scorri", font(BOLD, 30)
+        cw = tw(d, sw, sf) + 74
+        sx, sy = (60, band_y - 70) if side == "right" else (W - 60 - cw, band_y - 70)
+        d.rounded_rectangle((sx - 4, sy - 8, sx + cw - 4, sy + 46), radius=27, fill=th["kick"])
+        d.text((sx + 16, sy - 1), sw, font=sf, fill=th["kick_ink"])
+        ax0 = sx + tw(d, sw, sf) + 26
+        d.line([ax0, sy + 19, ax0 + 26, sy + 19], fill=th["kick_ink"], width=4)
+        d.line([ax0 + 15, sy + 8, ax0 + 26, sy + 19], fill=th["kick_ink"], width=4)
+        d.line([ax0 + 15, sy + 30, ax0 + 26, sy + 19], fill=th["kick_ink"], width=4)
+    promise_band(d, W, H, fill=th["band"], ink=th["band_ink"])
+    img.convert("RGB").save(out, "PNG", optimize=True)
+    return out
+
+
 def make(data, out):
     fmt = data.get("format", "post")
+    if fmt == "post" and not data.get("card") and data.get("style", "top") == "top":
+        return make_top(data, out)
     W, H = SIZES[fmt]
     side = data.get("side", "right")
     ivory = data.get("theme") == "ivory"

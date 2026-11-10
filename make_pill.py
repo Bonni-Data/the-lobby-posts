@@ -70,15 +70,15 @@ def draw_arch(d, x, y, w, h, color, thick):
     d.line([x - thick, y + h, x + w + thick, y + h], fill=color, width=thick)
 
 
-def draw_logo(img, x, y, scale=1.0):
+def draw_logo(img, x, y, scale=1.0, ink=IVORY, accent=CORAL):
     d = ImageDraw.Draw(img)
     aw, ah = int(64 * scale), int(86 * scale)
-    draw_arch(d, x, y, aw, ah, CORAL, max(6, int(8 * scale)))
+    draw_arch(d, x, y, aw, ah, accent, max(6, int(8 * scale)))
     cx = x + aw / 2
     rr = int(7 * scale)
-    d.ellipse([cx - rr, y + ah * 0.55 - rr, cx + rr, y + ah * 0.55 + rr], fill=IVORY)
-    d.text((x + aw + int(26 * scale), y + int(8 * scale)), "THE LOBBY", font=font(BOLD, int(46 * scale)), fill=IVORY)
-    d.text((x + aw + int(28 * scale), y + int(62 * scale)), "WHERE INFLUENCE BEGINS.", font=font(MED, int(17 * scale)), fill=CORAL)
+    d.ellipse([cx - rr, y + ah * 0.55 - rr, cx + rr, y + ah * 0.55 + rr], fill=ink)
+    d.text((x + aw + int(26 * scale), y + int(8 * scale)), "THE LOBBY", font=font(BOLD, int(46 * scale)), fill=ink)
+    d.text((x + aw + int(28 * scale), y + int(62 * scale)), "WHERE INFLUENCE BEGINS.", font=font(MED, int(17 * scale)), fill=accent)
 
 
 # La promessa di THE LOBBY (decisione di Andrea del 18 ottobre 2026): ogni grafica deve dire chiaramente

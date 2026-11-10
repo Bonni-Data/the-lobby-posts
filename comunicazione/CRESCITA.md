@@ -81,6 +81,13 @@ automazioni e anche dove il prompt dice altro:
 
 ## 2. Gancio e copertina: ogni giorno diversi
 
+**Nuovo stile delle copertine (decisione di Andrea del 10 novembre 2026: «uno stile grafico più accattivante, più
+marketing»)**: faccia.py fa da solo titolo enorme a tutta larghezza in alto, volto grande sotto e colore di fondo
+secondo la rubrica (notizie corallo, opportunità, pillole e consiglio crema, il resto navy; le notizie tristi con
+«tono» "serio" sempre navy), così il feed alterna i colori. Per sfruttarlo: in "words" la prima parola corta e
+fortissima (meglio ancora un numero: «30», «34», «2.500€» diventano giganti), la seconda nel riquadro; "sub" una
+frase concreta di massimo 45 caratteri. Non serve altro nel lavoro di faccia.py.
+
 - Le 1-2 parole e la frase della copertina cambiano ogni volta. **Vietate le formule fisse**: «Tutti ne parlano. Pochi
   sanno come funziona.» non va più nelle copertine (al massimo, raramente, nella didascalia); «CHI DECIDE?» al massimo
   una volta ogni 7 giorni. faccia.py avvisa con «ATTENZIONE» se le parole sono già uscite nelle ultime 20 copertine:
