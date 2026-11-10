@@ -381,5 +381,17 @@
    "ESTERO"
   ],
   "out": "posts/2026-11-10-faccia.png"
+ },
+ {
+  "data": "2026-11-10",
+  "rubrica": "premium",
+  "mode": "post",
+  "foto": "sorriso-4",
+  "clip": null,
+  "words": [
+   "SALA",
+   "FREDDA?"
+  ],
+  "out": "posts/promo/2026-11-10/01.png"
  }
 ]
