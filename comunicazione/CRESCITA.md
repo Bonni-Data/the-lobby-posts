@@ -23,20 +23,17 @@ Dal 3 novembre le automazioni non pubblicavano più: nelle sessioni automatiche 
 l'esecuzione degli script del repository** («codice da repo esterno») e **WebFetch su indirizzi che non vengono da una
 ricerca** (PROVENANCE_REQUIRED). Quindi, in tutte le automazioni, anche dove il prompt dice altro:
 - **Repository**: se lo strumento add_repo non c'è, non serve: `git clone` e `git push` su main funzionano già.
-- **Mai eseguire in sessione** `python3 make_*.py`, `faccia.py`, `make_slideshow.py`, `cinema/render_assets.py` o altri
+- **Mai eseguire in sessione** `python3 make_*.py`, `faccia.py`, `cinema/render_assets.py` o altri
   script del repository, e non cercare giri alternativi (copiarli, incollarne il codice, `python3 -c`). Li esegue
   GitHub: scrivi i JSON dei dati come sempre (data/…, lavoro di faccia.py) e poi un **lavoro di render**
   `jobs/render/<AAAA-MM-GG>-<rubrica>-<n>.json` (n parte da 1) con TUTTI i passi in ordine, per esempio:
   `{"steps": [["make_carousel.py","data/notizia-2026-11-06.json","posts/notizie/2026-11-06/"],
   ["faccia.py","data/faccia-2026-11-06-notizia.json"],
-  ["make_storia.py","posts/notizie/2026-11-06/01.png","posts/storie/2026-11-06-notizia.png","--hint","Scorri il carosello sul profilo"],
-  ["make_slideshow.py","posts/notizie/2026-11-06/","reels/2026-11-06-notizia-slide.mp4"],
-  ["estrai_fotogrammi.py","reels/2026-11-06-notizia-slide.mp4","tmp/check/2026-11-06-notizia","1","-1"]],
-  "probe": ["reels/2026-11-06-notizia-slide.mp4"]}`
+  ["make_storia.py","posts/notizie/2026-11-06/01.png","posts/storie/2026-11-06-notizia.png","--hint","Scorri il carosello sul profilo"]]}`
   Gli argomenti sono gli stessi che il prompt dà per la riga di comando (percorsi relativi, mai `/` iniziale o `..`).
   Script ammessi: make_carousel.py, faccia.py, make_storia.py, make_story.py, make_pill.py, make_post.py,
-  make_slideshow.py, make_reel.py, make_face.py, estrai_fotogrammi.py, cinema/render_assets.py. Per i video metti
-  sempre un passo estrai_fotogrammi.py (scrive i fotogrammi e `foglio.jpg`) e il file in `probe`.
+  make_reel.py, make_face.py, estrai_fotogrammi.py, cinema/render_assets.py (make_slideshow.py non più: sezione 1).
+  Per i reel veri metti sempre un passo estrai_fotogrammi.py (scrive i fotogrammi e `foglio.jpg`) e il file in `probe`.
 - **Commit e push** dei JSON dei dati e del lavoro insieme, poi **aspetta il risultato**: lancia in background (Bash con
   run_in_background, il `sleep` in primo piano è bloccato) il ciclo
   `for i in $(seq 1 30); do git fetch -q origin main; git cat-file -e origin/main:jobs/render/<nome>.result.json && break; sleep 20; done`
@@ -67,35 +64,20 @@ ricerca** (PROVENANCE_REQUIRED). Quindi, in tutte le automazioni, anche dove il 
   contenuti su elezioni, leggi e temi sociali (si può cambiare solo dalle impostazioni di ogni utente). Le notizie su
   elezioni estere, partiti e leader non arrivano a nuove persone.
 
-## 1. Video ovunque (reel su Facebook e su Instagram)
+## 1. Un solo post per contenuto (decisione di Andrea del 10 novembre 2026)
 
-Per OGNI post con immagini (carosello o post singolo: notizia, lezione in slide, ritratto, opportunità, pillola,
-sabato, promo, riserva):
-1. **Nello stesso lavoro di render del post** (sezione 0), monta il video dalle immagini del post, nello stesso ordine
-   (copertina con il volto per prima): passo `["make_slideshow.py","<cartella o PNG in ordine>","reels/<AAAA-MM-GG>-<rubrica>-slide.mp4"]`
-   (scrive anche `...-slide-cover.jpg`), poi estrai_fotogrammi.py con i tempi 1 e -1 e il video in `probe`.
-   Controlli: nel result.json 1080x1920, h264 e aac; apri i fotogrammi con Read.
-2. **Instagram, post con immagini**: resta come prima, ma nei `providers` del post NON metti Facebook.
-3. **Il video, in DUE createScheduledPost separate** (stessi campi in tutte e due: `media` = [indirizzo
-   raw.githubusercontent.com con lo sha del video], `videoThumbnailUrl` = indirizzo della sua copertina, `text` = la
-   stessa didascalia (puoi accorciarla: restano gancio, contenuto, tre promesse, link in bio, invito, 5 hashtag),
-   `firstCommentText` = una domanda con risposta di una parola, `mediaAltText`, `draft` false, `autoPublish` true):
-   a) **Facebook**: `providers` [{"network":"facebook"}], `facebookData` {"type": "REEL"}, data = 2 minuti dopo il post.
-   b) **Instagram**: `providers` [{"network":"instagram"}], `instagramData` {"type": "REEL", "autoPublish": true,
-      "isAiGenerated": <come il post>, "showReelOnFeed": true}. **Mai `TRIAL_REEL`**: Instagram concede i Trial Reel
-      solo agli account con almeno 1.000 follower; il 4 novembre 2026 Metricool l'ha rifiutato con «Trial Reel Not
-      Enough Followers». Orario: almeno 4 ore dopo il post, nel primo di questi orari che è libero, oggi o domani:
-      **12:40, 13:40, 21:10** (ora di Roma). Libero vuol dire che getScheduledPosts (da 45 minuti prima a 45 minuti
-      dopo) non mostra un altro post o reel su Instagram (le storie non contano). Esempi: la notizia delle 8:00 → 12:40
-      dello stesso giorno; il promo delle 15:00 → 21:10; un post delle 18:00 o delle 19:00 → 12:40 del giorno dopo (o
-      13:40 se alle 12:40 c'è già la notizia). Così chi ci segue non vede lo stesso contenuto due volte di fila e il
-      reel ha una seconda occasione di arrivare a chi non ci segue (scheda Reels ed Esplora).
-   Se una delle due programmazioni fallisce, riprova una volta, poi scrivilo nel resoconto. Quando Instagram supera
-   i 1.000 follower, l'automazione «Crescita social» lo scrive in RISULTATI.md e il punto b torna `TRIAL_REEL`.
-4. **La storia** resta su Instagram e Facebook, come prima.
-5. Se il video non si monta (errore due volte), su Facebook pubblica il post con immagini come prima e scrivilo.
-
-I reel (Lo sapevi, Quiz lampo, Attualità) restano reel su Instagram e Facebook come prima.
+Andrea, 10 novembre 2026: «Non lo voglio assolutamente come cosa che mi crei dei reel su delle immagini. Non mi serve a
+niente. Tieni un singolo post per sé. Non ripubblicarlo più volte perché mi rovina il feed.» Quindi, in tutte le
+automazioni e anche dove il prompt dice altro:
+1. **Mai video o reel montati dalle immagini di un post**: niente `make_slideshow.py`, niente `reels/<data>-<rubrica>-slide.mp4`.
+2. **Ogni contenuto esce una sola volta**: il post con immagini (carosello o post singolo) va su Instagram **e** su
+   Facebook nello stesso createScheduledPost (`providers` [{"network":"instagram"},{"network":"facebook"}] più le
+   altre reti della sezione 3 di PUBBLICA.md, `instagramData` {"type": "POST", ...}, `facebookData` {"type": "POST"}).
+   Mai un secondo post, reel o Trial Reel con lo stesso contenuto, né subito né in un altro orario.
+3. **La storia resta** su Instagram e Facebook come prima (non va nel feed).
+4. I reel veri (Lo sapevi, Quiz lampo, Attualità: video nati come video) escono una volta, come reel su Instagram e Facebook.
+5. La crescita si cerca con la copertina (sezione 2 e `volto/README.md`), il gancio, i temi e l'interazione, non
+   moltiplicando i post.
 
 ## 2. Gancio e copertina: ogni giorno diversi
 

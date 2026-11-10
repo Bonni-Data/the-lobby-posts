@@ -11,11 +11,8 @@ Formato del lavoro:
   "steps": [
     ["make_carousel.py", "data/notizia-2026-11-06.json", "posts/notizie/2026-11-06/"],
     ["faccia.py", "data/faccia-2026-11-06-notizia.json"],
-    ["make_storia.py", "posts/notizie/2026-11-06/01.png", "posts/storie/2026-11-06-notizia.png", "--hint", "Scorri il carosello sul profilo"],
-    ["make_slideshow.py", "posts/notizie/2026-11-06/", "reels/2026-11-06-notizia-slide.mp4"],
-    ["estrai_fotogrammi.py", "reels/2026-11-06-notizia-slide.mp4", "tmp/check/2026-11-06-notizia", "1", "-1"]
-  ],
-  "probe": ["reels/2026-11-06-notizia-slide.mp4"]
+    ["make_storia.py", "posts/notizie/2026-11-06/01.png", "posts/storie/2026-11-06-notizia.png", "--hint", "Scorri il carosello sul profilo"]
+  ]
 }
 Si eseguono solo gli script dell'elenco SCRIPTS, senza shell, con percorsi relativi dentro il repository. Un passo
 che fallisce non ferma i successivi: l'esito di ognuno finisce nel result.json.
@@ -30,8 +27,9 @@ import time
 HERE = os.path.dirname(os.path.abspath(__file__))
 SCRIPTS = {
     "make_carousel.py", "faccia.py", "make_storia.py", "make_story.py", "make_pill.py", "make_post.py",
-    "make_slideshow.py", "make_reel.py", "make_face.py", "estrai_fotogrammi.py", "cinema/render_assets.py",
+    "make_reel.py", "make_face.py", "estrai_fotogrammi.py", "cinema/render_assets.py",
 }
+# make_slideshow.py tolto il 10/11/2026: Andrea non vuole reel montati dalle immagini dei post (un solo post per contenuto).
 
 
 def safe(arg):
