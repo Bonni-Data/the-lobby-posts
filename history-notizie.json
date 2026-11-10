@@ -234,5 +234,26 @@
    "Marquez match point MotoGP in Qatar",
    "Decreto Bollette bis lunedì in Cdm (tema del 6/11)"
   ]
+ },
+ "2026-11-10": {
+  "notizia": "Specializzazioni mediche: con l'ordinanza cautelare n. 4685/2026 il Consiglio di Stato accoglie l'appello di 27 candidati al concorso nazionale di luglio 2026 (oltre 17mila partecipanti) sulla correzione del quesito n. 34, ribaltando il TAR Lazio; il MUR deve riassegnare il punteggio pieno, annullare la penalità e rielaborare la graduatoria; il merito torna al TAR",
+  "meccanismo": "Giustizia amministrativa: ricorso al TAR contro atti della PA, appello al Consiglio di Stato; tutela cautelare (art. 55 c.p.a.): pregiudizio grave e irreparabile + fumus boni iuris a un esame sommario, ordinanza collegiale provvisoria; se accolta si fissa il merito; appello contro le ordinanze cautelari entro 30 giorni dalla notifica o 60 dalla pubblicazione",
+  "course": "entrare-nelle-istituzioni",
+  "lesson": "Concorsi EPSO e pubblici",
+  "fonti": [
+   "https://www.mattinopadova.it/italia/specializzazioni-mediche-sentenza-consiglio-stato-stravolge-le-graduatorie-tsnkvhl4",
+   "https://www.italiaoggi.it/diritto-e-fisco/professioni/specializzazioni-mediche-il-consiglio-di-stato-boccia-il-test-graduatoria-da-rifare-per-17-mila-candidati-wpkznq66",
+   "https://www.adnkronos.com/cronaca/specializzazioni-mediche-consiglio-di-stato-graduatorie_4MMRSNElmf4tDk8bRaUEYy",
+   "https://www.giustizia-amministrativa.it/documents/20142/62321/intra_000802.htm/c4abb30d-967c-8eee-d856-b925eed7e190/intra_000802.htm"
+  ],
+  "scartate": [
+   "Manovra 2027 alla Camera: audizioni, emendamenti entro il 17/11",
+   "Ex Ilva: gara per l'acciaieria, si sfila Flacks",
+   "Strage di Cracovia (esclusa: attentato)",
+   "Israele: incarico a Eisenkot (elezioni estere)",
+   "Trieste: due giovani morti al Porto Vecchio e scontri (cronaca)",
+   "Anac: slitta la designazione del presidente",
+   "Decreto armi per Kiev non firmato da Giorgetti"
+  ]
  }
 }
