@@ -369,5 +369,17 @@
    "SBAGLIATA?"
   ],
   "out": "posts/notizie/2026-11-10/01.png"
+ },
+ {
+  "data": "2026-11-10",
+  "rubrica": "opportunita",
+  "mode": "post",
+  "foto": "indica-1",
+  "clip": null,
+  "words": [
+   "STUDIA",
+   "ESTERO"
+  ],
+  "out": "posts/2026-11-10-faccia.png"
  }
 ]
