@@ -1,0 +1,6 @@
+{"steps": [["faccia.py","data/faccia-2026-11-10-promo.json"],
+["make_pill.py","data/promo-2026-11-10.json","posts/promo/2026-11-10/02.png"],
+["make_storia.py","posts/promo/2026-11-10/01.png","posts/storie/2026-11-10-promo.png","--hint","Scorri il carosello sul profilo"],
+["make_slideshow.py","posts/promo/2026-11-10/","reels/2026-11-10-promo-slide.mp4"],
+["estrai_fotogrammi.py","reels/2026-11-10-promo-slide.mp4","tmp/check/2026-11-10-promo","1","-1"]],
+"probe": ["reels/2026-11-10-promo-slide.mp4"]}
