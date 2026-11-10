@@ -10,5 +10,11 @@
     "tipo": "prenotazioni",
     "titolo": "Candidarsi",
     "file": "posts/promo/2026-10-27/"
+  },
+  "2026-11-10": {
+    "event_id": "88914511-8350-49e5-bf23-eeea8fe787c2",
+    "tipo": "prenotazioni",
+    "titolo": "Public speaking avanzato",
+    "file": "posts/promo/2026-11-10/"
   }
 }
