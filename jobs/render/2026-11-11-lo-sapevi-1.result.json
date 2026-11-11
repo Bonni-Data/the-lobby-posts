@@ -1,0 +1,87 @@
+{
+ "job": "jobs/render/2026-11-11-lo-sapevi-1.json",
+ "steps": [
+  {
+   "step": [
+    "make_reel.py",
+    "data/reel-2026-11-11.json",
+    "reels/2026-11-11.mp4"
+   ],
+   "exit": 0,
+   "output": "ok reels/2026-11-11.mp4 · 21.6 s · 0.9 MB",
+   "seconds": 15.9
+  },
+  {
+   "step": [
+    "estrai_fotogrammi.py",
+    "reels/2026-11-11.mp4",
+    "tmp/check/2026-11-11-reel",
+    "1",
+    "4",
+    "8",
+    "12",
+    "-2"
+   ],
+   "exit": 0,
+   "output": "ok tmp/check/2026-11-11-reel durata 21.6 s f_1.jpg, f_4.jpg, f_8.jpg, f_12.jpg, f_-2.jpg",
+   "seconds": 1.0
+  },
+  {
+   "step": [
+    "faccia.py",
+    "data/faccia-2026-11-11.json"
+   ],
+   "exit": 0,
+   "output": "ok /tmp/tmpb84ogcjf/intro.wav 2.0 s\nintro con la foto: indica-1\ncopertina /home/runner/work/the-lobby-posts/the-lobby-posts/reels/2026-11-11-faccia-cover.jpg\nok /home/runner/work/the-lobby-posts/the-lobby-posts/reels/2026-11-11-faccia.mp4 foto: indica-1",
+   "seconds": 13.5
+  },
+  {
+   "step": [
+    "estrai_fotogrammi.py",
+    "reels/2026-11-11-faccia.mp4",
+    "tmp/check/2026-11-11-faccia",
+    "1",
+    "4",
+    "-1"
+   ],
+   "exit": 0,
+   "output": "ok tmp/check/2026-11-11-faccia durata 23.4 s f_1.jpg, f_4.jpg, f_-1.jpg",
+   "seconds": 0.5
+  }
+ ],
+ "probe": [
+  {
+   "file": "reels/2026-11-11.mp4",
+   "duration": 21.6,
+   "streams": [
+    {
+     "codec_type": "video",
+     "codec_name": "h264",
+     "width": 1080,
+     "height": 1920
+    },
+    {
+     "codec_type": "audio",
+     "codec_name": "aac"
+    }
+   ]
+  },
+  {
+   "file": "reels/2026-11-11-faccia.mp4",
+   "duration": 23.4,
+   "streams": [
+    {
+     "codec_type": "video",
+     "codec_name": "h264",
+     "width": 1080,
+     "height": 1920
+    },
+    {
+     "codec_type": "audio",
+     "codec_name": "aac"
+    }
+   ]
+  }
+ ],
+ "ok": true
+}

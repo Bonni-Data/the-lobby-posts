@@ -417,5 +417,17 @@
    "HACKERATO?"
   ],
   "out": "posts/notizie/2026-11-11/01.png"
+ },
+ {
+  "data": "2026-11-11",
+  "rubrica": "lo-sapevi",
+  "mode": "reel",
+  "foto": "indica-1",
+  "clip": null,
+  "words": [
+   "3 MESI",
+   "MASSIMO"
+  ],
+  "out": "reels/2026-11-11-faccia.mp4"
  }
 ]
