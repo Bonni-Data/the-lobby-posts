@@ -1,0 +1,38 @@
+{
+ "job": "jobs/render/2026-11-11-notizie-2.json",
+ "steps": [
+  {
+   "step": [
+    "make_carousel.py",
+    "data/notizia-2026-11-11.json",
+    "posts/notizie/2026-11-11/"
+   ],
+   "exit": 0,
+   "output": "ok posts/notizie/2026-11-11/01.png\nok posts/notizie/2026-11-11/02.png\nok posts/notizie/2026-11-11/03.png\nok posts/notizie/2026-11-11/04.png\nok posts/notizie/2026-11-11/05.png\nok posts/notizie/2026-11-11/06.png",
+   "seconds": 0.9
+  },
+  {
+   "step": [
+    "faccia.py",
+    "data/faccia-2026-11-11-notizia.json"
+   ],
+   "exit": 0,
+   "output": "ATTENZIONE: parole già usate il 2026-11-11 (FRIGO / HACKERATO?): scegline altre\nok /home/runner/work/the-lobby-posts/the-lobby-posts/posts/notizie/2026-11-11/01.png foto: mani-aperte-1",
+   "seconds": 3.6
+  },
+  {
+   "step": [
+    "make_storia.py",
+    "posts/notizie/2026-11-11/01.png",
+    "posts/storie/2026-11-11-notizia.png",
+    "--hint",
+    "Scorri il carosello sul profilo"
+   ],
+   "exit": 0,
+   "output": "ok posts/storie/2026-11-11-notizia.png",
+   "seconds": 0.5
+  }
+ ],
+ "probe": [],
+ "ok": true
+}
