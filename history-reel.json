@@ -1,90 +1,100 @@
 {
-  "2026-10-16": {
-    "format": "quiz",
-    "topic": "Le Province dopo la riforma del 2014",
-    "course": "chi-decide-cosa",
-    "question_id": "9bcd1a94-99ea-47d7-9bad-3ee3ad2b4ab3",
-    "file": "reels/2026-10-16.mp4"
-  },
-  "2026-10-16-lancio": {
-    "format": "cinema",
-    "topic": "lancio ispirazionale: da studente a sindaco e parlamentare",
-    "video": "reels/2026-10-16-lancio-cinema.mp4",
-    "note": "versione istituzionale reels/2026-10-16-lancio.mp4 non pubblicata"
-  },
-  "2026-10-17": {
-    "format": "cinema",
-    "topic": "Scopri THE LOBBY: viaggi, lavori, formazione, contatti",
-    "file": "reels/2026-10-17-scopri-cinema-v2.mp4",
-    "cinema": true,
-    "credits": 2000
-  },
-  "2026-10-18": {
-    "format": "news",
-    "topic": "Manovra 2027: tappe della legge di bilancio",
-    "course": "fisco-senza-paura",
-    "lesson": "Come nasce ogni anno la manovra",
-    "file": "reels/2026-10-18.mp4",
-    "cinema_stop": true
-  },
-  "2026-10-21": {
-    "format": "fact",
-    "topic": "FOIA: accesso civico generalizzato, chiunque può chiedere documenti alla PA senza motivazione",
-    "course": "farsi-sentire",
-    "lesson": "Accesso agli atti e trasparenza",
-    "file": "reels/2026-10-21.mp4",
-    "cinema": false,
-    "note": "crediti OpenArt 40: reel grafico"
-  },
-  "2026-10-23": {
-    "format": "quiz",
-    "topic": "Iniziativa legislativa UE: le leggi europee le propone la Commissione",
-    "course": "europa-in-20-minuti",
-    "lesson": "Le istituzioni in un colpo d'occhio",
-    "question_id": "51dc8afa-22ab-499c-b051-975ccdf73577",
-    "file": "reels/2026-10-23.mp4",
-    "cinema": false,
-    "note": "crediti OpenArt 40: reel grafico"
-  },
-  "2026-10-25": {
-    "format": "news",
-    "topic": "AI Act dopo l'Omnibus digitale: alto rischio rinviato al 2/12/2027 e 2/8/2028, nuovi divieti dal 2/12/2026",
-    "course": "intelligenza-artificiale-regole",
-    "lesson": "Il calendario, dopo l'Omnibus digitale",
-    "file": "reels/2026-10-25-faccia.mp4",
-    "faccia": true,
-    "cinema": false,
-    "note": "crediti OpenArt 40: reel grafico"
-  },
-  "2026-10-28": {
-    "format": "fact",
-    "topic": "Iniziativa popolare: petizioni alle Camere (art. 50 Cost.), proposta di legge con 50.000 firme (art. 71), istanze e petizioni nel Comune (art. 8 TUEL)",
-    "course": "farsi-sentire",
-    "lesson": "Petizioni e leggi di iniziativa popolare",
-    "file": "reels/2026-10-28-faccia.mp4",
-    "faccia": true,
-    "cinema": false,
-    "note": "crediti OpenArt 40: reel grafico"
-  },
-  "2026-10-30": {
-    "format": "quiz",
-    "topic": "Giunta comunale: gli assessori li nomina (e può revocarli) il sindaco, art. 46 TUEL",
-    "course": "comune-senza-segreti",
-    "lesson": "Chi fa cosa: sindaco, giunta e consiglio",
-    "question_id": "1d09da3e-c49a-4676-9197-e0cfd3107763",
-    "file": "reels/2026-10-30-faccia.mp4",
-    "faccia": true,
-    "cinema": false,
-    "note": "crediti OpenArt 40: reel grafico"
-  },
-  "2026-11-01": {
-    "format": "news",
-    "topic": "Nuova legge elettorale (legge 180/2026, in vigore dal 24/10/2026): proporzionale con premio al 42%, soglie 3% e 10%, fino a 3 preferenze, fuori sede; ragioni di governo e opposizioni",
-    "course": "nuova-legge-elettorale",
-    "lesson": "Come funziona la legge 180/2026",
-    "file": "reels/2026-11-01-faccia.mp4",
-    "faccia": true,
-    "cinema": false,
-    "note": "crediti OpenArt 40: reel grafico"
-  }
+ "2026-10-16": {
+  "format": "quiz",
+  "topic": "Le Province dopo la riforma del 2014",
+  "course": "chi-decide-cosa",
+  "question_id": "9bcd1a94-99ea-47d7-9bad-3ee3ad2b4ab3",
+  "file": "reels/2026-10-16.mp4"
+ },
+ "2026-10-16-lancio": {
+  "format": "cinema",
+  "topic": "lancio ispirazionale: da studente a sindaco e parlamentare",
+  "video": "reels/2026-10-16-lancio-cinema.mp4",
+  "note": "versione istituzionale reels/2026-10-16-lancio.mp4 non pubblicata"
+ },
+ "2026-10-17": {
+  "format": "cinema",
+  "topic": "Scopri THE LOBBY: viaggi, lavori, formazione, contatti",
+  "file": "reels/2026-10-17-scopri-cinema-v2.mp4",
+  "cinema": true,
+  "credits": 2000
+ },
+ "2026-10-18": {
+  "format": "news",
+  "topic": "Manovra 2027: tappe della legge di bilancio",
+  "course": "fisco-senza-paura",
+  "lesson": "Come nasce ogni anno la manovra",
+  "file": "reels/2026-10-18.mp4",
+  "cinema_stop": true
+ },
+ "2026-10-21": {
+  "format": "fact",
+  "topic": "FOIA: accesso civico generalizzato, chiunque può chiedere documenti alla PA senza motivazione",
+  "course": "farsi-sentire",
+  "lesson": "Accesso agli atti e trasparenza",
+  "file": "reels/2026-10-21.mp4",
+  "cinema": false,
+  "note": "crediti OpenArt 40: reel grafico"
+ },
+ "2026-10-23": {
+  "format": "quiz",
+  "topic": "Iniziativa legislativa UE: le leggi europee le propone la Commissione",
+  "course": "europa-in-20-minuti",
+  "lesson": "Le istituzioni in un colpo d'occhio",
+  "question_id": "51dc8afa-22ab-499c-b051-975ccdf73577",
+  "file": "reels/2026-10-23.mp4",
+  "cinema": false,
+  "note": "crediti OpenArt 40: reel grafico"
+ },
+ "2026-10-25": {
+  "format": "news",
+  "topic": "AI Act dopo l'Omnibus digitale: alto rischio rinviato al 2/12/2027 e 2/8/2028, nuovi divieti dal 2/12/2026",
+  "course": "intelligenza-artificiale-regole",
+  "lesson": "Il calendario, dopo l'Omnibus digitale",
+  "file": "reels/2026-10-25-faccia.mp4",
+  "faccia": true,
+  "cinema": false,
+  "note": "crediti OpenArt 40: reel grafico"
+ },
+ "2026-10-28": {
+  "format": "fact",
+  "topic": "Iniziativa popolare: petizioni alle Camere (art. 50 Cost.), proposta di legge con 50.000 firme (art. 71), istanze e petizioni nel Comune (art. 8 TUEL)",
+  "course": "farsi-sentire",
+  "lesson": "Petizioni e leggi di iniziativa popolare",
+  "file": "reels/2026-10-28-faccia.mp4",
+  "faccia": true,
+  "cinema": false,
+  "note": "crediti OpenArt 40: reel grafico"
+ },
+ "2026-10-30": {
+  "format": "quiz",
+  "topic": "Giunta comunale: gli assessori li nomina (e può revocarli) il sindaco, art. 46 TUEL",
+  "course": "comune-senza-segreti",
+  "lesson": "Chi fa cosa: sindaco, giunta e consiglio",
+  "question_id": "1d09da3e-c49a-4676-9197-e0cfd3107763",
+  "file": "reels/2026-10-30-faccia.mp4",
+  "faccia": true,
+  "cinema": false,
+  "note": "crediti OpenArt 40: reel grafico"
+ },
+ "2026-11-01": {
+  "format": "news",
+  "topic": "Nuova legge elettorale (legge 180/2026, in vigore dal 24/10/2026): proporzionale con premio al 42%, soglie 3% e 10%, fino a 3 preferenze, fuori sede; ragioni di governo e opposizioni",
+  "course": "nuova-legge-elettorale",
+  "lesson": "Come funziona la legge 180/2026",
+  "file": "reels/2026-11-01-faccia.mp4",
+  "faccia": true,
+  "cinema": false,
+  "note": "crediti OpenArt 40: reel grafico"
+ },
+ "2026-11-11": {
+  "format": "fact",
+  "topic": "Primo affitto: cauzione massimo 3 mensilità, registrazione entro 30 giorni, detrazione IRPEF per chi ha 20-30 anni",
+  "course": "casa-citta-giovani",
+  "lesson": "Affittare senza brutte sorprese",
+  "file": "reels/2026-11-11-faccia.mp4",
+  "faccia": true,
+  "cinema": false,
+  "note": "crediti OpenArt 0: reel grafico; intro con foto indica-1; render via GitHub Action"
+ }
 }
