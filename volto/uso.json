@@ -393,5 +393,17 @@
    "FREDDA?"
   ],
   "out": "posts/promo/2026-11-10/01.png"
+ },
+ {
+  "data": "2026-11-11",
+  "rubrica": "notizie",
+  "mode": "post",
+  "foto": "pensieroso-1",
+  "clip": null,
+  "words": [
+   "FRIGO",
+   "HACKERATO?"
+  ],
+  "out": "posts/notizie/2026-11-11/01.png"
  }
 ]
