@@ -1,0 +1,22 @@
+{
+ "format": "fact",
+ "kicker": "LO SAPEVI?",
+ "skip_hook": true,
+ "hook": "Primo affitto? 3 regole che ti salvano i soldi",
+ "points": [
+  {
+   "title": "Cauzione: massimo 3 mesi",
+   "text": "Per legge non può superare tre mensilità. A fine contratto ti torna, con gli interessi, salvo danni."
+  },
+  {
+   "title": "Registrato entro 30 giorni",
+   "text": "Il contratto va registrato all'Agenzia delle entrate. Chiedi sempre la ricevuta: senza, rischi grosso."
+  },
+  {
+   "title": "Hai tra 20 e 30 anni?",
+   "text": "Con reddito fino a circa 15.500 € hai una detrazione IRPEF per 4 anni. E mai pagare prima di vedere casa."
+  }
+ ],
+ "payoff": "Tre regole da sapere prima di firmare, non dopo.",
+ "cta": "La lezione completa è gratis"
+}
