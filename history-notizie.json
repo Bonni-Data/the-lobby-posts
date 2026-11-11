@@ -255,5 +255,24 @@
    "Anac: slitta la designazione del presidente",
    "Decreto armi per Kiev non firmato da Giorgetti"
   ]
+ },
+ "2026-11-11": {
+  "notizia": "Il direttore di Enisa Juhan Lepassaar presenta il rapporto 2026 sulla cybersicurezza Ue (indice medio 71,53/100): dopo gli attacchi di ottobre ai frigoriferi industriali dei supermercati, a rischio anche router ed elettrodomestici di casa",
+  "meccanismo": "Cyber Resilience Act (Reg. UE 2024/2847), in vigore dal 10/12/2024: requisiti di sicurezza per hardware e software connessi lungo tutto il ciclo di vita; dall'11/9/2026 segnalazione delle vulnerabilità sfruttate attivamente (allarme 24 ore, notifica 72 ore) a Enisa e CSIRT; dall'11/12/2027 applicazione piena, marcatura CE e data di fine del periodo di assistenza indicata all'acquisto",
+  "course": "europa-in-20-minuti",
+  "lesson": "Come nasce una norma europea",
+  "fonti": [
+   "https://www.ansa.it/europa/notizie/rubriche/altrenews/2026/11/10/ansa-focus-nuovo-allarme-ue-nel-mirino-degli-hacker-anche-gli_e99ed21e-c6ef-4dc5-9c17-2ba500f6a058.html",
+   "https://www.adnkronos.com/internazionale/esteri/agenzia-ue-allerta-cyberattacchi_11eDdAOIERsCDJVYr37dvd",
+   "https://digital-strategy.ec.europa.eu/it/policies/cra-summary"
+  ],
+  "scartate": [
+   "Ex Br Bertulazzi evaso dai domiciliari in Argentina prima dell'estradizione",
+   "Richiesta di archiviazione per Sala e gli indagati dell'inchiesta urbanistica di Milano",
+   "Abi contro la manovra e caro energia: acciaierie ferme",
+   "Regioni contro il governo sui fondi alla sanità",
+   "Negoziati di pace sull'Ucraina ad Abu Dhabi",
+   "Sit-in dei sindacati della scuola l'11 novembre"
+  ]
  }
 }

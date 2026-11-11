@@ -1,0 +1,32 @@
+{
+ "kicker": "DIETRO LA NOTIZIA",
+ "title": "Oggi i frigoriferi, domani il tuo router?",
+ "subtitle": "L'agenzia Ue per la cybersicurezza lancia l'allarme. Ecco le regole",
+ "slides": [
+  {
+   "tag": "COSA È SUCCESSO",
+   "title": "L'allarme dell'agenzia Ue",
+   "text": "Juhan Lepassaar, direttore di Enisa, l'agenzia Ue per la cybersicurezza, ha presentato il rapporto 2026: dopo gli attacchi di ottobre ai frigoriferi dei supermercati, nel mirino possono finire router ed elettrodomestici di casa."
+  },
+  {
+   "tag": "IL MECCANISMO",
+   "title": "Una legge Ue per tutto ciò che è connesso",
+   "text": "È il Cyber Resilience Act, regolamento Ue 2024/2847: vale in tutti i Paesi senza una legge nazionale. Riguarda hardware e software connessi, da app e smartwatch agli elettrodomestici. Chi li produce deve farli sicuri e gestire le falle per tutta la loro vita."
+  },
+  {
+   "tag": "IL PUNTO",
+   "title": "Falle segnalate entro 24 ore",
+   "text": "Dall'11 settembre 2026 chi produce deve segnalare le falle già sfruttate dagli hacker: allarme entro 24 ore, notifica entro 72. Dall'11 dicembre 2027 le regole valgono per intero: marchio CE e, quando compri, la data di fine assistenza."
+  },
+  {
+   "tag": "LA LEZIONE",
+   "title": "Le regole Ue ti entrano in casa",
+   "text": "Una norma scritta in Europa decide quanto è sicuro il tuo router. Chi sa come nasce sa anche dove farsi sentire. Lezione «Come nasce una norma europea» del corso «L'Europa in 20 minuti»: 5 minuti, gratis."
+  }
+ ],
+ "cta": {
+  "title": "Capire batte commentare.",
+  "text": "Lezioni da 5 minuti per capire le notizie. Gratis."
+ },
+ "source": "Fonti: ANSA, Adnkronos; Commissione europea (Cyber Resilience Act)"
+}

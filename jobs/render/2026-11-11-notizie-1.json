@@ -1,0 +1,3 @@
+{"steps": [["make_carousel.py","data/notizia-2026-11-11.json","posts/notizie/2026-11-11/"],
+["faccia.py","data/faccia-2026-11-11-notizia.json"],
+["make_storia.py","posts/notizie/2026-11-11/01.png","posts/storie/2026-11-11-notizia.png","--hint","Scorri il carosello sul profilo"]]}
